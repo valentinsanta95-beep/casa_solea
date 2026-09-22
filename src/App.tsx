@@ -6,6 +6,7 @@ import {
   Baby, Waves, Trees, Car, ArrowRight, ExternalLink, Plus, Minus, Trash2, CheckCircle2,
   Smile, Home, Layers, Eye, Lock, RefreshCw, Calendar, CheckSquare, Settings, CreditCard, Truck, Edit3, Save
 } from 'lucide-react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const translations = {
   de: {
@@ -1380,6 +1381,7 @@ export default function App() {
         </div>
       </footer>
 
+      <SpeedInsights />
     </div>
   );
 }
