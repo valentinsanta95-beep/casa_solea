@@ -257,21 +257,21 @@ const galleryImages = [
     id: 1, 
     category: "Estate", 
     title: "Casa Solea Villa & Saltwater Pool in Pacengo di Lazise", 
-    url: "/Westseite.png",
+    url: "https://raw.githubusercontent.com/valentinsanta95-beep/casa_solea/main/Westseite.png",
     desc: "Architectural view of Casa Solea from the west."
   },
   { 
     id: 2, 
     category: "Estate", 
     title: "Casa Solea · East View", 
-    url: "/Ostseite.png",
+    url: "https://raw.githubusercontent.com/valentinsanta95-beep/casa_solea/main/Ostseite.png",
     desc: "Architectural view of Casa Solea from the east."
   },
   { 
     id: 3, 
     category: "Estate", 
     title: "Casa Solea · Exterior Visualization", 
-    url: "/Fotoinserimento_03_c.png",
+    url: "https://raw.githubusercontent.com/valentinsanta95-beep/casa_solea/main/Fotoinserimento_03_c.png",
     desc: "Architectural visualization of Casa Solea in its setting."
   },
   { 
@@ -501,7 +501,7 @@ export default function App() {
       <header className="relative h-[92vh] min-h-[650px] flex items-center justify-center overflow-hidden bg-[#2C241D]">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/main_background_pic.jpg" 
+            src="https://raw.githubusercontent.com/valentinsanta95-beep/casa_solea/main/main_background_pic.jpg" 
             alt="Casa Solea Estate in Pacengo di Lazise with garden and pool" 
             className="w-full h-full object-cover opacity-75 scale-105"
             onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=2000&q=85"; }}
@@ -584,7 +584,7 @@ export default function App() {
               <div className="relative">
                 <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-[#E2D6C5] relative group">
                   <img 
-                    src="/Fotoinserimento_03_c.png" 
+                    src="https://raw.githubusercontent.com/valentinsanta95-beep/casa_solea/main/Fotoinserimento_03_c.png" 
                     alt="Architectural visualization of Casa Solea in Pacengo di Lazise" 
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                     onError={(e) => { e.currentTarget.style.display = 'none'; }}
