@@ -151,14 +151,14 @@ const translations = {
     heroSub: "800 meters from Lake Garda. An exquisite 22 m² guest sanctuary with garden and pool.",
     storyHeading: "From Amsterdam to Lake Garda",
     storyText1: "We are Valentin, Lisa, and our newborn son Sam—born in Amsterdam, where we spent nearly a decade building our lives. But the call of the Italian sun and Lake Garda brought us home.",
-    storyText2: "Lisa’s family vineyard heritage runs deep in the region. Together, we built our family home in peaceful Pacengo di Lazise (Località Gasco), offering an exclusive 22 m² private guest apartment.",
+    storyText2: "Wine is part of Lisa’s family story. Together, we built our family home in peaceful Pacengo di Lazise (Località Gasco), with a private 22 m² guest apartment.",
     apartmentTitle: "The 22 m² Private Suite & Home",
     apartmentDesc: "Thoughtfully designed for 2 guests. Compact, refined luxury indoors opening out into our expansive private garden, pool, and garden.",
     poolText: "32 m² private pool set among the garden",
     gardenText: "Expansive lawns, private terrace, and lounge areas",
     familyText: "Trampoline, sandbox, children's slide, and secure play zones",
     evText: "EV charging station on-site for sustainable travel",
-    winesIntro: "Rooted in Lisa’s family wine heritage. Handcrafted Casa Solea bottles from our hillside vineyards overlooking Lake Garda.",
+    winesIntro: "Rooted in Lisa’s family wine story. A small Casa Solea selection created for guests to enjoy during their stay and take home.",
     discoverWinesBtn: "Explore Our Wines",
     addToBag: "Add to Bag",
     cartTitle: "Your Wine Selection",
@@ -368,7 +368,7 @@ const galleryImages = [
     category: "Winery", 
     title: "Wine around Lake Garda", 
     url: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1200&q=80",
-    desc: "The rolling hillside vineyards overlooking Lake Garda where our wines are born."
+    desc: "Wine country around Lake Garda."
   }
 ];
 
@@ -657,7 +657,7 @@ export default function App() {
             src="/main_background_pic.jpg" 
             alt="Lake Garda and Scaliger Castle in Sirmione" 
             className="w-full h-full object-cover opacity-75 scale-105"
-            onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=2000&q=85"; }}
+            onError={(e) => { e.target.src = "/Westseite.png"; }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#34342E]/90 via-[#34342E]/30 to-transparent"></div>
         </div>
@@ -807,7 +807,7 @@ export default function App() {
               <div className="order-2 lg:order-1">
                 <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-[#D7CCBA]">
                   <img 
-                    src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80" 
+                    src="/Ostseite.png" 
                     alt="Valentin, Lisa and Sam" 
                     className="w-full h-full object-cover"
                   />
@@ -919,7 +919,7 @@ export default function App() {
                       src={img.url} 
                       alt={img.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                      onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1200&q=80"; }}
+                      onError={(e) => { e.target.src = "/Westseite.png"; }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#34342E]/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-[#F4F0E8]">
                       <span className="text-[10px] uppercase tracking-widest text-[#B79A77] mb-1">Casa Solea · {img.category}</span>
@@ -974,7 +974,7 @@ export default function App() {
               <div key={wine.id} className="bg-[#F4F0E8] rounded-3xl p-6 border border-[#D7CCBA] flex flex-col justify-between shadow-sm">
                 <div>
                   <div className="aspect-[3/4] rounded-2xl overflow-hidden mb-6 bg-[#DDD2C0]/50 relative">
-                    <img src={wine.image} alt={wine.name} className="w-full h-full object-cover" onError={(e)=>{e.target.src="https://images.unsplash.com/photo-1584916313917-c48feb142355?auto=format&fit=crop&w=600&q=80"}} />
+                    <img src={wine.image} alt={wine.name} className="w-full h-full object-cover" onError={(e)=>{e.target.src="/Ostseite.png"}} />
                     <span className="absolute top-3 right-3 bg-[#74755F] text-[#F4F0E8] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-semibold">
                       {wine.type}
                     </span>
@@ -1528,18 +1528,18 @@ export default function App() {
           <div>
             <h5 className="text-xs uppercase tracking-widest text-[#B79A77] font-semibold mb-4">{ui.connect}</h5>
             <ul className="space-y-2 text-xs font-light text-[#F4F0E8]/80">
-              <li className="flex items-center gap-2"><Instagram className="w-4 h-4 text-[#B79A77]" /> Instagram · coming soon</li>
-              <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#B79A77]" /> stayInstagram · coming soon.it</li>
-              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-[#B79A77]" /> WhatsApp · coming soon</li>
+              <li className="flex items-center gap-2"><Instagram className="w-4 h-4 text-[#B79A77]" /> Instagram · {lang === 'de' ? 'folgt' : lang === 'it' ? 'prossimamente' : lang === 'nl' ? 'volgt' : 'coming soon'}</li>
+              <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#B79A77]" /> {lang === 'de' ? 'E-Mail folgt' : lang === 'it' ? 'E-mail prossimamente' : lang === 'nl' ? 'E-mail volgt' : 'Email coming soon'}</li>
+              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-[#B79A77]" /> WhatsApp · {lang === 'de' ? 'folgt' : lang === 'it' ? 'prossimamente' : lang === 'nl' ? 'volgt' : 'coming soon'}</li>
             </ul>
           </div>
 
           <div>
             <h5 className="text-xs uppercase tracking-widest text-[#B79A77] font-semibold mb-4">{ui.legal}</h5>
             <ul className="space-y-2 text-xs font-light text-[#F4F0E8]/80">
-              <li><a href="#privacy" className="hover:text-[#B79A77] transition">{ui.privacy}</a></li>
-              <li><a href="#terms" className="hover:text-[#B79A77] transition">{ui.terms}</a></li>
-              <li><a href="#imprint" className="hover:text-[#B79A77] transition">{ui.imprint}</a></li>
+              <li><span className="text-white/55">{ui.privacy} · {lang === 'de' ? 'folgt' : lang === 'it' ? 'prossimamente' : lang === 'nl' ? 'volgt' : 'coming soon'}</span></li>
+              <li><span className="text-white/55">{ui.terms} · {lang === 'de' ? 'folgt' : lang === 'it' ? 'prossimamente' : lang === 'nl' ? 'volgt' : 'coming soon'}</span></li>
+              <li><span className="text-white/55">{ui.imprint} · {lang === 'de' ? 'folgt' : lang === 'it' ? 'prossimamente' : lang === 'nl' ? 'volgt' : 'coming soon'}</span></li>
             </ul>
           </div>
         </div>
