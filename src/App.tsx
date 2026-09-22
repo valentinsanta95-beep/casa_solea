@@ -174,6 +174,81 @@ const translations = {
   }
 };
 
+const uiTranslations = {
+  de: {
+    privateGuestApartment:"Privates Gäste-Apartment", escape:"Ihr privater Rückzugsort am Gardasee",
+    intro:"Ein durchdacht gestaltetes 22 m² großes privates Gäste-Apartment mit eigenem Garten und Zugang zum Pool, im ruhigen Pacengo di Lazise – nur 800 Meter vom Gardasee entfernt.",
+    outside:"Draußen erwarten Sie unser 32 m² großer Pool, der Garten und schattige Bereiche zum Entspannen.",
+    pool:"32 m² Pool", suite:"22 m² privates Apartment", yours:"Ihr privater Bereich während des Aufenthalts",
+    kids:"Kinderparadies", ev:"E-Ladestation", sustainable:"Nachhaltig anreisen und direkt am Haus laden",
+    sanctuary:"Casa Solea mit Garten und Pool.", play:"Spielen & Entdecken", peace:"Entspannt genießen", nearby:"In der Nähe",
+    hosts:"Valentin & Lisa", hostSub:"Mit Sam · Von Amsterdam an den Gardasee", setting:"800 m zum See · Ruhige Wohnlage",
+    winesPage:"Unsere Weine", winesLead:"Ausgewählte Casa Solea Weine für Ihren Aufenthalt am Gardasee.",
+    specs:"Details zum Apartment", breakdown:"Apartment & Außenbereich", rentable:"Gäste-Apartment:", poolLabel:"Pool:", terrace:"Privater Garten & Terrasse:", occupancy:"Maximale Belegung:", locationLabel:"Lage:",
+    guests2:"2 Erwachsene + bis zu 2 Kinder", availability:"Verfügbarkeit", availableLegend:"Grün = verfügbar · Rot = nicht verfügbar",
+    chooseArrival:"Wählen Sie zuerst die Anreise und anschließend die Abreise.", arrivalChosen:"Anreisedatum gewählt · jetzt Abreisedatum auswählen",
+    name:"Name", email:"E-Mail", oneGuest:"1 Gast", guests:"Gäste", request:"Buchungsanfrage senden",
+    thanks:"Vielen Dank", requestReceived:"Ihre Buchungsanfrage wurde für die ausgewählten Daten erfasst. Wir bestätigen die Buchung anschließend per E-Mail.",
+    shipping:"Lieferadresse", fullName:"Vollständiger Name", street:"Straße und Hausnummer", city:"Ort", postal:"Postleitzahl",
+    payment:"Sichere Zahlung", paymentInfo:"Bereit für die spätere Stripe-Anbindung. Derzeit ist keine Zahlung erforderlich.", card:"Kartennummer", expires:"Gültig bis", cvc:"CVC", success:"Bestellung erfolgreich!", orderThanks:"Vielen Dank für Ihre Bestellung. Casa Solea bereitet Ihre Bestellung vor und informiert Sie über den weiteren Verlauf.",
+    navigation:"Navigation", home:"Startseite", connect:"Kontakt", legal:"Rechtliches & Impressum", privacy:"Datenschutz", terms:"Allgemeine Geschäftsbedingungen", imprint:"Impressum"
+  },
+  it: {
+    privateGuestApartment:"Appartamento privato per ospiti", escape:"Il tuo rifugio privato sul Lago di Garda",
+    intro:"Un appartamento privato di 22 m², progettato con cura, con giardino privato e accesso alla piscina, nella tranquilla Pacengo di Lazise – a soli 800 metri dal Lago di Garda.",
+    outside:"All'esterno ti aspettano la nostra piscina di 32 m², il giardino e zone ombreggiate dove rilassarti.",
+    pool:"Piscina di 32 m²", suite:"Appartamento privato di 22 m²", yours:"Il tuo spazio privato durante il soggiorno",
+    kids:"Oasi per bambini", ev:"Ricarica EV", sustainable:"Ricarica per auto elettriche direttamente a casa",
+    sanctuary:"Casa Solea con giardino e piscina.", play:"Gioco & libertà", peace:"Relax per tutti", nearby:"Attrazioni vicine",
+    hosts:"Valentin & Lisa", hostSub:"Con Sam · Da Amsterdam al Lago di Garda", setting:"800 m dal lago · Tranquilla zona residenziale",
+    winesPage:"I nostri vini", winesLead:"Una selezione di vini Casa Solea per il tuo soggiorno sul Lago di Garda.",
+    specs:"Dettagli dell'appartamento", breakdown:"Appartamento & spazi esterni", rentable:"Appartamento ospiti:", poolLabel:"Piscina:", terrace:"Giardino privato & terrazza:", occupancy:"Capienza massima:", locationLabel:"Posizione:",
+    guests2:"2 adulti + fino a 2 bambini", availability:"Disponibilità", availableLegend:"Verde = disponibile · Rosso = non disponibile",
+    chooseArrival:"Seleziona prima la data di arrivo e poi quella di partenza.", arrivalChosen:"Data di arrivo selezionata · ora scegli la partenza",
+    name:"Nome", email:"E-mail", oneGuest:"1 ospite", guests:"ospiti", request:"Invia richiesta di prenotazione",
+    thanks:"Grazie", requestReceived:"La tua richiesta per le date selezionate è stata registrata. Ti invieremo la conferma via e-mail.",
+    shipping:"Indirizzo di spedizione", fullName:"Nome e cognome", street:"Via e numero civico", city:"Città", postal:"CAP",
+    payment:"Pagamento sicuro", paymentInfo:"Pronto per la futura integrazione Stripe. Al momento non è richiesto alcun pagamento.", card:"Numero carta", expires:"Scadenza", cvc:"CVC", success:"Ordine completato!", orderThanks:"Grazie per il tuo ordine. Casa Solea lo sta preparando e ti aggiornerà a breve.",
+    navigation:"Navigazione", home:"Home", connect:"Contatti", legal:"Note legali", privacy:"Privacy Policy", terms:"Termini e condizioni", imprint:"Impressum / Note legali"
+  },
+  nl: {
+    privateGuestApartment:"Privé gastenappartement", escape:"Jouw privéverblijf aan het Gardameer",
+    intro:"Een zorgvuldig ontworpen privé-gastenappartement van 22 m² met een eigen tuin en toegang tot het zwembad, in het rustige Pacengo di Lazise – op slechts 800 meter van het Gardameer.",
+    outside:"Buiten vind je ons zwembad van 32 m², de tuin en schaduwrijke plekken om te ontspannen.",
+    pool:"Zwembad van 32 m²", suite:"Privé-appartement van 22 m²", yours:"Jouw eigen plek tijdens het verblijf",
+    kids:"Kinderparadijs", ev:"EV-laden", sustainable:"Je elektrische auto direct bij het huis opladen",
+    sanctuary:"Casa Solea met tuin en zwembad.", play:"Spelen & ontdekken", peace:"Ontspannen genieten", nearby:"Dichtbij",
+    hosts:"Valentin & Lisa", hostSub:"Met Sam · Van Amsterdam naar het Gardameer", setting:"800 m van het meer · Rustige woonomgeving",
+    winesPage:"Onze wijnen", winesLead:"Een selectie Casa Solea-wijnen voor je verblijf aan het Gardameer.",
+    specs:"Details van het appartement", breakdown:"Appartement & buitenruimte", rentable:"Gastenappartement:", poolLabel:"Zwembad:", terrace:"Privétuin & terras:", occupancy:"Maximale bezetting:", locationLabel:"Locatie:",
+    guests2:"2 volwassenen + maximaal 2 kinderen", availability:"Beschikbaarheid", availableLegend:"Groen = beschikbaar · Rood = niet beschikbaar",
+    chooseArrival:"Kies eerst de aankomstdatum en daarna de vertrekdatum.", arrivalChosen:"Aankomstdatum gekozen · kies nu de vertrekdatum",
+    name:"Naam", email:"E-mail", oneGuest:"1 gast", guests:"gasten", request:"Boekingsaanvraag versturen",
+    thanks:"Bedankt", requestReceived:"Je boekingsaanvraag voor de gekozen data is ontvangen. We bevestigen de boeking daarna per e-mail.",
+    shipping:"Bezorgadres", fullName:"Volledige naam", street:"Straat en huisnummer", city:"Plaats", postal:"Postcode",
+    payment:"Veilige betaling", paymentInfo:"Klaar voor toekomstige Stripe-integratie. Op dit moment is geen betaling nodig.", card:"Kaartnummer", expires:"Vervaldatum", cvc:"CVC", success:"Bestelling geslaagd!", orderThanks:"Bedankt voor je bestelling. Casa Solea maakt je bestelling klaar en houdt je op de hoogte.",
+    navigation:"Navigatie", home:"Home", connect:"Contact", legal:"Juridisch & colofon", privacy:"Privacybeleid", terms:"Algemene voorwaarden", imprint:"Colofon / juridische informatie"
+  },
+  en: {
+    privateGuestApartment:"Private guest apartment", escape:"Your private escape at Lake Garda",
+    intro:"A thoughtfully designed 22 m² private guest apartment with your own private garden and access to the pool, in peaceful Pacengo di Lazise – just 800 metres from Lake Garda.",
+    outside:"Step outside to our 32 m² pool, garden and shaded spaces made for relaxing.",
+    pool:"32 m² pool", suite:"22 m² private apartment", yours:"Your private space during your stay",
+    kids:"Kids' oasis", ev:"EV charging", sustainable:"EV charging directly at the house",
+    sanctuary:"Casa Solea with garden and pool.", play:"Play & freedom", peace:"Peace of mind", nearby:"Attractions nearby",
+    hosts:"Valentin & Lisa", hostSub:"With Sam · From Amsterdam to Lake Garda", setting:"800 m from the lake · Peaceful residential setting",
+    winesPage:"Our wines", winesLead:"A selection of Casa Solea wines for your stay at Lake Garda.",
+    specs:"Apartment details", breakdown:"Apartment & outdoor space", rentable:"Guest apartment:", poolLabel:"Pool:", terrace:"Private garden & terrace:", occupancy:"Maximum occupancy:", locationLabel:"Location:",
+    guests2:"2 adults + up to 2 children", availability:"Availability", availableLegend:"Green = available · Red = unavailable",
+    chooseArrival:"First select your arrival date, then your departure date.", arrivalChosen:"Arrival selected · now choose your departure date",
+    name:"Name", email:"Email", oneGuest:"1 guest", guests:"guests", request:"Send booking request",
+    thanks:"Thank you", requestReceived:"Your booking request for the selected dates has been received. We will confirm the booking by email.",
+    shipping:"Shipping address", fullName:"Full name", street:"Street address", city:"City", postal:"Postal code",
+    payment:"Secure payment", paymentInfo:"Ready for future Stripe integration. No payment is required yet.", card:"Card number", expires:"Expires", cvc:"CVC", success:"Order successful!", orderThanks:"Thank you for your order. Casa Solea is preparing it and will update you shortly.",
+    navigation:"Navigation", home:"Home", connect:"Contact", legal:"Legal & imprint", privacy:"Privacy policy", terms:"Terms & conditions", imprint:"Imprint / legal notice"
+  }
+};
+
 const initialWineCatalogue = [
   {
     id: 'cs1',
@@ -417,6 +492,11 @@ export default function App() {
   const [syncStatus, setSyncStatus] = useState({ airbnb: 'Synced (2m ago)', booking: 'Synced (just now)' });
 
   const t = translations[lang];
+  const ui = uiTranslations[lang];
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const addToCart = (wine) => {
     setCart(prev => {
@@ -607,10 +687,10 @@ export default function App() {
                   Your private escape at Lake Garda
                 </h2>
                 <p className="text-base text-[#2C241D]/80 leading-relaxed mb-6 font-light">
-                  A thoughtfully designed <strong>22 m² private guest apartment</strong> with your own private garden and access to the pool, in peaceful Pacengo di Lazise — just 800 metres from Lake Garda.
+                  {ui.intro}
                 </p>
                 <p className="text-base text-[#2C241D]/80 leading-relaxed mb-8 font-light">
-                  Step outside into our magnificent <strong>32 m² saltwater pool, garden</strong>, shaded porticos, and expansive olive groves in peaceful Pacengo di Lazise.
+                  {ui.outside}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -619,7 +699,7 @@ export default function App() {
                     className="p-5 rounded-2xl bg-[#EAE0D0]/40 border border-[#E2D6C5] cursor-pointer hover:bg-[#EAE0D0] transition"
                   >
                     <Waves className="w-6 h-6 text-[#8C3F29] mb-2" />
-                    <h4 className="font-serif text-sm font-semibold mb-1">32 m² Saltwater Pool</h4>
+                    <h4 className="font-serif text-sm font-semibold mb-1">{ui.pool}</h4>
                     <p className="text-xs text-[#2C241D]/70">{t.poolText}</p>
                   </div>
                   <div 
@@ -627,18 +707,18 @@ export default function App() {
                     className="p-5 rounded-2xl bg-[#EAE0D0]/40 border border-[#E2D6C5] cursor-pointer hover:bg-[#EAE0D0] transition"
                   >
                     <Trees className="w-6 h-6 text-[#8C3F29] mb-2" />
-                    <h4 className="font-serif text-sm font-semibold mb-1">22 m² Private Suite</h4>
-                    <p className="text-xs text-[#2C241D]/70">Exclusively yours for your stay</p>
+                    <h4 className="font-serif text-sm font-semibold mb-1">{ui.suite}</h4>
+                    <p className="text-xs text-[#2C241D]/70">{ui.yours}</p>
                   </div>
                   <div className="p-5 rounded-2xl bg-[#EAE0D0]/40 border border-[#E2D6C5]">
                     <Baby className="w-6 h-6 text-[#8C3F29] mb-2" />
-                    <h4 className="font-serif text-sm font-semibold mb-1">Kids' Oasis</h4>
+                    <h4 className="font-serif text-sm font-semibold mb-1">{ui.kids}</h4>
                     <p className="text-xs text-[#2C241D]/70">{t.familyText}</p>
                   </div>
                   <div className="p-5 rounded-2xl bg-[#EAE0D0]/40 border border-[#E2D6C5]">
                     <Car className="w-6 h-6 text-[#8C3F29] mb-2" />
-                    <h4 className="font-serif text-sm font-semibold mb-1">EV Charging</h4>
-                    <p className="text-xs text-[#2C241D]/70">Sustainable travel on-site</p>
+                    <h4 className="font-serif text-sm font-semibold mb-1">{ui.ev}</h4>
+                    <p className="text-xs text-[#2C241D]/70">{ui.sustainable}</p>
                   </div>
                 </div>
               </div>
@@ -654,7 +734,7 @@ export default function App() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#2C241D]/70 via-transparent to-transparent opacity-80 flex flex-col justify-end p-8 text-[#F5F0EA]">
                     <span className="text-[10px] uppercase tracking-widest text-[#E2C4B8] mb-1">Pacengo di Lazise · Località Gasco</span>
                     <h4 className="font-serif text-xl mb-1">Casa Solea · Garden & Pool</h4>
-                    <p className="text-xs text-[#F5F0EA]/80 font-light">Your private sanctuary surrounded by olive trees.</p>
+                    <p className="text-xs text-[#F5F0EA]/80 font-light">{ui.sanctuary}</p>
                   </div>
                 </div>
               </div>
@@ -681,7 +761,7 @@ export default function App() {
                   <div className="w-12 h-12 rounded-2xl bg-[#8C3F29]/10 flex items-center justify-center mb-6">
                     <Smile className="w-6 h-6 text-[#8C3F29]" />
                   </div>
-                  <h3 className="font-serif text-xl text-[#3E2F24] mb-3">Play & Freedom</h3>
+                  <h3 className="font-serif text-xl text-[#3E2F24] mb-3">{ui.play}</h3>
                   <p className="text-sm text-[#2C241D]/80 font-light leading-relaxed">
                     Featuring a dedicated sandbox, wooden children&apos;s slide, secure trampoline, and expansive lawn space for outdoor games under the Italian sun.
                   </p>
@@ -691,7 +771,7 @@ export default function App() {
                   <div className="w-12 h-12 rounded-2xl bg-[#8C3F29]/10 flex items-center justify-center mb-6">
                     <Shield className="w-6 h-6 text-[#8C3F29]" />
                   </div>
-                  <h3 className="font-serif text-xl text-[#3E2F24] mb-3">Peace of Mind</h3>
+                  <h3 className="font-serif text-xl text-[#3E2F24] mb-3">{ui.peace}</h3>
                   <p className="text-sm text-[#2C241D]/80 font-light leading-relaxed">
                     Casa Solea is our family home in peaceful Pacengo di Lazise, with a private guest apartment, garden and pool.
                   </p>
@@ -701,7 +781,7 @@ export default function App() {
                   <div className="w-12 h-12 rounded-2xl bg-[#8C3F29]/10 flex items-center justify-center mb-6">
                     <Compass className="w-6 h-6 text-[#8C3F29]" />
                   </div>
-                  <h3 className="font-serif text-xl text-[#3E2F24] mb-3">Attractions Nearby</h3>
+                  <h3 className="font-serif text-xl text-[#3E2F24] mb-3">{ui.nearby}</h3>
                   <p className="text-sm text-[#2C241D]/80 font-light leading-relaxed">
                     Gardaland and CanevaWorld are approximately 1 km away. Enjoy the excitement during daylight and absolute silence by the pool at night.
                   </p>
@@ -738,8 +818,8 @@ export default function App() {
                 </p>
                 <div className="flex items-center space-x-4 pt-4 border-t border-[#E2D6C5]">
                   <div>
-                    <h4 className="font-serif font-medium text-lg text-[#3E2F24]">Valentin & Lisa</h4>
-                    <p className="text-xs text-[#8C3F29] uppercase tracking-wider">With newborn Sam · Casa Solea Wine Heritage</p>
+                    <h4 className="font-serif font-medium text-lg text-[#3E2F24]">{ui.hosts}</h4>
+                    <p className="text-xs text-[#8C3F29] uppercase tracking-wider">{ui.hostSub}</p>
                   </div>
                 </div>
               </div>
@@ -788,7 +868,7 @@ export default function App() {
                 ></iframe>
                 <div className="absolute bottom-6 left-6 bg-[#3E2F24]/90 backdrop-blur-md p-4 rounded-2xl border border-[#E2D6C5]/30 text-xs">
                   <p className="font-serif text-sm font-medium mb-1">Località Gasco, Pacengo di Lazise</p>
-                  <p className="text-[#F5F0EA]/70">800m from lake shore · Peaceful residential setting</p>
+                  <p className="text-[#F5F0EA]/70">{ui.setting}</p>
                 </div>
               </div>
             </div>
@@ -867,8 +947,8 @@ export default function App() {
           <div className="flex items-center justify-between mb-12 pb-6 border-b border-[#E2D6C5]">
             <div>
               <span className="text-xs uppercase tracking-[0.25em] text-[#8C3F29] font-semibold block mb-2">Casa Solea Subpage</span>
-              <h1 className="text-3xl md:text-5xl font-serif text-[#3E2F24]">Unsere Weine (Webshop)</h1>
-              <p className="text-sm text-[#2C241D]/80 font-light mt-1">Handcrafted wines from our hillside vineyards overlooking Lake Garda.</p>
+              <h1 className="text-3xl md:text-5xl font-serif text-[#3E2F24]">{ui.winesPage}</h1>
+              <p className="text-sm text-[#2C241D]/80 font-light mt-1">{ui.winesLead}</p>
             </div>
             <button 
               onClick={() => { setActiveTab('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
@@ -917,7 +997,7 @@ export default function App() {
             <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E2D6C5]">
               <div>
                 <span className="text-xs uppercase tracking-widest text-[#8C3F29] block mb-1">Casa Solea Garda</span>
-                <h3 className="text-2xl font-serif text-[#3E2F24]">22 m² Private Suite Specifications</h3>
+                <h3 className="text-2xl font-serif text-[#3E2F24]">{ui.specs}</h3>
               </div>
               <button onClick={() => setIsSpecsOpen(false)} className="p-2 rounded-full hover:bg-[#EAE0D0] transition">
                 <X className="w-6 h-6 text-[#3E2F24]" />
@@ -926,13 +1006,13 @@ export default function App() {
 
             <div className="space-y-6 text-sm font-light text-[#2C241D]">
               <div className="bg-[#EAE0D0]/40 p-6 rounded-2xl border border-[#E2D6C5]">
-                <h4 className="font-serif font-semibold text-base mb-3 text-[#3E2F24]">Apartment & Outdoor Space</h4>
+                <h4 className="font-serif font-semibold text-base mb-3 text-[#3E2F24]">{ui.breakdown}</h4>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                  <li><strong>Rentable Guest Suite:</strong> 22.00 m² (Private bedroom & ensuite bath)</li>
-                  <li><strong>Private Saltwater Pool:</strong> 32.00 m² (Shared outdoor estate oasis)</li>
-                  <li><strong>Private Outdoor Terrace & Garden:</strong> 22.26 m²</li>
-                  <li><strong>Max Occupancy:</strong> 2 Guests (+ 1 infant)</li>
-                  <li><strong>Location:</strong> Località Gasco, Pacengo di Lazise (VR)</li>
+                  <li><strong>{ui.rentable}</strong> 22.00 m² (Private bedroom & ensuite bath)</li>
+                  <li><strong>{ui.poolLabel}</strong> 32.00 m² (Shared outdoor estate oasis)</li>
+                  <li><strong>{ui.terrace}</strong> 22.26 m²</li>
+                  <li><strong>{ui.occupancy}</strong> 2 Guests (+ 1 infant)</li>
+                  <li><strong>{ui.locationLabel}</strong> Località Gasco, Pacengo di Lazise (VR)</li>
                 </ul>
               </div>
 
@@ -993,26 +1073,26 @@ export default function App() {
                 <div className="space-y-6">
                   {checkoutStep === 'address' && (
                     <form onSubmit={(e) => { e.preventDefault(); setCheckoutStep('payment'); }} className="space-y-4">
-                      <h4 className="font-serif text-base font-semibold text-[#3E2F24]">Shipping Address</h4>
+                      <h4 className="font-serif text-base font-semibold text-[#3E2F24]">{ui.shipping}</h4>
                       <div>
-                        <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">Full Name</label>
+                        <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.fullName}</label>
                         <input type="text" required value={shippingAddress.fullName} onChange={(e)=>setShippingAddress({...shippingAddress, fullName: e.target.value})} placeholder="Jan de Vries" className="w-full px-4 py-3 rounded-xl bg-[#EAE0D0]/40 border border-[#E2D6C5] text-xs focus:outline-none" />
                       </div>
                       <div>
-                        <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">Email</label>
+                        <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.email}</label>
                         <input type="email" required value={shippingAddress.email} onChange={(e)=>setShippingAddress({...shippingAddress, email: e.target.value})} placeholder="jan@example.com" className="w-full px-4 py-3 rounded-xl bg-[#EAE0D0]/40 border border-[#E2D6C5] text-xs focus:outline-none" />
                       </div>
                       <div>
-                        <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">Street Address</label>
+                        <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.street}</label>
                         <input type="text" required value={shippingAddress.street} onChange={(e)=>setShippingAddress({...shippingAddress, street: e.target.value})} placeholder="Keizersgracht 123" className="w-full px-4 py-3 rounded-xl bg-[#EAE0D0]/40 border border-[#E2D6C5] text-xs focus:outline-none" />
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">City</label>
+                          <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.city}</label>
                           <input type="text" required value={shippingAddress.city} onChange={(e)=>setShippingAddress({...shippingAddress, city: e.target.value})} placeholder="Amsterdam" className="w-full px-4 py-3 rounded-xl bg-[#EAE0D0]/40 border border-[#E2D6C5] text-xs focus:outline-none" />
                         </div>
                         <div>
-                          <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">Postal Code</label>
+                          <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.postal}</label>
                           <input type="text" required value={shippingAddress.postalCode} onChange={(e)=>setShippingAddress({...shippingAddress, postalCode: e.target.value})} placeholder="1015 CJ" className="w-full px-4 py-3 rounded-xl bg-[#EAE0D0]/40 border border-[#E2D6C5] text-xs focus:outline-none" />
                         </div>
                       </div>
@@ -1026,21 +1106,21 @@ export default function App() {
                     <div className="space-y-4">
                       <div className="flex items-center gap-2 mb-2">
                         <CreditCard className="w-5 h-5 text-[#8C3F29]" />
-                        <h4 className="font-serif text-base font-semibold text-[#3E2F24]">Stripe Secure Payment</h4>
+                        <h4 className="font-serif text-base font-semibold text-[#3E2F24]">{ui.payment}</h4>
                       </div>
-                      <p className="text-xs text-[#7A7265]">Ready for Stripe API integration. Test mode active for secure credit card processing.</p>
+                      <p className="text-xs text-[#7A7265]">{ui.paymentInfo}</p>
                       <div className="p-4 rounded-2xl bg-[#EAE0D0]/50 border border-[#E2D6C5] space-y-3">
                         <div>
-                          <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">Card Number (Stripe Element)</label>
+                          <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.card}</label>
                           <input type="text" placeholder="4242 •••• •••• 4242" defaultValue="4242 4242 4242 4242" className="w-full px-4 py-3 rounded-xl bg-white border border-[#E2D6C5] text-xs font-mono focus:outline-none" />
                         </div>
                         <div className="grid grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">Expires</label>
+                            <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.expires}</label>
                             <input type="text" placeholder="MM / YY" defaultValue="12/28" className="w-full px-4 py-3 rounded-xl bg-white border border-[#E2D6C5] text-xs font-mono focus:outline-none" />
                           </div>
                           <div>
-                            <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">CVC</label>
+                            <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.cvc}</label>
                             <input type="text" placeholder="123" defaultValue="888" className="w-full px-4 py-3 rounded-xl bg-white border border-[#E2D6C5] text-xs font-mono focus:outline-none" />
                           </div>
                         </div>
@@ -1072,8 +1152,8 @@ export default function App() {
                   {checkoutStep === 'success' && (
                     <div className="text-center py-10 space-y-4">
                       <CheckCircle2 className="w-16 h-16 text-[#8C3F29] mx-auto" />
-                      <h4 className="font-serif text-2xl text-[#3E2F24]">Payment Successful!</h4>
-                      <p className="text-xs text-[#2C241D]/80 font-light">Thank you for your order. Casa Solea is preparing your order and will update you soon.</p>
+                      <h4 className="font-serif text-2xl text-[#3E2F24]">{ui.success}</h4>
+                      <p className="text-xs text-[#2C241D]/80 font-light">{ui.orderThanks}</p>
                       <button onClick={() => { setIsCartOpen(false); setIsCheckoutOpen(false); setCheckoutStep('address'); }} className="px-6 py-3 bg-[#8C3F29] text-[#F5F0EA] rounded-full uppercase text-xs tracking-widest font-bold">
                         Close Webshop
                       </button>
@@ -1109,9 +1189,9 @@ export default function App() {
             <button onClick={() => setIsBookingOpen(false)} className="absolute top-5 right-5 p-2 rounded-full hover:bg-[#EAE0D0] transition">
               <X className="w-6 h-6 text-[#3E2F24]" />
             </button>
-            <span className="text-xs uppercase tracking-[0.25em] text-[#8C3F29] font-semibold block mb-2">Verfügbarkeit</span>
+            <span className="text-xs uppercase tracking-[0.25em] text-[#8C3F29] font-semibold block mb-2">{ui.availability}</span>
             <h3 className="text-2xl md:text-3xl font-serif text-[#3E2F24] mb-2">Casa Solea Garda</h3>
-            <p className="text-xs text-[#2C241D]/65 mb-6">Grün = verfügbar · Rot = nicht verfügbar</p>
+            <p className="text-xs text-[#2C241D]/65 mb-6">{ui.availableLegend}</p>
 
             <div className="flex items-center justify-between mb-5">
               <button onClick={() => setAvailabilityMonth(new Date(availabilityMonth.getFullYear(), availabilityMonth.getMonth() - 1, 1))} className="px-4 py-2 rounded-full border border-[#E2D6C5] hover:bg-[#EAE0D0] text-sm">←</button>
@@ -1149,15 +1229,15 @@ export default function App() {
                     {selectedCheckIn
                       ? selectedCheckOut
                         ? `${selectedCheckIn.toLocaleDateString()} – ${selectedCheckOut.toLocaleDateString()}`
-                        : 'Anreisedatum gewählt · jetzt Abreisedatum auswählen'
-                      : 'Wählen Sie zuerst Anreise und anschließend Abreise.'}
+                        : ui.arrivalChosen
+                      : ui.chooseArrival}
                   </p>
                   {selectedCheckIn && selectedCheckOut && (
                     <form onSubmit={handleDirectBooking} className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                      <input required value={bookingGuest.name} onChange={(e) => setBookingGuest({...bookingGuest, name: e.target.value})} placeholder="Name" className="px-4 py-3 rounded-xl border border-[#E2D6C5] bg-white text-sm focus:outline-none" />
-                      <input required type="email" value={bookingGuest.email} onChange={(e) => setBookingGuest({...bookingGuest, email: e.target.value})} placeholder="E-Mail" className="px-4 py-3 rounded-xl border border-[#E2D6C5] bg-white text-sm focus:outline-none" />
+                      <input required value={bookingGuest.name} onChange={(e) => setBookingGuest({...bookingGuest, name: e.target.value})} placeholder={ui.name} className="px-4 py-3 rounded-xl border border-[#E2D6C5] bg-white text-sm focus:outline-none" />
+                      <input required type="email" value={bookingGuest.email} onChange={(e) => setBookingGuest({...bookingGuest, email: e.target.value})} placeholder={ui.email} className="px-4 py-3 rounded-xl border border-[#E2D6C5] bg-white text-sm focus:outline-none" />
                       <select value={bookingGuest.guests} onChange={(e) => setBookingGuest({...bookingGuest, guests: e.target.value})} className="px-4 py-3 rounded-xl border border-[#E2D6C5] bg-white text-sm focus:outline-none">
-                        <option value="1">1 Gast</option><option value="2">2 Gäste</option><option value="3">3 Gäste</option><option value="4">4 Gäste</option>
+                        <option value="1">{ui.oneGuest}</option><option value="2">2 {ui.guests}</option><option value="3">3 {ui.guests}</option><option value="4">4 {ui.guests}</option>
                       </select>
                       <button type="submit" className="md:col-span-3 bg-[#8C3F29] text-white rounded-xl px-5 py-3 text-sm font-semibold hover:bg-[#74321f] transition">
                         Buchungsanfrage senden
@@ -1167,8 +1247,8 @@ export default function App() {
                 </>
               ) : (
                 <div className="rounded-2xl bg-green-50 border border-green-200 p-5 text-green-900">
-                  <p className="font-semibold mb-1">Vielen Dank, {bookingGuest.name}.</p>
-                  <p className="text-sm">Ihre Buchungsanfrage wurde für die ausgewählten Daten erfasst. Wir bestätigen die Buchung anschließend per E-Mail.</p>
+                  <p className="font-semibold mb-1">{ui.thanks}, {bookingGuest.name}.</p>
+                  <p className="text-sm">{ui.requestReceived}</p>
                 </div>
               )}
             </div>
@@ -1418,16 +1498,16 @@ export default function App() {
           <div>
             <h4 className="font-serif text-lg tracking-widest uppercase mb-4 text-[#E2C4B8]">Casa Solea Garda</h4>
             <p className="text-xs text-[#F5F0EA]/70 font-light leading-relaxed mb-4">
-              Private 22 m² guest apartment in Località Gasco, Pacengo di Lazise. Set within our family estate with garden, saltwater pool and Casa Solea vineyards.
+              {ui.intro}
             </p>
             <span className="text-[10px] uppercase tracking-widest text-[#7A7265]">Via Gasco, 37017 Lazise VR, Italy</span>
           </div>
 
           <div>
-            <h5 className="text-xs uppercase tracking-widest text-[#E2C4B8] font-semibold mb-4">Navigation</h5>
+            <h5 className="text-xs uppercase tracking-widest text-[#E2C4B8] font-semibold mb-4">{ui.navigation}</h5>
             <ul className="space-y-2 text-xs font-light text-[#F5F0EA]/80">
-              <li><button onClick={() => { setActiveTab('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-[#E2C4B8] transition">Home</button></li>
-              <li><button onClick={() => { setActiveTab('webshop'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-[#E2C4B8] transition">Webshop (Unsere Weine)</button></li>
+              <li><button onClick={() => { setActiveTab('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-[#E2C4B8] transition">{ui.home}</button></li>
+              <li><button onClick={() => { setActiveTab('webshop'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-[#E2C4B8] transition">{ui.winesPage}</button></li>
               <li><a href="#stay" onClick={() => setActiveTab('home')} className="hover:text-[#E2C4B8] transition">{t.theStay}</a></li>
               <li><a href="#outdoors" onClick={() => setActiveTab('home')} className="hover:text-[#E2C4B8] transition">{t.outdoors}</a></li>
               <li><a href="#location" onClick={() => setActiveTab('home')} className="hover:text-[#E2C4B8] transition">{t.location}</a></li>
@@ -1435,7 +1515,7 @@ export default function App() {
           </div>
 
           <div>
-            <h5 className="text-xs uppercase tracking-widest text-[#E2C4B8] font-semibold mb-4">Connect</h5>
+            <h5 className="text-xs uppercase tracking-widest text-[#E2C4B8] font-semibold mb-4">{ui.connect}</h5>
             <ul className="space-y-2 text-xs font-light text-[#F5F0EA]/80">
               <li className="flex items-center gap-2"><Instagram className="w-4 h-4 text-[#E2C4B8]" /> @casasoleagarda</li>
               <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#E2C4B8]" /> stay@casasoleagarda.it</li>
@@ -1444,11 +1524,11 @@ export default function App() {
           </div>
 
           <div>
-            <h5 className="text-xs uppercase tracking-widest text-[#E2C4B8] font-semibold mb-4">Legal & Imprint</h5>
+            <h5 className="text-xs uppercase tracking-widest text-[#E2C4B8] font-semibold mb-4">{ui.legal}</h5>
             <ul className="space-y-2 text-xs font-light text-[#F5F0EA]/80">
-              <li><a href="#privacy" className="hover:text-[#E2C4B8] transition">Privacy Policy</a></li>
-              <li><a href="#terms" className="hover:text-[#E2C4B8] transition">Terms & Conditions</a></li>
-              <li><a href="#imprint" className="hover:text-[#E2C4B8] transition">Imprint / Legal Notice</a></li>
+              <li><a href="#privacy" className="hover:text-[#E2C4B8] transition">{ui.privacy}</a></li>
+              <li><a href="#terms" className="hover:text-[#E2C4B8] transition">{ui.terms}</a></li>
+              <li><a href="#imprint" className="hover:text-[#E2C4B8] transition">{ui.imprint}</a></li>
             </ul>
           </div>
         </div>
