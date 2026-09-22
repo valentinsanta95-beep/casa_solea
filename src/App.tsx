@@ -30,7 +30,7 @@ const translations = {
     storyText1: "Wir sind Valentin, Lisa und unser kleiner Sohn Sam – geboren in Amsterdam, wo wir fast ein Jahrzehnt lebten. Doch die Sehnsucht nach dem Licht Italiens und dem Gardasee führte uns hierher.",
     storyText2: "Lisas familiäre Weintradition ist tief in der Region verwurzelt. In ruhiger Lage in Pacengo di Lazise (Località Gasco) haben wir unser neues Zuhause erbaut und heißen Gäste in unserem feinen, privaten 22 m² Apartment herzlich willkommen.",
     apartmentTitle: "Das 22 m² Private Apartment & Anwesen",
-    apartmentDesc: "Perfekt konzipiert für 2 Gäste. Kompakter Luxus im Inneren, verbunden mit großzügigem Außenbereich, Pool und Garten.",
+    apartmentDesc: "Für Paare und junge Familien konzipiert. Kompakter Luxus im Inneren, verbunden mit großzügigem Außenbereich, Pool und Garten.",
     poolText: "32 m² Pool eingebettet in Olivenbäume",
     gardenText: "Weitläufige Rasenflächen und private Terrassen",
     familyText: "Trampolin, Sandkasten, Rutsche und sichere Spielbereiche",
@@ -71,7 +71,7 @@ const translations = {
     storyText1: "Siamo Valentin, Lisa e il nostro piccolo Sam, nato ad Amsterdam. Dopo quasi dieci anni all'estero, abbiamo scelto le sponde del Garda per piantare le nostre radici.",
     storyText2: "La tradizione vinicola della famiglia di Lisa affonda le radici in queste colline. A Pacengo di Lazise (Località Gasco) abbiamo costruito la nostra casa, accogliendo gli ospiti nell'intimo appartamento di 22 m².",
     apartmentTitle: "L'Appartamento Privato di 22 m²",
-    apartmentDesc: "Pensato per 2 persone. Lusso intimo e funzionale che si apre sul giardino mediterraneo e sulla piscina.",
+    apartmentDesc: "Pensato per coppie e giovani famiglie. Lusso intimo e funzionale che si apre sul giardino mediterraneo e sulla piscina.",
     poolText: "Piscina privata di 32 m² nel giardino",
     gardenText: "Ampi prati verdi e aree relax private",
     familyText: "Trampolino, sabbiera, scivolo e giochi",
@@ -112,7 +112,7 @@ const translations = {
     storyText1: "Wij zijn Valentin, Lisa en onze pasgeboren zoon Sam – geboren in Amsterdam. Na bijna tien jaar besloten we onze droomplek aan het Gardameer te realiseren.",
     storyText2: "De wijncollectie eert de familiegeschiedenis van Lisa. In Pacengo di Lazise (Località Gasco) bouwden we ons eigen huis en een exclusief privé-appartement van 22 m² voor onze gasten.",
     apartmentTitle: "Het Privé Gastenverblijf van 22 m²",
-    apartmentDesc: "Optimaal ingedeeld voor 2 personen. Fijn binnen, en een enorme privétuin met zwembad buiten.",
+    apartmentDesc: "Ontworpen voor stellen en jonge gezinnen. Fijn binnen, en een enorme privétuin met zwembad buiten.",
     poolText: "32 m² privé zwembad in de tuin",
     gardenText: "Uitgestrekte gazons en privéterrassen",
     familyText: "Trampoline, zandbak, glijbaan en speeltoestellen",
@@ -188,7 +188,7 @@ const uiTranslations = {
     guests2:"2 Erwachsene + bis zu 2 Kinder", availability:"Verfügbarkeit", availableLegend:"Grün = verfügbar · Rot = nicht verfügbar",
     chooseArrival:"Wählen Sie zuerst die Anreise und anschließend die Abreise.", arrivalChosen:"Anreisedatum gewählt · jetzt Abreisedatum auswählen",
     name:"Name", email:"E-Mail", oneGuest:"1 Gast", guests:"Gäste", request:"Buchungsanfrage senden",
-    thanks:"Vielen Dank", requestReceived:"Ihre Buchungsanfrage wurde für die ausgewählten Daten erfasst. Wir bestätigen die Buchung anschließend per E-Mail.",
+    thanks:"Vielen Dank", requestReceived:"Ihre Buchungsanfrage wurde für die ausgewählten Daten erfasst. Wir bestätigen die Buchung anschließend per E-Mail.", noPayment:"Unverbindliche Buchungsanfrage · noch keine Zahlung erforderlich.", visuals:"Visualisierungen zeigen die geplante Gestaltung von Casa Solea.",
     shipping:"Lieferadresse", fullName:"Vollständiger Name", street:"Straße und Hausnummer", city:"Ort", postal:"Postleitzahl",
     payment:"Sichere Zahlung", paymentInfo:"Bereit für die spätere Stripe-Anbindung. Derzeit ist keine Zahlung erforderlich.", card:"Kartennummer", expires:"Gültig bis", cvc:"CVC", success:"Bestellung erfolgreich!", orderThanks:"Vielen Dank für Ihre Bestellung. Casa Solea bereitet Ihre Bestellung vor und informiert Sie über den weiteren Verlauf.",
     navigation:"Navigation", home:"Startseite", connect:"Kontakt", legal:"Rechtliches & Impressum", privacy:"Datenschutz", terms:"Allgemeine Geschäftsbedingungen", imprint:"Impressum"
@@ -206,7 +206,7 @@ const uiTranslations = {
     guests2:"2 adulti + fino a 2 bambini", availability:"Disponibilità", availableLegend:"Verde = disponibile · Rosso = non disponibile",
     chooseArrival:"Seleziona prima la data di arrivo e poi quella di partenza.", arrivalChosen:"Data di arrivo selezionata · ora scegli la partenza",
     name:"Nome", email:"E-mail", oneGuest:"1 ospite", guests:"ospiti", request:"Invia richiesta di prenotazione",
-    thanks:"Grazie", requestReceived:"La tua richiesta per le date selezionate è stata registrata. Ti invieremo la conferma via e-mail.",
+    thanks:"Grazie", requestReceived:"La tua richiesta per le date selezionate è stata registrata. Ti invieremo la conferma via e-mail.", noPayment:"Richiesta non vincolante · nessun pagamento richiesto.", visuals:"Le immagini mostrano il progetto previsto di Casa Solea.",
     shipping:"Indirizzo di spedizione", fullName:"Nome e cognome", street:"Via e numero civico", city:"Città", postal:"CAP",
     payment:"Pagamento sicuro", paymentInfo:"Pronto per la futura integrazione Stripe. Al momento non è richiesto alcun pagamento.", card:"Numero carta", expires:"Scadenza", cvc:"CVC", success:"Ordine completato!", orderThanks:"Grazie per il tuo ordine. Casa Solea lo sta preparando e ti aggiornerà a breve.",
     navigation:"Navigazione", home:"Home", connect:"Contatti", legal:"Note legali", privacy:"Privacy Policy", terms:"Termini e condizioni", imprint:"Impressum / Note legali"
@@ -224,7 +224,7 @@ const uiTranslations = {
     guests2:"2 volwassenen + maximaal 2 kinderen", availability:"Beschikbaarheid", availableLegend:"Groen = beschikbaar · Rood = niet beschikbaar",
     chooseArrival:"Kies eerst de aankomstdatum en daarna de vertrekdatum.", arrivalChosen:"Aankomstdatum gekozen · kies nu de vertrekdatum",
     name:"Naam", email:"E-mail", oneGuest:"1 gast", guests:"gasten", request:"Boekingsaanvraag versturen",
-    thanks:"Bedankt", requestReceived:"Je boekingsaanvraag voor de gekozen data is ontvangen. We bevestigen de boeking daarna per e-mail.",
+    thanks:"Bedankt", requestReceived:"Je boekingsaanvraag voor de gekozen data is ontvangen. We bevestigen de boeking daarna per e-mail.", noPayment:"Vrijblijvende boekingsaanvraag · nog geen betaling nodig.", visuals:"De beelden tonen het geplande ontwerp van Casa Solea.",
     shipping:"Bezorgadres", fullName:"Volledige naam", street:"Straat en huisnummer", city:"Plaats", postal:"Postcode",
     payment:"Veilige betaling", paymentInfo:"Klaar voor toekomstige Stripe-integratie. Op dit moment is geen betaling nodig.", card:"Kaartnummer", expires:"Vervaldatum", cvc:"CVC", success:"Bestelling geslaagd!", orderThanks:"Bedankt voor je bestelling. Casa Solea maakt je bestelling klaar en houdt je op de hoogte.",
     navigation:"Navigatie", home:"Home", connect:"Contact", legal:"Juridisch & colofon", privacy:"Privacybeleid", terms:"Algemene voorwaarden", imprint:"Colofon / juridische informatie"
@@ -242,7 +242,7 @@ const uiTranslations = {
     guests2:"2 adults + up to 2 children", availability:"Availability", availableLegend:"Green = available · Red = unavailable",
     chooseArrival:"First select your arrival date, then your departure date.", arrivalChosen:"Arrival selected · now choose your departure date",
     name:"Name", email:"Email", oneGuest:"1 guest", guests:"guests", request:"Send booking request",
-    thanks:"Thank you", requestReceived:"Your booking request for the selected dates has been received. We will confirm the booking by email.",
+    thanks:"Thank you", requestReceived:"Your booking request for the selected dates has been received. We will confirm the booking by email.", noPayment:"Non-binding booking request · no payment required yet.", visuals:"Images show the planned design of Casa Solea.",
     shipping:"Shipping address", fullName:"Full name", street:"Street address", city:"City", postal:"Postal code",
     payment:"Secure payment", paymentInfo:"Ready for future Stripe integration. No payment is required yet.", card:"Card number", expires:"Expires", cvc:"CVC", success:"Order successful!", orderThanks:"Thank you for your order. Casa Solea is preparing it and will update you shortly.",
     navigation:"Navigation", home:"Home", connect:"Contact", legal:"Legal & imprint", privacy:"Privacy policy", terms:"Terms & conditions", imprint:"Imprint / legal notice"
@@ -332,14 +332,14 @@ const galleryImages = [
     id: 1, 
     category: "Casa Solea", 
     title: "Casa Solea · House, Garden & Pool", 
-    url: "https://raw.githubusercontent.com/valentinsanta95-beep/casa_solea/main/Westseite.png",
+    url: "/Westseite.png",
     desc: "Architectural view of Casa Solea from the west."
   },
   { 
     id: 2, 
     category: "Casa Solea", 
     title: "Casa Solea · East View", 
-    url: "https://raw.githubusercontent.com/valentinsanta95-beep/casa_solea/main/Ostseite.png",
+    url: "/Ostseite.png",
     desc: "Architectural view of Casa Solea from the east."
   },
   { 
@@ -353,7 +353,7 @@ const galleryImages = [
     id: 4, 
     category: "Interior", 
     title: "Minimalist Warm Mediterranean Suite", 
-    url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+    url: "/Fotoinserimento_03_c.png",
     desc: "Refined custom oak joinery, natural stone finishes, and soothing earth tones."
   },
   { 
@@ -373,10 +373,10 @@ const galleryImages = [
 ];
 
 const CasaSoleaMark = ({ className = "w-9 h-9" }) => (
-  <svg viewBox="0 0 64 64" aria-hidden="true" className={className} fill="none">
-    <path d="M12 49V26C12 14 20 7 31 7c7 0 13 3 17 8-3-2-7-3-11-3-10 0-17 6-17 16v21H12Z" fill="currentColor"/>
-    <path d="M52 15v14c-3-4-7-6-12-6-8 0-14 6-14 14s6 14 14 14c5 0 9-2 12-6V15Z" fill="currentColor" opacity=".72"/>
-    <path d="M28 30c4 0 8 2 11 5l9 9" stroke="#F4F0E8" strokeWidth="3" strokeLinecap="round"/>
+  <svg viewBox="0 0 72 72" aria-hidden="true" className={className} fill="none">
+    <path d="M57 18C52 10 44 6 35 6 19 6 8 18 8 36s11 30 27 30c9 0 17-4 22-12" stroke="currentColor" strokeWidth="4.2" strokeLinecap="round"/>
+    <path d="M53 17c-4-4-9-6-14-6-9 0-16 5-16 12 0 8 7 11 16 14 10 3 17 7 17 16 0 8-8 14-18 14-7 0-13-2-18-7" stroke="currentColor" strokeWidth="3.1" strokeLinecap="round"/>
+    <path d="M18 36h36" stroke="currentColor" strokeWidth="1.2" opacity=".45"/>
   </svg>
 );
 
@@ -497,13 +497,16 @@ export default function App() {
     { id: 'w-102', customer: 'Claudia Weber', address: 'Goethestrasse 45, Munich, Germany', items: '4x Casa Solea Bardolino Superior', total: '€72.00', paymentStatus: 'Paid (Stripe API)', shippingStatus: 'Shipped', trackingNumber: 'DHL-DE-991823' }
   ]);
 
-  const [syncStatus, setSyncStatus] = useState({ airbnb: 'Synced (2m ago)', booking: 'Synced (just now)' });
+  const [syncStatus, setSyncStatus] = useState({ airbnb: 'Not connected', booking: 'Not connected' });
 
   const t = translations[lang];
   const ui = uiTranslations[lang];
 
   useEffect(() => {
     document.documentElement.lang = lang;
+    document.title = `Casa Solea · ${t.brandSubtitle}`;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', ui.intro);
   }, [lang]);
 
   const addToCart = (wine) => {
@@ -540,7 +543,7 @@ export default function App() {
   const triggerChannelSync = () => {
     setSyncStatus({ airbnb: 'Syncing...', booking: 'Syncing...' });
     setTimeout(() => {
-      setSyncStatus({ airbnb: 'Synced successfully (just now)', booking: 'Synced successfully (just now)' });
+      setSyncStatus({ airbnb: 'Not connected', booking: 'Not connected' });
     }, 1000);
   };
 
@@ -1314,7 +1317,7 @@ export default function App() {
                 <div className="bg-[#DDD2C0]/50 p-6 rounded-2xl border border-[#D7CCBA] flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div>
                     <h4 className="font-serif font-semibold text-base text-[#34342E] mb-1">OTA Channel Synchronization (Airbnb & Booking.com)</h4>
-                    <p className="text-xs text-[#74756A]">Live iCal feeds active. Availability is automatically blocked across platforms upon confirmation.</p>
+                    <p className="text-xs text-[#74756A]">iCal/channel synchronization is not connected yet. Connect Airbnb and Booking.com before accepting live reservations.</p>
                     <div className="flex gap-4 mt-2 text-xs">
                       <span className="text-[#74755F] font-medium">Airbnb: {syncStatus.airbnb}</span>
                       <span className="text-[#74755F] font-medium">Booking.com: {syncStatus.booking}</span>
@@ -1525,9 +1528,9 @@ export default function App() {
           <div>
             <h5 className="text-xs uppercase tracking-widest text-[#B79A77] font-semibold mb-4">{ui.connect}</h5>
             <ul className="space-y-2 text-xs font-light text-[#F4F0E8]/80">
-              <li className="flex items-center gap-2"><Instagram className="w-4 h-4 text-[#B79A77]" /> @casasoleagarda</li>
-              <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#B79A77]" /> stay@casasoleagarda.it</li>
-              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-[#B79A77]" /> +39 045 0000000</li>
+              <li className="flex items-center gap-2"><Instagram className="w-4 h-4 text-[#B79A77]" /> Instagram · coming soon</li>
+              <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#B79A77]" /> stayInstagram · coming soon.it</li>
+              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-[#B79A77]" /> WhatsApp · coming soon</li>
             </ul>
           </div>
 
