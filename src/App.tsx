@@ -312,6 +312,9 @@ export default function App() {
   const [activeGalleryTab, setActiveGalleryTab] = useState('All');
   const [bookingSubmitted, setBookingSubmitted] = useState(false);
   const [availabilityMonth, setAvailabilityMonth] = useState(new Date(2026, 8, 1));
+  const [selectedCheckIn, setSelectedCheckIn] = useState(null);
+  const [selectedCheckOut, setSelectedCheckOut] = useState(null);
+  const [bookingGuest, setBookingGuest] = useState({ name: '', email: '', guests: '2' });
 
   // Checkout State
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
@@ -357,6 +360,53 @@ export default function App() {
       ...Array.from({ length: count }, (_, i) => new Date(year, month, i + 1))
     ];
   })();
+
+  const dateKey = (date) => {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const d = String(date.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  };
+  const isSelectedDate = (date) => {
+    if (!selectedCheckIn) return false;
+    if (!selectedCheckOut) return dateKey(date) === dateKey(selectedCheckIn);
+    return date >= selectedCheckIn && date <= selectedCheckOut;
+  };
+  const handleAvailabilityDateClick = (date) => {
+    if (isUnavailable(date)) return;
+    if (!selectedCheckIn || selectedCheckOut || date < selectedCheckIn) {
+      setSelectedCheckIn(date);
+      setSelectedCheckOut(null);
+      setBookingSubmitted(false);
+      return;
+    }
+    const blockedInsideRange = confirmedBookings.some(b => {
+      const checkIn = new Date(b.checkIn + 'T00:00:00');
+      const checkOut = new Date(b.checkOut + 'T00:00:00');
+      return checkIn < date && checkOut > selectedCheckIn;
+    });
+    if (blockedInsideRange) {
+      setSelectedCheckIn(date);
+      setSelectedCheckOut(null);
+      return;
+    }
+    setSelectedCheckOut(date);
+  };
+  const handleDirectBooking = (e) => {
+    e.preventDefault();
+    if (!selectedCheckIn || !selectedCheckOut) return;
+    setBookings(prev => [...prev, {
+      id: 'direct-' + Date.now(),
+      guest: bookingGuest.name,
+      email: bookingGuest.email,
+      platform: 'Website Direct',
+      checkIn: dateKey(selectedCheckIn),
+      checkOut: dateKey(selectedCheckOut),
+      guests: `${bookingGuest.guests} guest${bookingGuest.guests === '1' ? '' : 's'}`,
+      status: 'Pending Review'
+    }]);
+    setBookingSubmitted(true);
+  };
 
   // Mock wine orders database
   const [wineOrders, setWineOrders] = useState([
@@ -1078,16 +1128,50 @@ export default function App() {
               {calendarDays.map((date, idx) => {
                 if (!date) return <div key={`empty-${idx}`} />;
                 const unavailable = isUnavailable(date);
+                const selected = isSelectedDate(date);
                 return (
-                  <div key={date.toISOString()} className={`aspect-square rounded-xl flex items-center justify-center text-sm font-semibold border ${unavailable ? 'bg-red-100 border-red-200 text-red-700' : 'bg-green-100 border-green-200 text-green-800'}`}>
+                  <button
+                    type="button"
+                    disabled={unavailable}
+                    onClick={() => handleAvailabilityDateClick(date)}
+                    key={date.toISOString()}
+                    className={`aspect-square rounded-xl flex items-center justify-center text-sm font-semibold border transition ${unavailable ? 'bg-red-100 border-red-200 text-red-700 cursor-not-allowed' : selected ? 'bg-[#8C3F29] border-[#8C3F29] text-white ring-2 ring-[#8C3F29]/20' : 'bg-green-100 border-green-200 text-green-800 hover:bg-green-200 cursor-pointer'}`}
+                  >
                     {date.getDate()}
-                  </div>
+                  </button>
                 );
               })}
             </div>
-            <p className="mt-5 text-[11px] leading-relaxed text-[#7A7265]">
-              Aktuell zeigt der Kalender die im Casa-Solea-System hinterlegten Buchungen. Für echte Live-Verfügbarkeit muss als nächster Schritt der Airbnb-/Booking.com-Kalender angebunden werden.
-            </p>
+            <div className="mt-6 border-t border-[#E2D6C5] pt-5">
+              {!bookingSubmitted ? (
+                <>
+                  <p className="text-sm text-[#3E2F24] mb-4">
+                    {selectedCheckIn
+                      ? selectedCheckOut
+                        ? `${selectedCheckIn.toLocaleDateString()} – ${selectedCheckOut.toLocaleDateString()}`
+                        : 'Anreisedatum gewählt · jetzt Abreisedatum auswählen'
+                      : 'Wählen Sie zuerst Anreise und anschließend Abreise.'}
+                  </p>
+                  {selectedCheckIn && selectedCheckOut && (
+                    <form onSubmit={handleDirectBooking} className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                      <input required value={bookingGuest.name} onChange={(e) => setBookingGuest({...bookingGuest, name: e.target.value})} placeholder="Name" className="px-4 py-3 rounded-xl border border-[#E2D6C5] bg-white text-sm focus:outline-none" />
+                      <input required type="email" value={bookingGuest.email} onChange={(e) => setBookingGuest({...bookingGuest, email: e.target.value})} placeholder="E-Mail" className="px-4 py-3 rounded-xl border border-[#E2D6C5] bg-white text-sm focus:outline-none" />
+                      <select value={bookingGuest.guests} onChange={(e) => setBookingGuest({...bookingGuest, guests: e.target.value})} className="px-4 py-3 rounded-xl border border-[#E2D6C5] bg-white text-sm focus:outline-none">
+                        <option value="1">1 Gast</option><option value="2">2 Gäste</option><option value="3">3 Gäste</option><option value="4">4 Gäste</option>
+                      </select>
+                      <button type="submit" className="md:col-span-3 bg-[#8C3F29] text-white rounded-xl px-5 py-3 text-sm font-semibold hover:bg-[#74321f] transition">
+                        Buchungsanfrage senden
+                      </button>
+                    </form>
+                  )}
+                </>
+              ) : (
+                <div className="rounded-2xl bg-green-50 border border-green-200 p-5 text-green-900">
+                  <p className="font-semibold mb-1">Vielen Dank, {bookingGuest.name}.</p>
+                  <p className="text-sm">Ihre Buchungsanfrage wurde für die ausgewählten Daten erfasst. Wir bestätigen die Buchung anschließend per E-Mail.</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}
