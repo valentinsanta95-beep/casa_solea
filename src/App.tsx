@@ -311,6 +311,25 @@ export default function App() {
   const [adminPasswordInput, setAdminPasswordInput] = useState('');
   const [activeGalleryTab, setActiveGalleryTab] = useState('All');
   const [bookingSubmitted, setBookingSubmitted] = useState(false);
+  const [availabilityMonth, setAvailabilityMonth] = useState(new Date(2026, 8, 1));
+
+  const confirmedBookings = bookings.filter(b => b.status.toLowerCase().includes('confirmed'));
+  const isUnavailable = (date) => confirmedBookings.some(b => {
+    const checkIn = new Date(b.checkIn + 'T00:00:00');
+    const checkOut = new Date(b.checkOut + 'T00:00:00');
+    return date >= checkIn && date < checkOut;
+  });
+  const calendarDays = (() => {
+    const year = availabilityMonth.getFullYear();
+    const month = availabilityMonth.getMonth();
+    const first = new Date(year, month, 1);
+    const count = new Date(year, month + 1, 0).getDate();
+    const mondayOffset = (first.getDay() + 6) % 7;
+    return [
+      ...Array(mondayOffset).fill(null),
+      ...Array.from({ length: count }, (_, i) => new Date(year, month, i + 1))
+    ];
+  })();
 
   // Checkout State
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
@@ -437,18 +456,14 @@ export default function App() {
           </div>
 
           <div className="hidden lg:flex items-center space-x-8 text-sm tracking-wide font-medium text-[#2C241D]">
-            <button onClick={() => { setActiveTab('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className={`transition ${activeTab === 'home' ? 'text-[#8C3F29] font-bold' : 'hover:text-[#8C3F29]'}`}>
-              Home
-            </button>
-            <a href="#stay" onClick={() => setActiveTab('home')} className="hover:text-[#8C3F29] transition">{t.theStay}</a>
-            <a href="#outdoors" onClick={() => setActiveTab('home')} className="hover:text-[#8C3F29] transition">{t.outdoors}</a>
-            <a href="#story" onClick={() => setActiveTab('home')} className="hover:text-[#8C3F29] transition">{t.ourStory}</a>
-            <a href="#location" onClick={() => setActiveTab('home')} className="hover:text-[#8C3F29] transition">{t.location}</a>
-            <button 
-              onClick={() => { setActiveTab('webshop'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} 
-              className={`flex items-center gap-1.5 transition ${activeTab === 'webshop' ? 'text-[#8C3F29] font-bold underline underline-offset-4' : 'hover:text-[#8C3F29]'}`}
+            <a href="#stay" onClick={() => setActiveTab('home')} className="hover:text-[#8C3F29] transition">
+              Das Apartment
+            </a>
+            <button
+              onClick={() => { setActiveTab('webshop'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className={`flex items-center gap-1.5 transition ${activeTab === 'webshop' ? 'text-[#8C3F29] font-bold' : 'hover:text-[#8C3F29]'}`}
             >
-              <Wine className="w-4 h-4 text-[#8C3F29]" /> {t.webshopNav}
+              <Wine className="w-4 h-4 text-[#8C3F29]" /> Unsere Weine
             </button>
           </div>
 
@@ -1040,71 +1055,42 @@ export default function App() {
         </div>
       )}
 
-      {/* Reservation Inquiry Modal */}
+      {/* Availability Calendar */}
       {isBookingOpen && (
         <div className="fixed inset-0 z-50 bg-[#2C241D]/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#F5F0EA] w-full max-w-lg rounded-3xl p-8 border border-[#E2D6C5] shadow-2xl relative">
-            <button onClick={() => setIsBookingOpen(false)} className="absolute top-6 right-6 p-2 rounded-full hover:bg-[#EAE0D0] transition">
+          <div className="bg-[#F5F0EA] w-full max-w-2xl rounded-3xl p-6 md:p-8 border border-[#E2D6C5] shadow-2xl relative">
+            <button onClick={() => setIsBookingOpen(false)} className="absolute top-5 right-5 p-2 rounded-full hover:bg-[#EAE0D0] transition">
               <X className="w-6 h-6 text-[#3E2F24]" />
             </button>
+            <span className="text-xs uppercase tracking-[0.25em] text-[#8C3F29] font-semibold block mb-2">Verfügbarkeit</span>
+            <h3 className="text-2xl md:text-3xl font-serif text-[#3E2F24] mb-2">Casa Solea Garda</h3>
+            <p className="text-xs text-[#2C241D]/65 mb-6">Grün = verfügbar · Rot = nicht verfügbar</p>
 
-            <span className="text-xs uppercase tracking-[0.25em] text-[#8C3F29] font-semibold block mb-2">Reservation Inquiry</span>
-            <h3 className="text-2xl font-serif text-[#3E2F24] mb-2">Casa Solea Garda (22 m² Suite)</h3>
-            <p className="text-xs text-[#2C241D]/70 mb-6">Cross-checked live with Airbnb & Booking.com calendars.</p>
+            <div className="flex items-center justify-between mb-5">
+              <button onClick={() => setAvailabilityMonth(new Date(availabilityMonth.getFullYear(), availabilityMonth.getMonth() - 1, 1))} className="px-4 py-2 rounded-full border border-[#E2D6C5] hover:bg-[#EAE0D0] text-sm">←</button>
+              <h4 className="font-serif text-xl text-[#3E2F24]">
+                {availabilityMonth.toLocaleDateString(lang === 'de' ? 'de-DE' : lang === 'it' ? 'it-IT' : lang === 'nl' ? 'nl-NL' : 'en-GB', { month: 'long', year: 'numeric' })}
+              </h4>
+              <button onClick={() => setAvailabilityMonth(new Date(availabilityMonth.getFullYear(), availabilityMonth.getMonth() + 1, 1))} className="px-4 py-2 rounded-full border border-[#E2D6C5] hover:bg-[#EAE0D0] text-sm">→</button>
+            </div>
 
-            {bookingSubmitted ? (
-              <div className="text-center py-12">
-                <CheckCircle2 className="w-16 h-16 text-[#8C3F29] mx-auto mb-4" />
-                <h4 className="font-serif text-xl text-[#3E2F24] mb-2">Inquiry Received</h4>
-                <p className="text-xs text-[#2C241D]/80 font-light">Thank you! Valentin and Lisa have received your booking request in the admin portal for approval.</p>
-              </div>
-            ) : (
-              <form onSubmit={(e) => { 
-                e.preventDefault(); 
-                const newBooking = {
-                  id: 'b-' + Math.floor(100 + Math.random() * 900),
-                  guest: e.target.elements[3].value || 'Direct Guest',
-                  platform: 'Website Direct',
-                  checkIn: e.target.elements[0].value,
-                  checkOut: e.target.elements[1].value,
-                  guests: e.target.elements[2].value,
-                  status: 'Pending Review'
-                };
-                setBookings([newBooking, ...bookings]);
-                setBookingSubmitted(true); 
-              }} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">Check-in</label>
-                    <input type="date" required className="w-full px-4 py-3 rounded-xl bg-[#EAE0D0]/40 border border-[#E2D6C5] text-xs focus:outline-none" />
+            <div className="grid grid-cols-7 gap-2 mb-2 text-center text-[10px] uppercase tracking-wider text-[#7A7265]">
+              {['Mo','Di','Mi','Do','Fr','Sa','So'].map(day => <div key={day}>{day}</div>)}
+            </div>
+            <div className="grid grid-cols-7 gap-2">
+              {calendarDays.map((date, idx) => {
+                if (!date) return <div key={`empty-${idx}`} />;
+                const unavailable = isUnavailable(date);
+                return (
+                  <div key={date.toISOString()} className={`aspect-square rounded-xl flex items-center justify-center text-sm font-semibold border ${unavailable ? 'bg-red-100 border-red-200 text-red-700' : 'bg-green-100 border-green-200 text-green-800'}`}>
+                    {date.getDate()}
                   </div>
-                  <div>
-                    <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">Check-out</label>
-                    <input type="date" required className="w-full px-4 py-3 rounded-xl bg-[#EAE0D0]/40 border border-[#E2D6C5] text-xs focus:outline-none" />
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">Guests</label>
-                    <select className="w-full px-4 py-3 rounded-xl bg-[#EAE0D0]/40 border border-[#E2D6C5] text-xs focus:outline-none">
-                      <option>2 Guests</option>
-                      <option>2 Guests + 1 Infant</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">Name</label>
-                    <input type="text" placeholder="Your full name" required className="w-full px-4 py-3 rounded-xl bg-[#EAE0D0]/40 border border-[#E2D6C5] text-xs focus:outline-none" />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">Email Address</label>
-                  <input type="email" placeholder="you@example.com" required className="w-full px-4 py-3 rounded-xl bg-[#EAE0D0]/40 border border-[#E2D6C5] text-xs focus:outline-none" />
-                </div>
-                <button type="submit" className="w-full py-4 bg-[#8C3F29] text-[#F5F0EA] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#733120] transition shadow-lg mt-6">
-                  Send Booking Request
-                </button>
-              </form>
-            )}
+                );
+              })}
+            </div>
+            <p className="mt-5 text-[11px] leading-relaxed text-[#7A7265]">
+              Aktuell zeigt der Kalender die im Casa-Solea-System hinterlegten Buchungen. Für echte Live-Verfügbarkeit muss als nächster Schritt der Airbnb-/Booking.com-Kalender angebunden werden.
+            </p>
           </div>
         </div>
       )}
