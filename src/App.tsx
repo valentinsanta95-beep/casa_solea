@@ -579,84 +579,106 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F4F0E8] text-[#34342E] font-sans">
       
-      {/* Editorial navigation */}
-      <nav className="absolute top-0 left-0 right-0 z-50 text-[#34342E]">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10 h-28 flex items-start pt-5 justify-between">
-          <button onClick={() => { setActiveTab('home'); window.scrollTo({top:0,behavior:'smooth'}); }} className="flex items-start gap-3 text-left">
-            <CasaSoleaMark className="w-14 h-14 md:w-16 md:h-16 text-[#4D503F]" />
-            <div className="hidden sm:block pt-1">
-              <div className="font-serif uppercase tracking-[0.22em] text-lg md:text-xl">Casa Solea</div>
-              <div className="text-[8px] uppercase tracking-[0.34em] mt-1 text-[#4D503F]/75">{t.brandSubtitle}</div>
-            </div>
-          </button>
-          <div className="hidden lg:flex items-center gap-8 pt-4 font-serif text-sm">
-            <a href="#stay">{t.theStay}</a><a href="#gallery">{t.gallery}</a><a href="#location">{t.location}</a>
-            <button onClick={() => {setActiveTab('webshop');window.scrollTo({top:0,behavior:'smooth'})}}>{t.wines}</button>
-            <a href="#story">{t.ourStory}</a>
-          </div>
-          <div className="flex items-center gap-3 pt-2">
-            <select value={lang} onChange={e=>setLang(e.target.value)} className="bg-transparent text-xs uppercase tracking-widest outline-none cursor-pointer">
-              <option value="de">DE</option><option value="it">IT</option><option value="nl">NL</option><option value="en">EN</option>
-            </select>
-            <button onClick={()=>setIsBookingOpen(true)} className="hidden sm:block rounded-full border border-[#4D503F] bg-[#4D503F]/90 text-[#F4F0E8] px-6 py-3 text-[10px] uppercase tracking-[0.16em]">{t.bookStay}</button>
-          </div>
+      {activeTab === 'webshop' && <nav className="sticky top-0 z-50 bg-[#F4F0E8]/95 backdrop-blur border-b border-[#D7CCBA]">
+        <div className="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
+          <button onClick={()=>setActiveTab('home')} className="flex items-center gap-3"><CasaSoleaMark className="w-10 h-10 text-[#4D503F]"/><span className="font-serif tracking-[.2em] uppercase">Casa Solea</span></button>
+          <button onClick={()=>setActiveTab('home')} className="text-xs uppercase tracking-widest">← {ui.home}</button>
         </div>
-      </nav>
+      </nav>}
 
       {/* CONDITIONAL RENDER: HOME PAGE OR WEBSHOP PAGE */}
       {activeTab === 'home' ? (
         <>
-          {/* Editorial hero */}
-          <header className="relative min-h-[760px] h-[92vh] overflow-hidden bg-[#DDD2C0]">
-            <img src="/main_background_pic.jpg" alt="Lake Garda area" fetchPriority="high" decoding="async" className="absolute inset-0 w-full h-full object-cover" onError={(e)=>{e.currentTarget.src='/Westseite.png'}} />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#F4F0E8]/95 via-[#F4F0E8]/35 to-transparent"></div>
-            <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-10 h-full flex items-center pt-24">
-              <div className="max-w-xl mt-4 md:-mt-4">
-                <div className="text-[9px] uppercase tracking-[0.38em] text-[#4D503F] mb-7">Italian living, a little closer</div>
-                <h1 className="font-serif text-[48px] md:text-[68px] leading-[0.94] tracking-[-0.025em] text-[#25251F] mb-6">{ui.escape}</h1>
-                <p className="font-serif text-lg md:text-xl leading-snug text-[#34342E] max-w-md">{ui.intro}</p>
+          {/* CASA SOLEA — approved editorial mockup */}
+          <header className="relative min-h-[700px] lg:h-[580px] overflow-visible bg-[#EDE6D9]">
+            <img src="/main_background_pic.jpg" alt="Lake Garda" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#F6F1E8]/95 via-[#F6F1E8]/48 to-transparent"></div>
+
+            <div className="relative z-20 max-w-[1440px] mx-auto px-6 md:px-10 pt-5">
+              <div className="flex items-start justify-between">
+                <button onClick={()=>window.scrollTo({top:0,behavior:'smooth'})} className="text-left">
+                  <div className="flex items-start gap-3">
+                    <CasaSoleaMark className="w-[74px] h-[74px] text-[#4B4B39]"/>
+                    <div className="pt-6 hidden sm:block">
+                      <div className="font-serif text-[24px] leading-none tracking-[.22em] uppercase">Casa Solea</div>
+                      <div className="text-[9px] tracking-[.34em] uppercase mt-3 text-[#5D5B4B]">{t.brandSubtitle}</div>
+                    </div>
+                  </div>
+                </button>
+                <div className="hidden lg:flex items-center gap-8 pt-5 font-serif text-[15px]">
+                  <a href="#stay">{t.theStay}</a><a href="#gallery">{t.gallery}</a><a href="#location">{t.location}</a>
+                  <button onClick={()=>{setActiveTab('webshop');window.scrollTo({top:0})}}>{t.wines}</button>
+                  <a href="#story">{lang==='de'?'Gut zu wissen':lang==='it'?'Da sapere':lang==='nl'?'Goed om te weten':'Good to know'}</a>
+                  <a href="#footer">{t.contact}</a>
+                </div>
+                <div className="flex items-center gap-4 pt-2">
+                  <select value={lang} onChange={e=>setLang(e.target.value)} className="bg-transparent text-xs uppercase outline-none"><option value="de">DE</option><option value="it">IT</option><option value="nl">NL</option><option value="en">EN</option></select>
+                  <button onClick={()=>setIsBookingOpen(true)} className="hidden md:block border border-[#4D503F] bg-[#5E5E46]/90 text-white rounded-full px-7 py-3 text-[10px] uppercase tracking-[.14em]">{t.bookStay}</button>
+                </div>
+              </div>
+
+              <div className="mt-8 md:mt-10 max-w-[460px]">
+                <div className="w-8 h-px bg-[#4D503F] mb-4"></div>
+                <div className="text-[9px] uppercase tracking-[.38em] mb-6 text-[#555444]">Italian living, a little closer</div>
+                <h1 className="font-serif text-[52px] md:text-[58px] leading-[.88] tracking-[-.025em] text-[#22221D] mb-6">{ui.escape}</h1>
+                <p className="font-serif text-[17px] leading-[1.15] max-w-[390px] text-[#292921]">{ui.intro}</p>
               </div>
             </div>
-            <div className="absolute z-20 left-1/2 -translate-x-1/2 bottom-3 md:bottom-7 w-[92%] max-w-6xl bg-[#F4F0E8]/95 backdrop-blur-md shadow-xl rounded-xl border border-white/70 p-3 md:p-4">
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr_1.25fr] items-center">
-                <button onClick={()=>setIsBookingOpen(true)} className="p-3 md:border-r border-[#D7CCBA] text-left"><span className="block text-[10px] text-[#74756A] uppercase tracking-widest">${lang==='de'?'Anreise':lang==='it'?'Arrivo':lang==='nl'?'Aankomst':'Arrival'}</span><span className="font-serif">${selectedCheckIn?selectedCheckIn.toLocaleDateString(): '—'}</span></button>
-                <button onClick={()=>setIsBookingOpen(true)} className="p-3 md:border-r border-[#D7CCBA] text-left"><span className="block text-[10px] text-[#74756A] uppercase tracking-widest">${lang==='de'?'Abreise':lang==='it'?'Partenza':lang==='nl'?'Vertrek':'Departure'}</span><span className="font-serif">${selectedCheckOut?selectedCheckOut.toLocaleDateString(): '—'}</span></button>
-                <button onClick={()=>setIsBookingOpen(true)} className="p-3 text-left"><span className="block text-[10px] text-[#74756A] uppercase tracking-widest">${ui.guests}</span><span className="font-serif">${bookingGuest.guests} ${ui.guests}</span></button>
-                <button onClick={()=>setIsBookingOpen(true)} className="bg-[#626249] text-[#F4F0E8] px-5 py-4 rounded-sm uppercase tracking-[0.15em] text-[10px] flex items-center justify-between">${t.bookStay}<ArrowRight className="w-4 h-4"/></button>
+
+            {/* booking checker — separate from copy, exactly like mockup */}
+            <div className="absolute z-30 left-1/2 -translate-x-1/2 -bottom-[2px] w-[92%] max-w-[1215px] bg-[#F8F5EE]/98 shadow-xl border border-[#D8D0C2] rounded-[8px] p-3">
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1.15fr_1.35fr]">
+                <button onClick={()=>setIsBookingOpen(true)} className="px-5 py-2 text-left md:border-r border-[#D8D0C2]">
+                  <span className="block text-[12px] font-serif text-[#777064]">${lang==='de'?'Anreise':lang==='it'?'Arrivo':lang==='nl'?'Aankomst':'Arrival'}</span>
+                  <span className="font-serif text-[15px]">${selectedCheckIn?selectedCheckIn.toLocaleDateString(lang==='de'?'de-DE':lang==='it'?'it-IT':lang==='nl'?'nl-NL':'en-GB'):'Datum wählen'}</span>
+                </button>
+                <button onClick={()=>setIsBookingOpen(true)} className="px-5 py-2 text-left md:border-r border-[#D8D0C2]">
+                  <span className="block text-[12px] font-serif text-[#777064]">${lang==='de'?'Abreise':lang==='it'?'Partenza':lang==='nl'?'Vertrek':'Departure'}</span>
+                  <span className="font-serif text-[15px]">${selectedCheckOut?selectedCheckOut.toLocaleDateString(lang==='de'?'de-DE':lang==='it'?'it-IT':lang==='nl'?'nl-NL':'en-GB'):'Datum wählen'}</span>
+                </button>
+                <button onClick={()=>setIsBookingOpen(true)} className="px-5 py-2 text-left">
+                  <span className="block text-[12px] font-serif text-[#777064]">${ui.guests}</span>
+                  <span className="font-serif text-[15px]">${bookingGuest.guests} ${ui.guests}</span>
+                </button>
+                <div>
+                  <button onClick={()=>setIsBookingOpen(true)} className="w-full h-12 bg-[#66664C] text-white px-6 uppercase tracking-[.14em] text-[11px] flex items-center justify-between">${t.bookStay}<ArrowRight className="w-4 h-4"/></button>
+                  <div className="text-[9px] text-right text-[#777064] pt-1">{ui.noPayment}</div>
+                </div>
               </div>
-              <div className="text-right text-[9px] text-[#74756A] mt-1 pr-2">{ui.noPayment}</div>
             </div>
           </header>
 
-          {/* Key facts */}
-          <section className="bg-[#F4F0E8] border-b border-[#D7CCBA]">
-            <div className="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 py-5">
+          {/* icon facts strip */}
+          <section className="bg-[#F8F5EE] border-b border-[#D8D0C2]">
+            <div className="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 py-7">
               {[
-                [Home,'22 m²',lang==='de'?'Privates Apartment':lang==='it'?'Appartamento privato':lang==='nl'?'Privé appartement':'Private apartment'],
-                [Waves,'8 × 4 m',lang==='de'?'Poolzugang':lang==='it'?'Accesso piscina':lang==='nl'?'Zwembad':'Pool access'],
-                [Baby,'',lang==='de'?'Familienfreundlich':lang==='it'?'Per famiglie':lang==='nl'?'Gezinsvriendelijk':'Family friendly'],
-                [MapPin,'800 m',lang==='de'?'zum Gardasee':lang==='it'?'dal Lago di Garda':lang==='nl'?'van het Gardameer':'from Lake Garda'],
-                [Star,'~1 km','Gardaland · CanevaWorld'],
-                [Car,'EV',lang==='de'?'Laden vor Ort':lang==='it'?'Ricarica in loco':lang==='nl'?'Laden op locatie':'Charging on site']
-              ].map(([Icon,v,l],i)=><div key={i} className="px-4 py-2 flex items-center gap-3 lg:border-r last:border-0 border-[#D7CCBA]"><Icon className="w-7 h-7 stroke-[1.25] text-[#4D503F]"/><div><div className="font-serif text-sm">{v}</div><div className="text-[10px] text-[#74756A]">{l}</div></div></div>)}
+                [Home,lang==='de'?'Modernes Apartment':lang==='it'?'Appartamento moderno':lang==='nl'?'Modern appartement':'Modern apartment','22 m²'],
+                [Waves,lang==='de'?'Poolzugang':lang==='it'?'Accesso piscina':lang==='nl'?'Zwembad':'Pool access','8 × 4 m'],
+                [Trees,lang==='de'?'Familienfreundlich':lang==='it'?'Per famiglie':lang==='nl'?'Gezinsvriendelijk':'Family friendly',lang==='de'?'Ideal für Paare und Familien':''],
+                [MapPin,lang==='de'?'Top Lage':lang==='it'?'Posizione ideale':lang==='nl'?'Toplocatie':'Great location','800 m'],
+                [Star,'Gardaland & CanevaWorld','~1 km'],
+                [Car,'E-Mobility',lang==='de'?'Laden vor Ort':'EV charging']
+              ].map(([Icon,title,sub],i)=><div key={i} className="flex items-center gap-4 px-5 lg:border-r last:border-r-0 border-[#D8D0C2]"><Icon className="w-8 h-8 stroke-[1.25] text-[#4D503F]"/><div><div className="font-serif text-[14px]">{title}</div><div className="text-[10px] text-[#777064] mt-1">{sub}</div></div></div>)}
             </div>
           </section>
 
-          {/* Visual navigation */}
-          <section className="bg-[#F4F0E8]">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 p-2">
-              {[
-                ['/Fotoinserimento_03_c.png',t.theStay,lang==='de'?'Modern. Natürlich. Entspannt.':lang==='it'?'Moderno. Naturale. Rilassato.':lang==='nl'?'Modern. Natuurlijk. Ontspannen.':'Modern. Natural. Relaxed.','#stay'],
-                ['/Westseite.png',t.outdoors,lang==='de'?'Ihr Rückzugsort im Freien':lang==='it'?'Il vostro spazio all’aperto':lang==='nl'?'Jouw plek buiten':'Your outdoor retreat','#outdoors'],
-                ['/main_background_pic.jpg',t.location,t.brandSubtitle,'#location'],
-                ['/Ostseite.png',t.wines,lang==='de'?'Ein Stück unserer Geschichte':lang==='it'?'Un pezzo della nostra storia':lang==='nl'?'Een stukje van ons verhaal':'A piece of our story','wine']
-              ].map(([img,title,sub,target],i)=><button key={i} onClick={()=>target==='wine'?(setActiveTab('webshop'),window.scrollTo({top:0,behavior:'smooth'})):document.querySelector(target)?.scrollIntoView({behavior:'smooth'})} className="relative aspect-[16/10] overflow-hidden text-left group">
-                <img src={img} alt="" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition duration-700"/>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                <div className="absolute left-6 right-5 bottom-5 text-white"><div className="font-serif text-2xl">{title}</div><div className="flex justify-between items-end mt-1"><span className="text-[9px] uppercase tracking-[0.2em]">{sub}</span><ArrowRight className="w-5 h-5"/></div></div>
-              </button>)}
-            </div>
+          {/* four visual doors */}
+          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[8px] bg-[#F8F5EE] p-[8px]">
+            {[
+              ['/Fotoinserimento_03_c.png',t.theStay,lang==='de'?'Modern. Natürlich. Entspannt.':'Modern. Natural. Relaxed.','#stay'],
+              ['/Westseite.png',t.outdoors,lang==='de'?'Ihr privater Rückzugsort':'Your outdoor retreat','#outdoors'],
+              ['/main_background_pic.jpg',t.location,t.brandSubtitle,'#location'],
+              ['/Ostseite.png',t.wines,lang==='de'?'Ein Stück unserer Heimat':'A piece of our home','wine']
+            ].map(([img,title,sub,target],i)=><button key={i} onClick={()=>target==='wine'?(setActiveTab('webshop'),window.scrollTo({top:0})):document.querySelector(target)?.scrollIntoView({behavior:'smooth'})} className="group relative aspect-[1.55] overflow-hidden text-left">
+              <img src={img} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.025] transition duration-700"/>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent"></div>
+              <div className="absolute bottom-5 left-6 right-5 text-white"><div className="font-serif text-[27px]">{title}</div><div className="flex items-end justify-between"><span className="text-[9px] uppercase tracking-[.22em] mt-1">{sub}</span><ArrowRight className="w-5 h-5"/></div></div>
+            </button>)}
           </section>
+
+          <div className="bg-[#F8F5EE] py-8 flex items-center justify-center gap-5 text-[9px] uppercase tracking-[.38em] text-[#777064]">
+            <span>Casa Solea</span><span className="w-8 h-px bg-[#9A9487]"></span><span className="hidden sm:inline">Good people</span><span className="hidden sm:block w-8 h-px bg-[#9A9487]"></span><span>Beautiful places</span><span className="hidden md:block w-8 h-px bg-[#9A9487]"></span><span className="hidden md:inline">Lasting memories</span><span className="ml-8 font-serif normal-case italic tracking-normal text-xl text-[#4D503F]">Italian by nature</span>
+          </div>
 
           {/* The 22 m² Private Suite & Home Section */}
           <section id="stay" className="py-24 px-6 max-w-7xl mx-auto">
