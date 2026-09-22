@@ -611,13 +611,13 @@ export default function App() {
             <img src="/main_background_pic.jpg" alt="Lake Garda area" fetchPriority="high" decoding="async" className="absolute inset-0 w-full h-full object-cover" onError={(e)=>{e.currentTarget.src='/Westseite.png'}} />
             <div className="absolute inset-0 bg-gradient-to-r from-[#F4F0E8]/95 via-[#F4F0E8]/35 to-transparent"></div>
             <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-10 h-full flex items-center pt-24">
-              <div className="max-w-xl mt-16">
+              <div className="max-w-xl mt-4 md:-mt-4">
                 <div className="text-[9px] uppercase tracking-[0.38em] text-[#4D503F] mb-7">Italian living, a little closer</div>
-                <h1 className="font-serif text-[50px] md:text-[72px] leading-[0.95] tracking-[-0.025em] text-[#25251F] mb-7">{ui.escape}</h1>
+                <h1 className="font-serif text-[48px] md:text-[68px] leading-[0.94] tracking-[-0.025em] text-[#25251F] mb-6">{ui.escape}</h1>
                 <p className="font-serif text-lg md:text-xl leading-snug text-[#34342E] max-w-md">{ui.intro}</p>
               </div>
             </div>
-            <div className="absolute z-20 left-1/2 -translate-x-1/2 bottom-5 md:bottom-8 w-[92%] max-w-6xl bg-[#F4F0E8]/95 backdrop-blur-md shadow-xl rounded-xl border border-white/70 p-3 md:p-4">
+            <div className="absolute z-20 left-1/2 -translate-x-1/2 bottom-3 md:bottom-7 w-[92%] max-w-6xl bg-[#F4F0E8]/95 backdrop-blur-md shadow-xl rounded-xl border border-white/70 p-3 md:p-4">
               <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr_1.25fr] items-center">
                 <button onClick={()=>setIsBookingOpen(true)} className="p-3 md:border-r border-[#D7CCBA] text-left"><span className="block text-[10px] text-[#74756A] uppercase tracking-widest">${lang==='de'?'Anreise':lang==='it'?'Arrivo':lang==='nl'?'Aankomst':'Arrival'}</span><span className="font-serif">${selectedCheckIn?selectedCheckIn.toLocaleDateString(): '—'}</span></button>
                 <button onClick={()=>setIsBookingOpen(true)} className="p-3 md:border-r border-[#D7CCBA] text-left"><span className="block text-[10px] text-[#74756A] uppercase tracking-widest">${lang==='de'?'Abreise':lang==='it'?'Partenza':lang==='nl'?'Vertrek':'Departure'}</span><span className="font-serif">${selectedCheckOut?selectedCheckOut.toLocaleDateString(): '—'}</span></button>
