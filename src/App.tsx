@@ -375,12 +375,9 @@ export default function App() {
 
   const handleAdminLogin = (e) => {
     e.preventDefault();
-    // No email shown on screen as requested
-    if (adminUsernameInput.trim().toLowerCase() === 'valentin' && adminPasswordInput.trim() === 'solesolea2026') {
-      setIsAdminLoggedIn(true);
-    } else {
-      alert('Invalid admin credentials.');
-    }
+    // Admin access is intentionally disabled in the public static preview.
+    // Add server-side authentication before enabling the host portal.
+    alert('Host portal is not enabled in this preview.');
   };
 
   const triggerChannelSync = () => {
@@ -1393,12 +1390,9 @@ export default function App() {
           <p>© {new Date().getFullYear()} Casa Solea Garda. {t.rights}</p>
           <div className="flex items-center gap-6 mt-4 sm:mt-0">
             <span>Valentin, Lisa & Sam · Pacengo di Lazise</span>
-            <button 
-              onClick={() => setIsAdminOpen(true)}
-              className="text-[#E2C4B8] hover:underline flex items-center gap-1 font-semibold"
-            >
-              <Lock className="w-3 h-3" /> Admin Portal
-            </button>
+            <span className="text-[#E2C4B8] flex items-center gap-1 font-semibold">
+              <Lock className="w-3 h-3" /> Host portal coming soon
+            </span>
           </div>
         </div>
       </footer>
