@@ -257,22 +257,22 @@ const galleryImages = [
     id: 1, 
     category: "Estate", 
     title: "Casa Solea Villa & Saltwater Pool in Pacengo di Lazise", 
-    url: "Westseite_2.jpg",
-    desc: "Our private estate featuring the 22 m² guest apartment, 32 m² saltwater pool, and ancient olive trees."
+    url: "/Westseite.png",
+    desc: "Architectural view of Casa Solea from the west."
   },
   { 
     id: 2, 
-    category: "Pool", 
-    title: "32 m² Saltwater Pool & Olive Grove", 
-    url: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1200&q=80",
-    desc: "Private saltwater pool set among centuries-old Veronese olive trees."
+    category: "Estate", 
+    title: "Casa Solea · East View", 
+    url: "/Ostseite.png",
+    desc: "Architectural view of Casa Solea from the east."
   },
   { 
     id: 3, 
-    category: "Apartment (22m²)", 
-    title: "The 22 m² Guest Sanctuary", 
-    url: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80",
-    desc: "Thoughtfully compact 22 m² suite for rent, featuring private terrace access."
+    category: "Estate", 
+    title: "Casa Solea · Exterior Visualization", 
+    url: "/Fotoinserimento_03_c.png",
+    desc: "Architectural visualization of Casa Solea in its setting."
   },
   { 
     id: 4, 
@@ -584,10 +584,10 @@ export default function App() {
               <div className="relative">
                 <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-[#E2D6C5] relative group">
                   <img 
-                    src="Westseite_2.jpg" 
-                    alt="Casa Solea Estate with Garden and Pool in Pacengo di Lazise" 
+                    src="/Fotoinserimento_03_c.png" 
+                    alt="Architectural visualization of Casa Solea in Pacengo di Lazise" 
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                    onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80"; }}
+                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#2C241D]/70 via-transparent to-transparent opacity-80 flex flex-col justify-end p-8 text-[#F5F0EA]">
                     <span className="text-[10px] uppercase tracking-widest text-[#E2C4B8] mb-1">Pacengo di Lazise · Località Gasco</span>
