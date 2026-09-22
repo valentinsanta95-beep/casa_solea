@@ -501,7 +501,7 @@ export default function App() {
       <header className="relative h-[92vh] min-h-[650px] flex items-center justify-center overflow-hidden bg-[#2C241D]">
         <div className="absolute inset-0 z-0">
           <img 
-            src="image_e4f542.jpg" 
+            src="/main_background_pic.jpg" 
             alt="Casa Solea Estate in Pacengo di Lazise with garden and pool" 
             className="w-full h-full object-cover opacity-75 scale-105"
             onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=2000&q=85"; }}
