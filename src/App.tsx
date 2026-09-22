@@ -446,9 +446,6 @@ export default function App() {
               <span className="text-lg md:text-xl font-serif tracking-widest uppercase text-[#3E2F24] font-bold">
                 Casa Solea Garda
               </span>
-              <span className="text-[10px] uppercase tracking-wider bg-[#8C3F29]/10 text-[#8C3F29] px-2 py-0.5 rounded-full font-semibold">
-                × Winery
-              </span>
             </div>
             <span className="text-[10px] uppercase tracking-widest text-[#7A7265]">
               Pacengo di Lazise · Lake Garda
