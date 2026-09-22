@@ -176,7 +176,7 @@ const translations = {
 
 const uiTranslations = {
   de: {
-    privateGuestApartment:"Privates Gäste-Apartment", escape:"Ihr privater Rückzugsort am Gardasee",
+    privateGuestApartment:"Privates Gäste-Apartment", escape:"Ankommen. Durchatmen. Casa Solea.",
     intro:"Ein durchdacht gestaltetes 22 m² großes privates Gäste-Apartment mit eigenem Garten und Zugang zum Pool, im ruhigen Pacengo di Lazise – nur 800 Meter vom Gardasee entfernt.",
     outside:"Draußen erwarten Sie unser 32 m² großer Pool, der Garten und schattige Bereiche zum Entspannen.",
     pool:"32 m² Pool", suite:"22 m² privates Apartment", yours:"Ihr privater Bereich während des Aufenthalts",
@@ -194,7 +194,7 @@ const uiTranslations = {
     navigation:"Navigation", home:"Startseite", connect:"Kontakt", legal:"Rechtliches & Impressum", privacy:"Datenschutz", terms:"Allgemeine Geschäftsbedingungen", imprint:"Impressum"
   },
   it: {
-    privateGuestApartment:"Appartamento privato per ospiti", escape:"Il tuo rifugio privato sul Lago di Garda",
+    privateGuestApartment:"Appartamento privato per ospiti", escape:"Arriva. Respira. Casa Solea.",
     intro:"Un appartamento privato di 22 m², progettato con cura, con giardino privato e accesso alla piscina, nella tranquilla Pacengo di Lazise – a soli 800 metri dal Lago di Garda.",
     outside:"All'esterno ti aspettano la nostra piscina di 32 m², il giardino e zone ombreggiate dove rilassarti.",
     pool:"Piscina di 32 m²", suite:"Appartamento privato di 22 m²", yours:"Il tuo spazio privato durante il soggiorno",
@@ -212,7 +212,7 @@ const uiTranslations = {
     navigation:"Navigazione", home:"Home", connect:"Contatti", legal:"Note legali", privacy:"Privacy Policy", terms:"Termini e condizioni", imprint:"Impressum / Note legali"
   },
   nl: {
-    privateGuestApartment:"Privé gastenappartement", escape:"Jouw privéverblijf aan het Gardameer",
+    privateGuestApartment:"Privé gastenappartement", escape:"Aankomen. Adem uit. Casa Solea.",
     intro:"Een zorgvuldig ontworpen privé-gastenappartement van 22 m² met een eigen tuin en toegang tot het zwembad, in het rustige Pacengo di Lazise – op slechts 800 meter van het Gardameer.",
     outside:"Buiten vind je ons zwembad van 32 m², de tuin en schaduwrijke plekken om te ontspannen.",
     pool:"Zwembad van 32 m²", suite:"Privé-appartement van 22 m²", yours:"Jouw eigen plek tijdens het verblijf",
@@ -230,7 +230,7 @@ const uiTranslations = {
     navigation:"Navigatie", home:"Home", connect:"Contact", legal:"Juridisch & colofon", privacy:"Privacybeleid", terms:"Algemene voorwaarden", imprint:"Colofon / juridische informatie"
   },
   en: {
-    privateGuestApartment:"Private guest apartment", escape:"Your private escape at Lake Garda",
+    privateGuestApartment:"Private guest apartment", escape:"Arrive. Exhale. Casa Solea.",
     intro:"A thoughtfully designed 22 m² private guest apartment with your own private garden and access to the pool, in peaceful Pacengo di Lazise – just 800 metres from Lake Garda.",
     outside:"Step outside to our 32 m² pool, garden and shaded spaces made for relaxing.",
     pool:"32 m² pool", suite:"22 m² private apartment", yours:"Your private space during your stay",
@@ -656,7 +656,7 @@ export default function App() {
           <img 
             src="/main_background_pic.jpg" 
             alt="Lake Garda and Scaliger Castle in Sirmione" 
-            className="w-full h-full object-cover opacity-75 scale-105"
+            fetchPriority="high" decoding="async" className="w-full h-full object-cover opacity-75 scale-105"
             onError={(e) => { e.target.src = "/Westseite.png"; }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#34342E]/90 via-[#34342E]/30 to-transparent"></div>
@@ -809,7 +809,7 @@ export default function App() {
                   <img 
                     src="/Ostseite.png" 
                     alt="Valentin, Lisa and Sam" 
-                    className="w-full h-full object-cover"
+                    loading="lazy" decoding="async" className="w-full h-full object-cover"
                   />
                 </div>
               </div>
@@ -974,7 +974,7 @@ export default function App() {
               <div key={wine.id} className="bg-[#F4F0E8] rounded-3xl p-6 border border-[#D7CCBA] flex flex-col justify-between shadow-sm">
                 <div>
                   <div className="aspect-[3/4] rounded-2xl overflow-hidden mb-6 bg-[#DDD2C0]/50 relative">
-                    <img src={wine.image} alt={wine.name} className="w-full h-full object-cover" onError={(e)=>{e.target.src="/Ostseite.png"}} />
+                    <img src={wine.image} alt={wine.name} loading="lazy" decoding="async" className="w-full h-full object-cover" onError={(e)=>{e.target.src="/Ostseite.png"}} />
                     <span className="absolute top-3 right-3 bg-[#74755F] text-[#F4F0E8] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-semibold">
                       {wine.type}
                     </span>
