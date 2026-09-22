@@ -313,24 +313,6 @@ export default function App() {
   const [bookingSubmitted, setBookingSubmitted] = useState(false);
   const [availabilityMonth, setAvailabilityMonth] = useState(new Date(2026, 8, 1));
 
-  const confirmedBookings = bookings.filter(b => b.status.toLowerCase().includes('confirmed'));
-  const isUnavailable = (date) => confirmedBookings.some(b => {
-    const checkIn = new Date(b.checkIn + 'T00:00:00');
-    const checkOut = new Date(b.checkOut + 'T00:00:00');
-    return date >= checkIn && date < checkOut;
-  });
-  const calendarDays = (() => {
-    const year = availabilityMonth.getFullYear();
-    const month = availabilityMonth.getMonth();
-    const first = new Date(year, month, 1);
-    const count = new Date(year, month + 1, 0).getDate();
-    const mondayOffset = (first.getDay() + 6) % 7;
-    return [
-      ...Array(mondayOffset).fill(null),
-      ...Array.from({ length: count }, (_, i) => new Date(year, month, i + 1))
-    ];
-  })();
-
   // Checkout State
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [checkoutStep, setCheckoutStep] = useState('address'); // 'address', 'payment', 'success'
@@ -357,6 +339,24 @@ export default function App() {
     { id: 'b2', guest: 'Sophie van Dijk', platform: 'Booking.com', checkIn: '2026-07-20', checkOut: '2026-07-27', guests: '2 Adults + 1 Child', status: 'Confirmed' },
     { id: 'b3', guest: 'Lucas & Emma', platform: 'Website Direct', checkIn: '2026-08-02', checkOut: '2026-08-09', guests: '2 Adults', status: 'Pending Review' }
   ]);
+
+  const confirmedBookings = bookings.filter(b => b.status.toLowerCase().includes('confirmed'));
+  const isUnavailable = (date) => confirmedBookings.some(b => {
+    const checkIn = new Date(b.checkIn + 'T00:00:00');
+    const checkOut = new Date(b.checkOut + 'T00:00:00');
+    return date >= checkIn && date < checkOut;
+  });
+  const calendarDays = (() => {
+    const year = availabilityMonth.getFullYear();
+    const month = availabilityMonth.getMonth();
+    const first = new Date(year, month, 1);
+    const count = new Date(year, month + 1, 0).getDate();
+    const mondayOffset = (first.getDay() + 6) % 7;
+    return [
+      ...Array(mondayOffset).fill(null),
+      ...Array.from({ length: count }, (_, i) => new Date(year, month, i + 1))
+    ];
+  })();
 
   // Mock wine orders database
   const [wineOrders, setWineOrders] = useState([
