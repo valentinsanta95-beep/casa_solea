@@ -255,21 +255,21 @@ const localRecommendations = [
 const galleryImages = [
   { 
     id: 1, 
-    category: "Estate", 
-    title: "Casa Solea Villa & Saltwater Pool in Pacengo di Lazise", 
+    category: "Casa Solea", 
+    title: "Casa Solea · House, Garden & Pool", 
     url: "https://raw.githubusercontent.com/valentinsanta95-beep/casa_solea/main/Westseite.png",
     desc: "Architectural view of Casa Solea from the west."
   },
   { 
     id: 2, 
-    category: "Estate", 
+    category: "Casa Solea", 
     title: "Casa Solea · East View", 
     url: "https://raw.githubusercontent.com/valentinsanta95-beep/casa_solea/main/Ostseite.png",
     desc: "Architectural view of Casa Solea from the east."
   },
   { 
     id: 3, 
-    category: "Estate", 
+    category: "Casa Solea", 
     title: "Casa Solea · Exterior Visualization", 
     url: "https://raw.githubusercontent.com/valentinsanta95-beep/casa_solea/main/Fotoinserimento_03_c.png",
     desc: "Architectural visualization of Casa Solea in its setting."
@@ -551,13 +551,13 @@ export default function App() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
                 <span className="text-xs uppercase tracking-[0.25em] text-[#8C3F29] font-semibold block mb-3">
-                  Private Guest Apartment & Estate
+                  Private Guest Apartment
                 </span>
                 <h2 className="text-3xl md:text-5xl font-serif text-[#3E2F24] mb-6 leading-tight">
-                  Small inside.<br />A whole world outside.
+                  Your private escape at Lake Garda
                 </h2>
                 <p className="text-base text-[#2C241D]/80 leading-relaxed mb-6 font-light">
-                  Our intimate <strong>22 m² private guest apartment</strong> is designed for couples or small families seeking serene Mediterranean luxury. It provides a cozy, exquisitely appointed indoor sanctuary with direct access to the estate.
+                  A thoughtfully designed <strong>22 m² private guest apartment</strong> with your own private garden and access to the pool, in peaceful Pacengo di Lazise — just 800 metres from Lake Garda.
                 </p>
                 <p className="text-base text-[#2C241D]/80 leading-relaxed mb-8 font-light">
                   Step outside into our magnificent <strong>32 m² saltwater pool, garden</strong>, shaded porticos, and expansive olive groves in peaceful Pacengo di Lazise.
@@ -603,7 +603,7 @@ export default function App() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#2C241D]/70 via-transparent to-transparent opacity-80 flex flex-col justify-end p-8 text-[#F5F0EA]">
                     <span className="text-[10px] uppercase tracking-widest text-[#E2C4B8] mb-1">Pacengo di Lazise · Località Gasco</span>
-                    <h4 className="font-serif text-xl mb-1">Casa Solea Estate, Garden & Pool</h4>
+                    <h4 className="font-serif text-xl mb-1">Casa Solea · Garden & Pool</h4>
                     <p className="text-xs text-[#F5F0EA]/80 font-light">Your private sanctuary surrounded by olive trees.</p>
                   </div>
                 </div>
@@ -643,7 +643,7 @@ export default function App() {
                   </div>
                   <h3 className="font-serif text-xl text-[#3E2F24] mb-3">Peace of Mind</h3>
                   <p className="text-sm text-[#2C241D]/80 font-light leading-relaxed">
-                    Our property in Località Gasco is a private estate, gated and secure, ensuring a tranquil environment away from busy commercial resorts.
+                    Casa Solea is our family home in peaceful Pacengo di Lazise, with a private guest apartment, garden and pool.
                   </p>
                 </div>
 
@@ -749,15 +749,15 @@ export default function App() {
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
               <div>
                 <span className="text-xs uppercase tracking-[0.25em] text-[#8C3F29] font-semibold block mb-3">
-                  Visual Impressions & Estate Views
+                  Visual Impressions & Casa Solea Views
                 </span>
                 <h2 className="text-3xl md:text-5xl font-serif text-[#3E2F24]">
-                  Gallery & Estate
+                  Gallery & Casa Solea
                 </h2>
               </div>
 
               <div className="flex flex-wrap gap-2 mt-6 md:mt-0">
-                {['All', 'Estate', 'Pool', 'Apartment (22m²)', 'Interior', 'For Children', 'Winery'].map(tab => (
+                {['All', 'Casa Solea', 'Pool', 'Apartment (22m²)', 'Interior', 'For Children', 'Winery'].map(tab => (
                   <button
                     key={tab}
                     onClick={() => setActiveGalleryTab(tab)}
@@ -876,7 +876,7 @@ export default function App() {
 
             <div className="space-y-6 text-sm font-light text-[#2C241D]">
               <div className="bg-[#EAE0D0]/40 p-6 rounded-2xl border border-[#E2D6C5]">
-                <h4 className="font-serif font-semibold text-base mb-3 text-[#3E2F24]">Suite & Estate Breakdown</h4>
+                <h4 className="font-serif font-semibold text-base mb-3 text-[#3E2F24]">Apartment & Outdoor Space</h4>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                   <li><strong>Rentable Guest Suite:</strong> 22.00 m² (Private bedroom & ensuite bath)</li>
                   <li><strong>Private Saltwater Pool:</strong> 32.00 m² (Shared outdoor estate oasis)</li>
@@ -887,7 +887,7 @@ export default function App() {
               </div>
 
               <p className="text-xs leading-relaxed">
-                Enjoy complete comfort in your dedicated 22 m² suite while taking full advantage of the surrounding Mediterranean estate, garden, olive groves, and pool oasis in Pacengo di Lazise.
+                Enjoy your own private apartment and garden, with access to the pool, in peaceful Pacengo di Lazise.
               </p>
             </div>
           </div>
