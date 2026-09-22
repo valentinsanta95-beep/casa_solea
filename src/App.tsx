@@ -579,70 +579,26 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F4F0E8] text-[#34342E] font-sans">
       
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-[#F4F0E8]/95 backdrop-blur-md border-b border-[#D7CCBA] transition-all">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex flex-col cursor-pointer" onClick={() => { setActiveTab('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-            <div className="flex items-center gap-2">
-              <span className="text-lg md:text-xl font-serif tracking-widest uppercase text-[#34342E] font-bold">
-                Casa Solea
-              </span>
+      {/* Editorial navigation */}
+      <nav className="absolute top-0 left-0 right-0 z-50 text-[#34342E]">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 h-28 flex items-start pt-5 justify-between">
+          <button onClick={() => { setActiveTab('home'); window.scrollTo({top:0,behavior:'smooth'}); }} className="flex items-start gap-3 text-left">
+            <CasaSoleaMark className="w-14 h-14 md:w-16 md:h-16 text-[#4D503F]" />
+            <div className="hidden sm:block pt-1">
+              <div className="font-serif uppercase tracking-[0.22em] text-lg md:text-xl">Casa Solea</div>
+              <div className="text-[8px] uppercase tracking-[0.34em] mt-1 text-[#4D503F]/75">{t.brandSubtitle}</div>
             </div>
-            <span className="text-[10px] uppercase tracking-widest text-[#74756A]">
-              Pacengo di Lazise · Lake Garda
-            </span>
+          </button>
+          <div className="hidden lg:flex items-center gap-8 pt-4 font-serif text-sm">
+            <a href="#stay">{t.theStay}</a><a href="#gallery">{t.gallery}</a><a href="#location">{t.location}</a>
+            <button onClick={() => {setActiveTab('webshop');window.scrollTo({top:0,behavior:'smooth'})}}>{t.wines}</button>
+            <a href="#story">{t.ourStory}</a>
           </div>
-
-          <div className="hidden lg:flex items-center space-x-8 text-sm tracking-wide font-medium text-[#34342E]">
-            <a href="#stay" onClick={() => setActiveTab('home')} className="hover:text-[#74755F] transition">
-              Das Apartment
-            </a>
-            <button
-              onClick={() => { setActiveTab('webshop'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className={`flex items-center gap-1.5 transition ${activeTab === 'webshop' ? 'text-[#74755F] font-bold' : 'hover:text-[#74755F]'}`}
-            >
-              <Wine className="w-4 h-4 text-[#74755F]" /> Unsere Weine
-            </button>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            <div className="relative group">
-              <button className="flex items-center space-x-1 px-3 py-1.5 rounded-full border border-[#D7CCBA] bg-[#DDD2C0]/50 text-xs font-semibold uppercase tracking-wider hover:bg-[#D7CCBA] transition">
-                <Globe className="w-3.5 h-3.5 text-[#34342E]" />
-                <span>{lang}</span>
-              </button>
-              <div className="absolute right-0 mt-1 w-28 bg-[#F4F0E8] border border-[#D7CCBA] rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-1 z-50">
-                {['de', 'it', 'nl', 'en'].map(l => (
-                  <button 
-                    key={l}
-                    onClick={() => setLang(l)}
-                    className={`w-full text-left px-4 py-1.5 text-xs uppercase tracking-wider font-medium hover:bg-[#D7CCBA]/40 transition ${lang === l ? 'font-bold text-[#74755F]' : 'text-[#34342E]'}`}
-                  >
-                    {l === 'de' ? 'Deutsch' : l === 'it' ? 'Italiano' : l === 'nl' ? 'Nederlands' : 'English'}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <button 
-              onClick={() => setIsCartOpen(true)}
-              className="relative p-2.5 rounded-full bg-[#DDD2C0]/50 hover:bg-[#D7CCBA] border border-[#D7CCBA] transition"
-              aria-label="Wine Shop Bag"
-            >
-              <ShoppingBag className="w-4 h-4 text-[#34342E]" />
-              {cartItemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-[#74755F] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
-                  {cartItemCount}
-                </span>
-              )}
-            </button>
-
-            <button 
-              onClick={() => setIsBookingOpen(true)}
-              className="hidden sm:inline-flex items-center space-x-2 bg-[#74755F] text-[#F4F0E8] px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold hover:bg-[#4D503F] transition shadow-md"
-            >
-              <span>{t.bookStay}</span>
-            </button>
+          <div className="flex items-center gap-3 pt-2">
+            <select value={lang} onChange={e=>setLang(e.target.value)} className="bg-transparent text-xs uppercase tracking-widest outline-none cursor-pointer">
+              <option value="de">DE</option><option value="it">IT</option><option value="nl">NL</option><option value="en">EN</option>
+            </select>
+            <button onClick={()=>setIsBookingOpen(true)} className="hidden sm:block rounded-full border border-[#4D503F] bg-[#4D503F]/90 text-[#F4F0E8] px-6 py-3 text-[10px] uppercase tracking-[0.16em]">{t.bookStay}</button>
           </div>
         </div>
       </nav>
@@ -650,42 +606,57 @@ export default function App() {
       {/* CONDITIONAL RENDER: HOME PAGE OR WEBSHOP PAGE */}
       {activeTab === 'home' ? (
         <>
-          {/* Hero Section */}
-      <header className="relative h-[92vh] min-h-[650px] flex items-center justify-center overflow-hidden bg-[#34342E]">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="/main_background_pic.jpg" 
-            alt="Lake Garda and Scaliger Castle in Sirmione" 
-            fetchPriority="high" decoding="async" className="w-full h-full object-cover opacity-75 scale-105"
-            onError={(e) => { e.target.src = "/Westseite.png"; }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#34342E]/90 via-[#34342E]/30 to-transparent"></div>
-        </div>
-
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-[#F4F0E8]">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif tracking-tight font-normal mb-6 leading-tight">
-            {t.heroHeading}
-          </h1>
-          <p className="text-lg md:text-xl font-light max-w-2xl mx-auto mb-10 text-[#F4F0E8]/90">
-            {t.heroSub}
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button 
-                  onClick={() => setIsBookingOpen(true)}
-                  className="w-full sm:w-auto px-8 py-4 bg-[#74755F] text-[#F4F0E8] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#4D503F] transition shadow-xl"
-                >
-                  {t.bookStay}
-                </button>
-                <button 
-                  onClick={() => setIsSpecsOpen(true)}
-                  className="w-full sm:w-auto px-8 py-4 bg-transparent border border-[#F4F0E8]/40 text-[#F4F0E8] rounded-full uppercase text-xs tracking-[0.2em] font-medium hover:bg-white/10 transition flex items-center justify-center gap-2"
-                >
-                  <Home className="w-4 h-4 text-[#B79A77]" /> Explore 22 m² Suite Specs
-                </button>
+          {/* Editorial hero */}
+          <header className="relative min-h-[760px] h-[92vh] overflow-hidden bg-[#DDD2C0]">
+            <img src="/main_background_pic.jpg" alt="Lake Garda area" fetchPriority="high" decoding="async" className="absolute inset-0 w-full h-full object-cover" onError={(e)=>{e.currentTarget.src='/Westseite.png'}} />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#F4F0E8]/95 via-[#F4F0E8]/35 to-transparent"></div>
+            <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-10 h-full flex items-center pt-24">
+              <div className="max-w-xl mt-16">
+                <div className="text-[9px] uppercase tracking-[0.38em] text-[#4D503F] mb-7">Italian living, a little closer</div>
+                <h1 className="font-serif text-[50px] md:text-[72px] leading-[0.95] tracking-[-0.025em] text-[#25251F] mb-7">{ui.escape}</h1>
+                <p className="font-serif text-lg md:text-xl leading-snug text-[#34342E] max-w-md">{ui.intro}</p>
               </div>
             </div>
+            <div className="absolute z-20 left-1/2 -translate-x-1/2 bottom-5 md:bottom-8 w-[92%] max-w-6xl bg-[#F4F0E8]/95 backdrop-blur-md shadow-xl rounded-xl border border-white/70 p-3 md:p-4">
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr_1.25fr] items-center">
+                <button onClick={()=>setIsBookingOpen(true)} className="p-3 md:border-r border-[#D7CCBA] text-left"><span className="block text-[10px] text-[#74756A] uppercase tracking-widest">${lang==='de'?'Anreise':lang==='it'?'Arrivo':lang==='nl'?'Aankomst':'Arrival'}</span><span className="font-serif">${selectedCheckIn?selectedCheckIn.toLocaleDateString(): '—'}</span></button>
+                <button onClick={()=>setIsBookingOpen(true)} className="p-3 md:border-r border-[#D7CCBA] text-left"><span className="block text-[10px] text-[#74756A] uppercase tracking-widest">${lang==='de'?'Abreise':lang==='it'?'Partenza':lang==='nl'?'Vertrek':'Departure'}</span><span className="font-serif">${selectedCheckOut?selectedCheckOut.toLocaleDateString(): '—'}</span></button>
+                <button onClick={()=>setIsBookingOpen(true)} className="p-3 text-left"><span className="block text-[10px] text-[#74756A] uppercase tracking-widest">${ui.guests}</span><span className="font-serif">${bookingGuest.guests} ${ui.guests}</span></button>
+                <button onClick={()=>setIsBookingOpen(true)} className="bg-[#626249] text-[#F4F0E8] px-5 py-4 rounded-sm uppercase tracking-[0.15em] text-[10px] flex items-center justify-between">${t.bookStay}<ArrowRight className="w-4 h-4"/></button>
+              </div>
+              <div className="text-right text-[9px] text-[#74756A] mt-1 pr-2">{ui.noPayment}</div>
+            </div>
           </header>
+
+          {/* Key facts */}
+          <section className="bg-[#F4F0E8] border-b border-[#D7CCBA]">
+            <div className="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 py-5">
+              {[
+                [Home,'22 m²',lang==='de'?'Privates Apartment':lang==='it'?'Appartamento privato':lang==='nl'?'Privé appartement':'Private apartment'],
+                [Waves,'8 × 4 m',lang==='de'?'Poolzugang':lang==='it'?'Accesso piscina':lang==='nl'?'Zwembad':'Pool access'],
+                [Baby,'',lang==='de'?'Familienfreundlich':lang==='it'?'Per famiglie':lang==='nl'?'Gezinsvriendelijk':'Family friendly'],
+                [MapPin,'800 m',lang==='de'?'zum Gardasee':lang==='it'?'dal Lago di Garda':lang==='nl'?'van het Gardameer':'from Lake Garda'],
+                [Star,'~1 km','Gardaland · CanevaWorld'],
+                [Car,'EV',lang==='de'?'Laden vor Ort':lang==='it'?'Ricarica in loco':lang==='nl'?'Laden op locatie':'Charging on site']
+              ].map(([Icon,v,l],i)=><div key={i} className="px-4 py-2 flex items-center gap-3 lg:border-r last:border-0 border-[#D7CCBA]"><Icon className="w-7 h-7 stroke-[1.25] text-[#4D503F]"/><div><div className="font-serif text-sm">{v}</div><div className="text-[10px] text-[#74756A]">{l}</div></div></div>)}
+            </div>
+          </section>
+
+          {/* Visual navigation */}
+          <section className="bg-[#F4F0E8]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 p-2">
+              {[
+                ['/Fotoinserimento_03_c.png',t.theStay,lang==='de'?'Modern. Natürlich. Entspannt.':lang==='it'?'Moderno. Naturale. Rilassato.':lang==='nl'?'Modern. Natuurlijk. Ontspannen.':'Modern. Natural. Relaxed.','#stay'],
+                ['/Westseite.png',t.outdoors,lang==='de'?'Ihr Rückzugsort im Freien':lang==='it'?'Il vostro spazio all’aperto':lang==='nl'?'Jouw plek buiten':'Your outdoor retreat','#outdoors'],
+                ['/main_background_pic.jpg',t.location,t.brandSubtitle,'#location'],
+                ['/Ostseite.png',t.wines,lang==='de'?'Ein Stück unserer Geschichte':lang==='it'?'Un pezzo della nostra storia':lang==='nl'?'Een stukje van ons verhaal':'A piece of our story','wine']
+              ].map(([img,title,sub,target],i)=><button key={i} onClick={()=>target==='wine'?(setActiveTab('webshop'),window.scrollTo({top:0,behavior:'smooth'})):document.querySelector(target)?.scrollIntoView({behavior:'smooth'})} className="relative aspect-[16/10] overflow-hidden text-left group">
+                <img src={img} alt="" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition duration-700"/>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div className="absolute left-6 right-5 bottom-5 text-white"><div className="font-serif text-2xl">{title}</div><div className="flex justify-between items-end mt-1"><span className="text-[9px] uppercase tracking-[0.2em]">{sub}</span><ArrowRight className="w-5 h-5"/></div></div>
+              </button>)}
+            </div>
+          </section>
 
           {/* The 22 m² Private Suite & Home Section */}
           <section id="stay" className="py-24 px-6 max-w-7xl mx-auto">
@@ -707,7 +678,7 @@ export default function App() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div 
                     onClick={() => setIsSpecsOpen(true)}
-                    className="p-5 rounded-2xl bg-[#DDD2C0]/40 border border-[#D7CCBA] cursor-pointer hover:bg-[#DDD2C0] transition"
+                    className="p-5 rounded-sm bg-[#DDD2C0]/40 border border-[#D7CCBA] cursor-pointer hover:bg-[#DDD2C0] transition"
                   >
                     <Waves className="w-6 h-6 text-[#74755F] mb-2" />
                     <h4 className="font-serif text-sm font-semibold mb-1">{ui.pool}</h4>
@@ -715,18 +686,18 @@ export default function App() {
                   </div>
                   <div 
                     onClick={() => setIsSpecsOpen(true)}
-                    className="p-5 rounded-2xl bg-[#DDD2C0]/40 border border-[#D7CCBA] cursor-pointer hover:bg-[#DDD2C0] transition"
+                    className="p-5 rounded-sm bg-[#DDD2C0]/40 border border-[#D7CCBA] cursor-pointer hover:bg-[#DDD2C0] transition"
                   >
                     <Trees className="w-6 h-6 text-[#74755F] mb-2" />
                     <h4 className="font-serif text-sm font-semibold mb-1">{ui.suite}</h4>
                     <p className="text-xs text-[#34342E]/70">{ui.yours}</p>
                   </div>
-                  <div className="p-5 rounded-2xl bg-[#DDD2C0]/40 border border-[#D7CCBA]">
+                  <div className="p-5 rounded-sm bg-[#DDD2C0]/40 border border-[#D7CCBA]">
                     <Baby className="w-6 h-6 text-[#74755F] mb-2" />
                     <h4 className="font-serif text-sm font-semibold mb-1">{ui.kids}</h4>
                     <p className="text-xs text-[#34342E]/70">{t.familyText}</p>
                   </div>
-                  <div className="p-5 rounded-2xl bg-[#DDD2C0]/40 border border-[#D7CCBA]">
+                  <div className="p-5 rounded-sm bg-[#DDD2C0]/40 border border-[#D7CCBA]">
                     <Car className="w-6 h-6 text-[#74755F] mb-2" />
                     <h4 className="font-serif text-sm font-semibold mb-1">{ui.ev}</h4>
                     <p className="text-xs text-[#34342E]/70">{ui.sustainable}</p>
@@ -735,7 +706,7 @@ export default function App() {
               </div>
 
               <div className="relative">
-                <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-[#D7CCBA] relative group">
+                <div className="aspect-[4/3] rounded-sm overflow-hidden shadow-xl border border-[#D7CCBA] relative group">
                   <img 
                     src="https://raw.githubusercontent.com/valentinsanta95-beep/casa_solea/main/Fotoinserimento_03_c.png" 
                     alt="Architectural visualization of Casa Solea in Pacengo di Lazise" 
@@ -768,8 +739,8 @@ export default function App() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-[#F4F0E8] p-8 rounded-3xl border border-[#D7CCBA] shadow-sm">
-                  <div className="w-12 h-12 rounded-2xl bg-[#74755F]/10 flex items-center justify-center mb-6">
+                <div className="bg-[#F4F0E8] p-8 rounded-sm border border-[#D7CCBA] shadow-sm">
+                  <div className="w-12 h-12 rounded-sm bg-[#74755F]/10 flex items-center justify-center mb-6">
                     <Smile className="w-6 h-6 text-[#74755F]" />
                   </div>
                   <h3 className="font-serif text-xl text-[#34342E] mb-3">{ui.play}</h3>
@@ -778,8 +749,8 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="bg-[#F4F0E8] p-8 rounded-3xl border border-[#D7CCBA] shadow-sm">
-                  <div className="w-12 h-12 rounded-2xl bg-[#74755F]/10 flex items-center justify-center mb-6">
+                <div className="bg-[#F4F0E8] p-8 rounded-sm border border-[#D7CCBA] shadow-sm">
+                  <div className="w-12 h-12 rounded-sm bg-[#74755F]/10 flex items-center justify-center mb-6">
                     <Shield className="w-6 h-6 text-[#74755F]" />
                   </div>
                   <h3 className="font-serif text-xl text-[#34342E] mb-3">{ui.peace}</h3>
@@ -788,8 +759,8 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="bg-[#F4F0E8] p-8 rounded-3xl border border-[#D7CCBA] shadow-sm">
-                  <div className="w-12 h-12 rounded-2xl bg-[#74755F]/10 flex items-center justify-center mb-6">
+                <div className="bg-[#F4F0E8] p-8 rounded-sm border border-[#D7CCBA] shadow-sm">
+                  <div className="w-12 h-12 rounded-sm bg-[#74755F]/10 flex items-center justify-center mb-6">
                     <Compass className="w-6 h-6 text-[#74755F]" />
                   </div>
                   <h3 className="font-serif text-xl text-[#34342E] mb-3">{ui.nearby}</h3>
@@ -805,10 +776,10 @@ export default function App() {
           <section id="story" className="py-24 px-6 max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="order-2 lg:order-1">
-                <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-[#D7CCBA]">
+                <div className="aspect-[4/3] rounded-sm overflow-hidden shadow-xl border border-[#D7CCBA]">
                   <img 
                     src="/Ostseite.png" 
-                    alt="Valentin, Lisa and Sam" 
+                    alt="Architectural visualisation of Casa Solea" 
                     loading="lazy" decoding="async" className="w-full h-full object-cover"
                   />
                 </div>
@@ -856,7 +827,7 @@ export default function App() {
                 {localRecommendations.map((rec, idx) => {
                   const IconComp = rec.icon;
                   return (
-                    <div key={idx} className="bg-[#34342E] p-6 rounded-2xl border border-[#D7CCBA]/20">
+                    <div key={idx} className="bg-[#34342E] p-6 rounded-sm border border-[#D7CCBA]/20">
                       <div className="w-10 h-10 rounded-xl bg-[#74755F]/20 flex items-center justify-center mb-4 text-[#B79A77]">
                         <IconComp className="w-5 h-5" />
                       </div>
@@ -869,7 +840,7 @@ export default function App() {
                 })}
               </div>
 
-              <div className="w-full h-96 rounded-3xl overflow-hidden border border-[#D7CCBA]/30 relative shadow-2xl">
+              <div className="w-full h-96 rounded-sm overflow-hidden border border-[#D7CCBA]/30 relative shadow-xl">
                 <iframe 
                   title="Pacengo di Lazise Map"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11211.33924151322!2d10.7242!3d45.4542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781eb405786ef75%3A0x40af13fec13c4c0!2s37017%20Pacengo%20VR%2C%20Italy!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus" 
@@ -877,7 +848,7 @@ export default function App() {
                   allowFullScreen="" 
                   loading="lazy"
                 ></iframe>
-                <div className="absolute bottom-6 left-6 bg-[#34342E]/90 backdrop-blur-md p-4 rounded-2xl border border-[#D7CCBA]/30 text-xs">
+                <div className="absolute bottom-6 left-6 bg-[#34342E]/90 backdrop-blur-md p-4 rounded-sm border border-[#D7CCBA]/30 text-xs">
                   <p className="font-serif text-sm font-medium mb-1">Località Gasco, Pacengo di Lazise</p>
                   <p className="text-[#F4F0E8]/70">{ui.setting}</p>
                 </div>
@@ -914,7 +885,7 @@ export default function App() {
               {galleryImages
                 .filter(img => activeGalleryTab === 'All' || img.category === activeGalleryTab)
                 .map(img => (
-                  <div key={img.id} className="group relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg border border-[#D7CCBA]">
+                  <div key={img.id} className="group relative aspect-[4/3] rounded-sm overflow-hidden shadow-lg border border-[#D7CCBA]">
                     <img 
                       src={img.url} 
                       alt={img.title} 
@@ -971,9 +942,9 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {wineCatalogue.map(wine => (
-              <div key={wine.id} className="bg-[#F4F0E8] rounded-3xl p-6 border border-[#D7CCBA] flex flex-col justify-between shadow-sm">
+              <div key={wine.id} className="bg-[#F4F0E8] rounded-sm p-6 border border-[#D7CCBA] flex flex-col justify-between shadow-sm">
                 <div>
-                  <div className="aspect-[3/4] rounded-2xl overflow-hidden mb-6 bg-[#DDD2C0]/50 relative">
+                  <div className="aspect-[3/4] rounded-sm overflow-hidden mb-6 bg-[#DDD2C0]/50 relative">
                     <img src={wine.image} alt={wine.name} loading="lazy" decoding="async" className="w-full h-full object-cover" onError={(e)=>{e.target.src="/Ostseite.png"}} />
                     <span className="absolute top-3 right-3 bg-[#74755F] text-[#F4F0E8] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-semibold">
                       {wine.type}
@@ -1004,7 +975,7 @@ export default function App() {
       {/* 22m² Suite Specs Modal */}
       {isSpecsOpen && (
         <div className="fixed inset-0 z-50 bg-[#34342E]/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#F4F0E8] w-full max-w-2xl max-h-[90vh] rounded-3xl overflow-y-auto border border-[#D7CCBA] shadow-2xl p-8">
+          <div className="bg-[#F4F0E8] w-full max-w-2xl max-h-[90vh] rounded-sm overflow-y-auto border border-[#D7CCBA] shadow-xl p-8">
             <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#D7CCBA]">
               <div>
                 <span className="text-xs uppercase tracking-widest text-[#74755F] block mb-1">Casa Solea</span>
@@ -1016,7 +987,7 @@ export default function App() {
             </div>
 
             <div className="space-y-6 text-sm font-light text-[#34342E]">
-              <div className="bg-[#DDD2C0]/40 p-6 rounded-2xl border border-[#D7CCBA]">
+              <div className="bg-[#DDD2C0]/40 p-6 rounded-sm border border-[#D7CCBA]">
                 <h4 className="font-serif font-semibold text-base mb-3 text-[#34342E]">{ui.breakdown}</h4>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                   <li><strong>{ui.rentable}</strong> 22.00 m² (Private bedroom & ensuite bath)</li>
@@ -1038,7 +1009,7 @@ export default function App() {
       {/* Wine Shopping Bag Drawer & Stripe Checkout Integration */}
       {isCartOpen && (
         <div className="fixed inset-0 z-50 bg-[#34342E]/70 backdrop-blur-sm flex justify-end">
-          <div className="bg-[#F4F0E8] w-full max-w-md h-full flex flex-col justify-between p-8 shadow-2xl border-l border-[#D7CCBA] overflow-y-auto">
+          <div className="bg-[#F4F0E8] w-full max-w-md h-full flex flex-col justify-between p-8 shadow-xl border-l border-[#D7CCBA] overflow-y-auto">
             <div>
               <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#D7CCBA]">
                 <div className="flex items-center gap-2">
@@ -1060,7 +1031,7 @@ export default function App() {
                   ) : (
                     <div className="space-y-4 max-h-[50vh] overflow-y-auto pr-2">
                       {cart.map(item => (
-                        <div key={item.id} className="flex items-center justify-between p-4 bg-[#DDD2C0]/40 rounded-2xl border border-[#D7CCBA]">
+                        <div key={item.id} className="flex items-center justify-between p-4 bg-[#DDD2C0]/40 rounded-sm border border-[#D7CCBA]">
                           <div className="flex-1 pr-4">
                             <h4 className="font-serif text-sm text-[#34342E]">{item.name}</h4>
                             <span className="text-xs text-[#74756A]">€{Number(item.price).toFixed(2)} each</span>
@@ -1120,7 +1091,7 @@ export default function App() {
                         <h4 className="font-serif text-base font-semibold text-[#34342E]">{ui.payment}</h4>
                       </div>
                       <p className="text-xs text-[#74756A]">{ui.paymentInfo}</p>
-                      <div className="p-4 rounded-2xl bg-[#DDD2C0]/50 border border-[#D7CCBA] space-y-3">
+                      <div className="p-4 rounded-sm bg-[#DDD2C0]/50 border border-[#D7CCBA] space-y-3">
                         <div>
                           <label className="block text-[10px] uppercase tracking-widest text-[#74756A] mb-1">{ui.card}</label>
                           <input type="text" placeholder="4242 •••• •••• 4242" defaultValue="4242 4242 4242 4242" className="w-full px-4 py-3 rounded-xl bg-white border border-[#D7CCBA] text-xs font-mono focus:outline-none" />
@@ -1196,7 +1167,7 @@ export default function App() {
       {/* Availability Calendar */}
       {isBookingOpen && (
         <div className="fixed inset-0 z-50 bg-[#34342E]/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#F4F0E8] w-full max-w-2xl rounded-3xl p-6 md:p-8 border border-[#D7CCBA] shadow-2xl relative">
+          <div className="bg-[#F4F0E8] w-full max-w-2xl rounded-sm p-6 md:p-8 border border-[#D7CCBA] shadow-xl relative">
             <button onClick={() => setIsBookingOpen(false)} className="absolute top-5 right-5 p-2 rounded-full hover:bg-[#DDD2C0] transition">
               <X className="w-6 h-6 text-[#34342E]" />
             </button>
@@ -1257,7 +1228,7 @@ export default function App() {
                   )}
                 </>
               ) : (
-                <div className="rounded-2xl bg-green-50 border border-green-200 p-5 text-green-900">
+                <div className="rounded-sm bg-green-50 border border-green-200 p-5 text-green-900">
                   <p className="font-semibold mb-1">{ui.thanks}, {bookingGuest.name}.</p>
                   <p className="text-sm">{ui.requestReceived}</p>
                 </div>
@@ -1270,7 +1241,7 @@ export default function App() {
       {/* Upgraded Admin Portal Modal: Booking Approvals & Full Webshop CRUD */}
       {isAdminOpen && (
         <div className="fixed inset-0 z-50 bg-[#34342E]/80 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-[#F4F0E8] w-full max-w-5xl max-h-[92vh] rounded-3xl overflow-y-auto border border-[#D7CCBA] shadow-2xl p-8">
+          <div className="bg-[#F4F0E8] w-full max-w-5xl max-h-[92vh] rounded-sm overflow-y-auto border border-[#D7CCBA] shadow-xl p-8">
             <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#D7CCBA]">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#74755F] text-white flex items-center justify-center">
@@ -1314,7 +1285,7 @@ export default function App() {
             ) : (
               <div className="space-y-12">
                 {/* OTA Channel Sync Status Bar */}
-                <div className="bg-[#DDD2C0]/50 p-6 rounded-2xl border border-[#D7CCBA] flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="bg-[#DDD2C0]/50 p-6 rounded-sm border border-[#D7CCBA] flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div>
                     <h4 className="font-serif font-semibold text-base text-[#34342E] mb-1">OTA Channel Synchronization (Airbnb & Booking.com)</h4>
                     <p className="text-xs text-[#74756A]">iCal/channel synchronization is not connected yet. Connect Airbnb and Booking.com before accepting live reservations.</p>
@@ -1439,7 +1410,7 @@ export default function App() {
 
                   {/* Add Product Modal/Form */}
                   {isAddingProduct && (
-                    <form onSubmit={handleAddNewProduct} className="bg-[#DDD2C0]/60 p-6 rounded-2xl border border-[#D7CCBA] mb-6 space-y-4">
+                    <form onSubmit={handleAddNewProduct} className="bg-[#DDD2C0]/60 p-6 rounded-sm border border-[#D7CCBA] mb-6 space-y-4">
                       <h5 className="font-serif text-sm font-semibold text-[#34342E]">New Wine Details</h5>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <input type="text" placeholder="Wine Name" required value={newProductForm.name} onChange={e=>setNewProductForm({...newProductForm, name:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#D7CCBA] text-xs" />
@@ -1459,7 +1430,7 @@ export default function App() {
 
                   {/* Edit Product Modal/Form */}
                   {editingProduct && (
-                    <form onSubmit={handleSaveProductEdit} className="bg-[#DDD2C0]/80 p-6 rounded-2xl border border-[#74755F] mb-6 space-y-4">
+                    <form onSubmit={handleSaveProductEdit} className="bg-[#DDD2C0]/80 p-6 rounded-sm border border-[#74755F] mb-6 space-y-4">
                       <h5 className="font-serif text-sm font-semibold text-[#74755F]">Editing: {editingProduct.name}</h5>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <input type="text" required value={editingProduct.name} onChange={e=>setEditingProduct({...editingProduct, name:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#D7CCBA] text-xs" />
@@ -1479,7 +1450,7 @@ export default function App() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {wineCatalogue.map(wine => (
-                      <div key={wine.id} className="bg-white p-4 rounded-2xl border border-[#D7CCBA] flex items-center justify-between gap-4">
+                      <div key={wine.id} className="bg-white p-4 rounded-sm border border-[#D7CCBA] flex items-center justify-between gap-4">
                         <img src={wine.image} alt={wine.name} className="w-12 h-16 object-cover rounded-lg" />
                         <div className="flex-1">
                           <h6 className="font-serif text-sm font-semibold text-[#34342E]">{wine.name}</h6>
