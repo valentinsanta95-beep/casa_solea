@@ -9,8 +9,8 @@ import {
 
 const translations = {
   de: {
-    brandName: "Casa Solea Garda",
-    brandSubtitle: "Privates Gartenapartment in Pacengo di Lazise",
+    brandName: "Casa Solea",
+    brandSubtitle: "Lazise am Gardasee",
     airbnbTitle: "Casa Solea | Gartenapartment, Pool & Kinderparadies",
     tagline: "Innen fein. Draußen eine ganze Welt.",
     bookStay: "Verfügbarkeit prüfen",
@@ -30,7 +30,7 @@ const translations = {
     storyText1: "Wir sind Valentin, Lisa und unser kleiner Sohn Sam – geboren in Amsterdam, wo wir fast ein Jahrzehnt lebten. Doch die Sehnsucht nach dem Licht Italiens und dem Gardasee führte uns hierher.",
     storyText2: "Lisas familiäre Weintradition ist tief in der Region verwurzelt. In ruhiger Lage in Pacengo di Lazise (Località Gasco) haben wir unser neues Zuhause erbaut und heißen Gäste in unserem feinen, privaten 22 m² Apartment herzlich willkommen.",
     apartmentTitle: "Das 22 m² Private Apartment & Anwesen",
-    apartmentDesc: "Perfekt konzipiert für 2 Gäste. Kompakter Luxus im Inneren, verbunden mit großzügigem Außenbereich, Salzwasserpool und Olivenhain.",
+    apartmentDesc: "Perfekt konzipiert für 2 Gäste. Kompakter Luxus im Inneren, verbunden mit großzügigem Außenbereich, Pool und Garten.",
     poolText: "32 m² Pool eingebettet in Olivenbäume",
     gardenText: "Weitläufige Rasenflächen und private Terrassen",
     familyText: "Trampolin, Sandkasten, Rutsche und sichere Spielbereiche",
@@ -50,8 +50,8 @@ const translations = {
     adminLoginPrompt: "Bitte Administrator-Zugangsdaten eingeben."
   },
   it: {
-    brandName: "Casa Solea Garda",
-    brandSubtitle: "Appartamento con Giardino Privato a Pacengo di Lazise",
+    brandName: "Casa Solea",
+    brandSubtitle: "Lazise sul Lago di Garda",
     airbnbTitle: "Casa Solea | Appartamento con Giardino, Piscina e Oasi Bimbi",
     tagline: "Piccolo dentro. Un mondo fuori.",
     bookStay: "Verifica disponibilità",
@@ -71,8 +71,8 @@ const translations = {
     storyText1: "Siamo Valentin, Lisa e il nostro piccolo Sam, nato ad Amsterdam. Dopo quasi dieci anni all'estero, abbiamo scelto le sponde del Garda per piantare le nostre radici.",
     storyText2: "La tradizione vinicola della famiglia di Lisa affonda le radici in queste colline. A Pacengo di Lazise (Località Gasco) abbiamo costruito la nostra casa, accogliendo gli ospiti nell'intimo appartamento di 22 m².",
     apartmentTitle: "L'Appartamento Privato di 22 m²",
-    apartmentDesc: "Pensato per 2 persone. Lusso intimo e funzionale che si apre sul giardino mediterraneo e sulla piscina a sale.",
-    poolText: "Piscina privata di 32 m² tra gli olivi",
+    apartmentDesc: "Pensato per 2 persone. Lusso intimo e funzionale che si apre sul giardino mediterraneo e sulla piscina.",
+    poolText: "Piscina privata di 32 m² nel giardino",
     gardenText: "Ampi prati verdi e aree relax private",
     familyText: "Trampolino, sabbiera, scivolo e giochi",
     evText: "Colonnina di ricarica EV in loco",
@@ -91,8 +91,8 @@ const translations = {
     adminLoginPrompt: "Inserisci le credenziali di accesso amministratore."
   },
   nl: {
-    brandName: "Casa Solea Garda",
-    brandSubtitle: "Privé Tuinappartement in Pacengo di Lazise",
+    brandName: "Casa Solea",
+    brandSubtitle: "Lazise aan het Gardameer",
     airbnbTitle: "Casa Solea | Tuinappartement, Zwembad & Kinderoase",
     tagline: "Klein binnen. Een wereld buiten.",
     bookStay: "Beschikbaarheid bekijken",
@@ -112,8 +112,8 @@ const translations = {
     storyText1: "Wij zijn Valentin, Lisa en onze pasgeboren zoon Sam – geboren in Amsterdam. Na bijna tien jaar besloten we onze droomplek aan het Gardameer te realiseren.",
     storyText2: "De wijncollectie eert de familiegeschiedenis van Lisa. In Pacengo di Lazise (Località Gasco) bouwden we ons eigen huis en een exclusief privé-appartement van 22 m² voor onze gasten.",
     apartmentTitle: "Het Privé Gastenverblijf van 22 m²",
-    apartmentDesc: "Optimaal ingedeeld voor 2 personen. Fijn binnen, en een enorme privétuin met zoutwaterzwembad buiten.",
-    poolText: "32 m² privé zwembad omringd door olijfbomen",
+    apartmentDesc: "Optimaal ingedeeld voor 2 personen. Fijn binnen, en een enorme privétuin met zwembad buiten.",
+    poolText: "32 m² privé zwembad in de tuin",
     gardenText: "Uitgestrekte gazons en privéterrassen",
     familyText: "Trampoline, zandbak, glijbaan en speeltoestellen",
     evText: "EV-laadpaal aanwezig op eigen terrein",
@@ -132,8 +132,8 @@ const translations = {
     adminLoginPrompt: "Voer de inloggegevens in voor beheer."
   },
   en: {
-    brandName: "Casa Solea Garda",
-    brandSubtitle: "Private Garden Apartment in Pacengo di Lazise",
+    brandName: "Casa Solea",
+    brandSubtitle: "Lazise on Lake Garda",
     airbnbTitle: "Casa Solea | Garden Apartment, Pool & Kids' Oasis",
     tagline: "Small inside. A whole world outside.",
     bookStay: "Check Availability",
@@ -152,9 +152,9 @@ const translations = {
     storyHeading: "From Amsterdam to Lake Garda",
     storyText1: "We are Valentin, Lisa, and our newborn son Sam—born in Amsterdam, where we spent nearly a decade building our lives. But the call of the Italian sun and Lake Garda brought us home.",
     storyText2: "Lisa’s family vineyard heritage runs deep in the region. Together, we built our family home in peaceful Pacengo di Lazise (Località Gasco), offering an exclusive 22 m² private guest apartment.",
-    apartmentTitle: "The 22 m² Private Suite & Estate",
-    apartmentDesc: "Thoughtfully designed for 2 guests. Compact, refined luxury indoors opening out into our expansive private garden, saltwater pool, and olive grove.",
-    poolText: "32 m² private saltwater pool set among olive trees",
+    apartmentTitle: "The 22 m² Private Suite & Home",
+    apartmentDesc: "Thoughtfully designed for 2 guests. Compact, refined luxury indoors opening out into our expansive private garden, pool, and garden.",
+    poolText: "32 m² private pool set among the garden",
     gardenText: "Expansive lawns, private terrace, and lounge areas",
     familyText: "Trampoline, sandbox, children's slide, and secure play zones",
     evText: "EV charging station on-site for sustainable travel",
@@ -278,18 +278,18 @@ const initialWineCatalogue = [
     type: 'Red Wine',
     grape: 'Corvina (70%), Rondinella, Molinara',
     origin: 'Località Gasco Vineyards, Pacengo',
-    desc: 'Crafted from Lisa’s family estate vines. Ruby-red elegance with notes of tart cherry, violet, and subtle sweet spices. Deliciously smooth.',
+    desc: 'Crafted from Lisa’s family home vines. Ruby-red elegance with notes of tart cherry, violet, and subtle sweet spices. Deliciously smooth.',
     size: '0.75 L',
     price: 18.00,
     image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80'
   },
   {
     id: 'cs4',
-    name: 'Casa Solea Garda Spumante Brut',
+    name: 'Casa Solea Spumante Brut',
     type: 'Sparkling Wine',
     grape: 'Garganega & Chardonnay',
     origin: 'Moraine Hills of Lake Garda',
-    desc: 'Fine, persistent perlage with floral bouquets and crisp green apple notes. The quintessential aperitivo by our saltwater pool.',
+    desc: 'Fine, persistent perlage with floral bouquets and crisp green apple notes. The quintessential aperitivo by our pool.',
     size: '0.75 L',
     price: 21.00,
     image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80'
@@ -308,7 +308,7 @@ const localRecommendations = [
     category: "Attractions",
     title: "Gardaland & CanevaWorld",
     distance: "1 km (3 min drive / 15 min walk)",
-    desc: "Italy's premier theme parks are right at your doorstep, yet far enough to enjoy absolute peace and quiet in our garden.",
+    desc: "Italy's premier theme parks are right at your doorstep, yet far enough to enjoy a peaceful setting in our garden.",
     icon: Compass
   },
   {
@@ -320,9 +320,9 @@ const localRecommendations = [
   },
   {
     category: "Wine & Taste",
-    title: "Casa Solea Family Vineyards",
+    title: "Wine around Lake Garda",
     distance: "Surrounding Hills",
-    desc: "Family-run hillside vineyards producing world-class Lugana and Bardolino wines, offering tastings just minutes away.",
+    desc: "The Lake Garda area is known for Lugana, Bardolino and Chiaretto, with many wineries and tastings within easy reach.",
     icon: Wine
   }
 ];
@@ -366,11 +366,19 @@ const galleryImages = [
   { 
     id: 6, 
     category: "Winery", 
-    title: "Casa Solea Family Vineyards", 
+    title: "Wine around Lake Garda", 
     url: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1200&q=80",
     desc: "The rolling hillside vineyards overlooking Lake Garda where our wines are born."
   }
 ];
+
+const CasaSoleaMark = ({ className = "w-9 h-9" }) => (
+  <svg viewBox="0 0 64 64" aria-hidden="true" className={className} fill="none">
+    <path d="M12 49V26C12 14 20 7 31 7c7 0 13 3 17 8-3-2-7-3-11-3-10 0-17 6-17 16v21H12Z" fill="currentColor"/>
+    <path d="M52 15v14c-3-4-7-6-12-6-8 0-14 6-14 14s6 14 14 14c5 0 9-2 12-6V15Z" fill="currentColor" opacity=".72"/>
+    <path d="M28 30c4 0 8 2 11 5l9 9" stroke="#F4F0E8" strokeWidth="3" strokeLinecap="round"/>
+  </svg>
+);
 
 export default function App() {
   const [lang, setLang] = useState('de');
@@ -566,46 +574,46 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F0EA] text-[#2C241D] font-sans">
+    <div className="min-h-screen bg-[#F4F0E8] text-[#34342E] font-sans">
       
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-[#F5F0EA]/95 backdrop-blur-md border-b border-[#E2D6C5] transition-all">
+      <nav className="sticky top-0 z-50 bg-[#F4F0E8]/95 backdrop-blur-md border-b border-[#D7CCBA] transition-all">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex flex-col cursor-pointer" onClick={() => { setActiveTab('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
             <div className="flex items-center gap-2">
-              <span className="text-lg md:text-xl font-serif tracking-widest uppercase text-[#3E2F24] font-bold">
-                Casa Solea Garda
+              <span className="text-lg md:text-xl font-serif tracking-widest uppercase text-[#34342E] font-bold">
+                Casa Solea
               </span>
             </div>
-            <span className="text-[10px] uppercase tracking-widest text-[#7A7265]">
+            <span className="text-[10px] uppercase tracking-widest text-[#74756A]">
               Pacengo di Lazise · Lake Garda
             </span>
           </div>
 
-          <div className="hidden lg:flex items-center space-x-8 text-sm tracking-wide font-medium text-[#2C241D]">
-            <a href="#stay" onClick={() => setActiveTab('home')} className="hover:text-[#8C3F29] transition">
+          <div className="hidden lg:flex items-center space-x-8 text-sm tracking-wide font-medium text-[#34342E]">
+            <a href="#stay" onClick={() => setActiveTab('home')} className="hover:text-[#74755F] transition">
               Das Apartment
             </a>
             <button
               onClick={() => { setActiveTab('webshop'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className={`flex items-center gap-1.5 transition ${activeTab === 'webshop' ? 'text-[#8C3F29] font-bold' : 'hover:text-[#8C3F29]'}`}
+              className={`flex items-center gap-1.5 transition ${activeTab === 'webshop' ? 'text-[#74755F] font-bold' : 'hover:text-[#74755F]'}`}
             >
-              <Wine className="w-4 h-4 text-[#8C3F29]" /> Unsere Weine
+              <Wine className="w-4 h-4 text-[#74755F]" /> Unsere Weine
             </button>
           </div>
 
           <div className="flex items-center space-x-4">
             <div className="relative group">
-              <button className="flex items-center space-x-1 px-3 py-1.5 rounded-full border border-[#E2D6C5] bg-[#EAE0D0]/50 text-xs font-semibold uppercase tracking-wider hover:bg-[#E2D6C5] transition">
-                <Globe className="w-3.5 h-3.5 text-[#3E2F24]" />
+              <button className="flex items-center space-x-1 px-3 py-1.5 rounded-full border border-[#D7CCBA] bg-[#DDD2C0]/50 text-xs font-semibold uppercase tracking-wider hover:bg-[#D7CCBA] transition">
+                <Globe className="w-3.5 h-3.5 text-[#34342E]" />
                 <span>{lang}</span>
               </button>
-              <div className="absolute right-0 mt-1 w-28 bg-[#F5F0EA] border border-[#E2D6C5] rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-1 z-50">
+              <div className="absolute right-0 mt-1 w-28 bg-[#F4F0E8] border border-[#D7CCBA] rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-1 z-50">
                 {['de', 'it', 'nl', 'en'].map(l => (
                   <button 
                     key={l}
                     onClick={() => setLang(l)}
-                    className={`w-full text-left px-4 py-1.5 text-xs uppercase tracking-wider font-medium hover:bg-[#E2D6C5]/40 transition ${lang === l ? 'font-bold text-[#8C3F29]' : 'text-[#2C241D]'}`}
+                    className={`w-full text-left px-4 py-1.5 text-xs uppercase tracking-wider font-medium hover:bg-[#D7CCBA]/40 transition ${lang === l ? 'font-bold text-[#74755F]' : 'text-[#34342E]'}`}
                   >
                     {l === 'de' ? 'Deutsch' : l === 'it' ? 'Italiano' : l === 'nl' ? 'Nederlands' : 'English'}
                   </button>
@@ -615,12 +623,12 @@ export default function App() {
 
             <button 
               onClick={() => setIsCartOpen(true)}
-              className="relative p-2.5 rounded-full bg-[#EAE0D0]/50 hover:bg-[#E2D6C5] border border-[#E2D6C5] transition"
+              className="relative p-2.5 rounded-full bg-[#DDD2C0]/50 hover:bg-[#D7CCBA] border border-[#D7CCBA] transition"
               aria-label="Wine Shop Bag"
             >
-              <ShoppingBag className="w-4 h-4 text-[#3E2F24]" />
+              <ShoppingBag className="w-4 h-4 text-[#34342E]" />
               {cartItemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-[#8C3F29] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+                <span className="absolute -top-1 -right-1 bg-[#74755F] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
                   {cartItemCount}
                 </span>
               )}
@@ -628,7 +636,7 @@ export default function App() {
 
             <button 
               onClick={() => setIsBookingOpen(true)}
-              className="hidden sm:inline-flex items-center space-x-2 bg-[#8C3F29] text-[#F5F0EA] px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold hover:bg-[#733120] transition shadow-md"
+              className="hidden sm:inline-flex items-center space-x-2 bg-[#74755F] text-[#F4F0E8] px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold hover:bg-[#4D503F] transition shadow-md"
             >
               <span>{t.bookStay}</span>
             </button>
@@ -640,101 +648,101 @@ export default function App() {
       {activeTab === 'home' ? (
         <>
           {/* Hero Section */}
-      <header className="relative h-[92vh] min-h-[650px] flex items-center justify-center overflow-hidden bg-[#2C241D]">
+      <header className="relative h-[92vh] min-h-[650px] flex items-center justify-center overflow-hidden bg-[#34342E]">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://raw.githubusercontent.com/valentinsanta95-beep/casa_solea/main/main_background_pic.jpg" 
-            alt="Casa Solea Estate in Pacengo di Lazise with garden and pool" 
+            src="/main_background_pic.jpg" 
+            alt="Lake Garda and Scaliger Castle in Sirmione" 
             className="w-full h-full object-cover opacity-75 scale-105"
             onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=2000&q=85"; }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#2C241D]/90 via-[#2C241D]/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#34342E]/90 via-[#34342E]/30 to-transparent"></div>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-[#F5F0EA]">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-[#F4F0E8]">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif tracking-tight font-normal mb-6 leading-tight">
             {t.heroHeading}
           </h1>
-          <p className="text-lg md:text-xl font-light max-w-2xl mx-auto mb-10 text-[#F5F0EA]/90">
+          <p className="text-lg md:text-xl font-light max-w-2xl mx-auto mb-10 text-[#F4F0E8]/90">
             {t.heroSub}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button 
                   onClick={() => setIsBookingOpen(true)}
-                  className="w-full sm:w-auto px-8 py-4 bg-[#8C3F29] text-[#F5F0EA] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#733120] transition shadow-xl"
+                  className="w-full sm:w-auto px-8 py-4 bg-[#74755F] text-[#F4F0E8] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#4D503F] transition shadow-xl"
                 >
                   {t.bookStay}
                 </button>
                 <button 
                   onClick={() => setIsSpecsOpen(true)}
-                  className="w-full sm:w-auto px-8 py-4 bg-transparent border border-[#F5F0EA]/40 text-[#F5F0EA] rounded-full uppercase text-xs tracking-[0.2em] font-medium hover:bg-white/10 transition flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-8 py-4 bg-transparent border border-[#F4F0E8]/40 text-[#F4F0E8] rounded-full uppercase text-xs tracking-[0.2em] font-medium hover:bg-white/10 transition flex items-center justify-center gap-2"
                 >
-                  <Home className="w-4 h-4 text-[#E2C4B8]" /> Explore 22 m² Suite Specs
+                  <Home className="w-4 h-4 text-[#B79A77]" /> Explore 22 m² Suite Specs
                 </button>
               </div>
             </div>
           </header>
 
-          {/* The 22 m² Private Suite & Estate Section */}
+          {/* The 22 m² Private Suite & Home Section */}
           <section id="stay" className="py-24 px-6 max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <span className="text-xs uppercase tracking-[0.25em] text-[#8C3F29] font-semibold block mb-3">
+                <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-3">
                   Private Guest Apartment
                 </span>
-                <h2 className="text-3xl md:text-5xl font-serif text-[#3E2F24] mb-6 leading-tight">
+                <h2 className="text-3xl md:text-5xl font-serif text-[#34342E] mb-6 leading-tight">
                   Your private escape at Lake Garda
                 </h2>
-                <p className="text-base text-[#2C241D]/80 leading-relaxed mb-6 font-light">
+                <p className="text-base text-[#34342E]/80 leading-relaxed mb-6 font-light">
                   {ui.intro}
                 </p>
-                <p className="text-base text-[#2C241D]/80 leading-relaxed mb-8 font-light">
+                <p className="text-base text-[#34342E]/80 leading-relaxed mb-8 font-light">
                   {ui.outside}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div 
                     onClick={() => setIsSpecsOpen(true)}
-                    className="p-5 rounded-2xl bg-[#EAE0D0]/40 border border-[#E2D6C5] cursor-pointer hover:bg-[#EAE0D0] transition"
+                    className="p-5 rounded-2xl bg-[#DDD2C0]/40 border border-[#D7CCBA] cursor-pointer hover:bg-[#DDD2C0] transition"
                   >
-                    <Waves className="w-6 h-6 text-[#8C3F29] mb-2" />
+                    <Waves className="w-6 h-6 text-[#74755F] mb-2" />
                     <h4 className="font-serif text-sm font-semibold mb-1">{ui.pool}</h4>
-                    <p className="text-xs text-[#2C241D]/70">{t.poolText}</p>
+                    <p className="text-xs text-[#34342E]/70">{t.poolText}</p>
                   </div>
                   <div 
                     onClick={() => setIsSpecsOpen(true)}
-                    className="p-5 rounded-2xl bg-[#EAE0D0]/40 border border-[#E2D6C5] cursor-pointer hover:bg-[#EAE0D0] transition"
+                    className="p-5 rounded-2xl bg-[#DDD2C0]/40 border border-[#D7CCBA] cursor-pointer hover:bg-[#DDD2C0] transition"
                   >
-                    <Trees className="w-6 h-6 text-[#8C3F29] mb-2" />
+                    <Trees className="w-6 h-6 text-[#74755F] mb-2" />
                     <h4 className="font-serif text-sm font-semibold mb-1">{ui.suite}</h4>
-                    <p className="text-xs text-[#2C241D]/70">{ui.yours}</p>
+                    <p className="text-xs text-[#34342E]/70">{ui.yours}</p>
                   </div>
-                  <div className="p-5 rounded-2xl bg-[#EAE0D0]/40 border border-[#E2D6C5]">
-                    <Baby className="w-6 h-6 text-[#8C3F29] mb-2" />
+                  <div className="p-5 rounded-2xl bg-[#DDD2C0]/40 border border-[#D7CCBA]">
+                    <Baby className="w-6 h-6 text-[#74755F] mb-2" />
                     <h4 className="font-serif text-sm font-semibold mb-1">{ui.kids}</h4>
-                    <p className="text-xs text-[#2C241D]/70">{t.familyText}</p>
+                    <p className="text-xs text-[#34342E]/70">{t.familyText}</p>
                   </div>
-                  <div className="p-5 rounded-2xl bg-[#EAE0D0]/40 border border-[#E2D6C5]">
-                    <Car className="w-6 h-6 text-[#8C3F29] mb-2" />
+                  <div className="p-5 rounded-2xl bg-[#DDD2C0]/40 border border-[#D7CCBA]">
+                    <Car className="w-6 h-6 text-[#74755F] mb-2" />
                     <h4 className="font-serif text-sm font-semibold mb-1">{ui.ev}</h4>
-                    <p className="text-xs text-[#2C241D]/70">{ui.sustainable}</p>
+                    <p className="text-xs text-[#34342E]/70">{ui.sustainable}</p>
                   </div>
                 </div>
               </div>
 
               <div className="relative">
-                <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-[#E2D6C5] relative group">
+                <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-[#D7CCBA] relative group">
                   <img 
                     src="https://raw.githubusercontent.com/valentinsanta95-beep/casa_solea/main/Fotoinserimento_03_c.png" 
                     alt="Architectural visualization of Casa Solea in Pacengo di Lazise" 
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                     onError={(e) => { e.currentTarget.style.display = 'none'; }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#2C241D]/70 via-transparent to-transparent opacity-80 flex flex-col justify-end p-8 text-[#F5F0EA]">
-                    <span className="text-[10px] uppercase tracking-widest text-[#E2C4B8] mb-1">Pacengo di Lazise · Località Gasco</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#34342E]/70 via-transparent to-transparent opacity-80 flex flex-col justify-end p-8 text-[#F4F0E8]">
+                    <span className="text-[10px] uppercase tracking-widest text-[#B79A77] mb-1">Pacengo di Lazise · Località Gasco</span>
                     <h4 className="font-serif text-xl mb-1">Casa Solea · Garden & Pool</h4>
-                    <p className="text-xs text-[#F5F0EA]/80 font-light">{ui.sanctuary}</p>
+                    <p className="text-xs text-[#F4F0E8]/80 font-light">{ui.sanctuary}</p>
                   </div>
                 </div>
               </div>
@@ -742,47 +750,47 @@ export default function App() {
           </section>
 
           {/* Outdoors & Kids Oasis */}
-          <section id="outdoors" className="py-24 bg-[#EAE0D0]/35 border-y border-[#E2D6C5]">
+          <section id="outdoors" className="py-24 bg-[#DDD2C0]/35 border-y border-[#D7CCBA]">
             <div className="max-w-7xl mx-auto px-6">
               <div className="text-center max-w-2xl mx-auto mb-16">
-                <span className="text-xs uppercase tracking-[0.25em] text-[#8C3F29] font-semibold block mb-3">
+                <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-3">
                   Outdoor Living, Garden & Pool Oasis
                 </span>
-                <h2 className="text-3xl md:text-5xl font-serif text-[#3E2F24] mb-4">
+                <h2 className="text-3xl md:text-5xl font-serif text-[#34342E] mb-4">
                   Designed for young families
                 </h2>
-                <p className="text-base text-[#2C241D]/80 font-light">
-                  On Airbnb & Booking.com, our guests love our spacious garden and pool sanctuary. Here, parents unwind under the olive trees while children play securely.
+                <p className="text-base text-[#34342E]/80 font-light">
+                  On Airbnb & Booking.com, our guests love our spacious garden and pool sanctuary. Here, parents unwind under the the garden while children play securely.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-[#F5F0EA] p-8 rounded-3xl border border-[#E2D6C5] shadow-sm">
-                  <div className="w-12 h-12 rounded-2xl bg-[#8C3F29]/10 flex items-center justify-center mb-6">
-                    <Smile className="w-6 h-6 text-[#8C3F29]" />
+                <div className="bg-[#F4F0E8] p-8 rounded-3xl border border-[#D7CCBA] shadow-sm">
+                  <div className="w-12 h-12 rounded-2xl bg-[#74755F]/10 flex items-center justify-center mb-6">
+                    <Smile className="w-6 h-6 text-[#74755F]" />
                   </div>
-                  <h3 className="font-serif text-xl text-[#3E2F24] mb-3">{ui.play}</h3>
-                  <p className="text-sm text-[#2C241D]/80 font-light leading-relaxed">
+                  <h3 className="font-serif text-xl text-[#34342E] mb-3">{ui.play}</h3>
+                  <p className="text-sm text-[#34342E]/80 font-light leading-relaxed">
                     Featuring a dedicated sandbox, wooden children&apos;s slide, secure trampoline, and expansive lawn space for outdoor games under the Italian sun.
                   </p>
                 </div>
 
-                <div className="bg-[#F5F0EA] p-8 rounded-3xl border border-[#E2D6C5] shadow-sm">
-                  <div className="w-12 h-12 rounded-2xl bg-[#8C3F29]/10 flex items-center justify-center mb-6">
-                    <Shield className="w-6 h-6 text-[#8C3F29]" />
+                <div className="bg-[#F4F0E8] p-8 rounded-3xl border border-[#D7CCBA] shadow-sm">
+                  <div className="w-12 h-12 rounded-2xl bg-[#74755F]/10 flex items-center justify-center mb-6">
+                    <Shield className="w-6 h-6 text-[#74755F]" />
                   </div>
-                  <h3 className="font-serif text-xl text-[#3E2F24] mb-3">{ui.peace}</h3>
-                  <p className="text-sm text-[#2C241D]/80 font-light leading-relaxed">
+                  <h3 className="font-serif text-xl text-[#34342E] mb-3">{ui.peace}</h3>
+                  <p className="text-sm text-[#34342E]/80 font-light leading-relaxed">
                     Casa Solea is our family home in peaceful Pacengo di Lazise, with a private guest apartment, garden and pool.
                   </p>
                 </div>
 
-                <div className="bg-[#F5F0EA] p-8 rounded-3xl border border-[#E2D6C5] shadow-sm">
-                  <div className="w-12 h-12 rounded-2xl bg-[#8C3F29]/10 flex items-center justify-center mb-6">
-                    <Compass className="w-6 h-6 text-[#8C3F29]" />
+                <div className="bg-[#F4F0E8] p-8 rounded-3xl border border-[#D7CCBA] shadow-sm">
+                  <div className="w-12 h-12 rounded-2xl bg-[#74755F]/10 flex items-center justify-center mb-6">
+                    <Compass className="w-6 h-6 text-[#74755F]" />
                   </div>
-                  <h3 className="font-serif text-xl text-[#3E2F24] mb-3">{ui.nearby}</h3>
-                  <p className="text-sm text-[#2C241D]/80 font-light leading-relaxed">
+                  <h3 className="font-serif text-xl text-[#34342E] mb-3">{ui.nearby}</h3>
+                  <p className="text-sm text-[#34342E]/80 font-light leading-relaxed">
                     Gardaland and CanevaWorld are approximately 1 km away. Enjoy the excitement during daylight and absolute silence by the pool at night.
                   </p>
                 </div>
@@ -794,7 +802,7 @@ export default function App() {
           <section id="story" className="py-24 px-6 max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="order-2 lg:order-1">
-                <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-[#E2D6C5]">
+                <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-[#D7CCBA]">
                   <img 
                     src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80" 
                     alt="Valentin, Lisa and Sam" 
@@ -804,22 +812,22 @@ export default function App() {
               </div>
 
               <div className="order-1 lg:order-2">
-                <span className="text-xs uppercase tracking-[0.25em] text-[#8C3F29] font-semibold block mb-3">
+                <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-3">
                   Meet Your Hosts
                 </span>
-                <h2 className="text-3xl md:text-5xl font-serif text-[#3E2F24] mb-6 leading-tight">
+                <h2 className="text-3xl md:text-5xl font-serif text-[#34342E] mb-6 leading-tight">
                   {t.storyHeading}
                 </h2>
-                <p className="text-base text-[#2C241D]/80 leading-relaxed mb-6 font-light">
+                <p className="text-base text-[#34342E]/80 leading-relaxed mb-6 font-light">
                   {t.storyText1}
                 </p>
-                <p className="text-base text-[#2C241D]/80 leading-relaxed mb-8 font-light">
+                <p className="text-base text-[#34342E]/80 leading-relaxed mb-8 font-light">
                   {t.storyText2}
                 </p>
-                <div className="flex items-center space-x-4 pt-4 border-t border-[#E2D6C5]">
+                <div className="flex items-center space-x-4 pt-4 border-t border-[#D7CCBA]">
                   <div>
-                    <h4 className="font-serif font-medium text-lg text-[#3E2F24]">{ui.hosts}</h4>
-                    <p className="text-xs text-[#8C3F29] uppercase tracking-wider">{ui.hostSub}</p>
+                    <h4 className="font-serif font-medium text-lg text-[#34342E]">{ui.hosts}</h4>
+                    <p className="text-xs text-[#74755F] uppercase tracking-wider">{ui.hostSub}</p>
                   </div>
                 </div>
               </div>
@@ -827,16 +835,16 @@ export default function App() {
           </section>
 
           {/* Location */}
-          <section id="location" className="py-24 bg-[#2C241D] text-[#F5F0EA]">
+          <section id="location" className="py-24 bg-[#34342E] text-[#F4F0E8]">
             <div className="max-w-7xl mx-auto px-6">
               <div className="text-center max-w-2xl mx-auto mb-16">
-                <span className="text-xs uppercase tracking-[0.25em] text-[#E2C4B8] font-semibold block mb-3">
+                <span className="text-xs uppercase tracking-[0.25em] text-[#B79A77] font-semibold block mb-3">
                   Località Gasco, Pacengo di Lazise
                 </span>
                 <h2 className="text-3xl md:text-5xl font-serif mb-4">
                   {t.distanceTitle}
                 </h2>
-                <p className="text-base text-[#F5F0EA]/80 font-light">
+                <p className="text-base text-[#F4F0E8]/80 font-light">
                   Via Gasco, 37017 Lazise VR, Italy. Perfectly positioned for exploring Lake Garda.
                 </p>
               </div>
@@ -845,20 +853,20 @@ export default function App() {
                 {localRecommendations.map((rec, idx) => {
                   const IconComp = rec.icon;
                   return (
-                    <div key={idx} className="bg-[#3E2F24] p-6 rounded-2xl border border-[#E2D6C5]/20">
-                      <div className="w-10 h-10 rounded-xl bg-[#8C3F29]/20 flex items-center justify-center mb-4 text-[#E2C4B8]">
+                    <div key={idx} className="bg-[#34342E] p-6 rounded-2xl border border-[#D7CCBA]/20">
+                      <div className="w-10 h-10 rounded-xl bg-[#74755F]/20 flex items-center justify-center mb-4 text-[#B79A77]">
                         <IconComp className="w-5 h-5" />
                       </div>
-                      <span className="text-[10px] uppercase tracking-widest text-[#E2C4B8] block mb-1">{rec.category}</span>
+                      <span className="text-[10px] uppercase tracking-widest text-[#B79A77] block mb-1">{rec.category}</span>
                       <h3 className="font-serif text-lg mb-2">{rec.title}</h3>
-                      <span className="text-xs font-semibold text-[#E2D6C5] block mb-3">{rec.distance}</span>
-                      <p className="text-xs text-[#F5F0EA]/70 font-light leading-relaxed">{rec.desc}</p>
+                      <span className="text-xs font-semibold text-[#D7CCBA] block mb-3">{rec.distance}</span>
+                      <p className="text-xs text-[#F4F0E8]/70 font-light leading-relaxed">{rec.desc}</p>
                     </div>
                   );
                 })}
               </div>
 
-              <div className="w-full h-96 rounded-3xl overflow-hidden border border-[#E2D6C5]/30 relative shadow-2xl">
+              <div className="w-full h-96 rounded-3xl overflow-hidden border border-[#D7CCBA]/30 relative shadow-2xl">
                 <iframe 
                   title="Pacengo di Lazise Map"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11211.33924151322!2d10.7242!3d45.4542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781eb405786ef75%3A0x40af13fec13c4c0!2s37017%20Pacengo%20VR%2C%20Italy!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus" 
@@ -866,9 +874,9 @@ export default function App() {
                   allowFullScreen="" 
                   loading="lazy"
                 ></iframe>
-                <div className="absolute bottom-6 left-6 bg-[#3E2F24]/90 backdrop-blur-md p-4 rounded-2xl border border-[#E2D6C5]/30 text-xs">
+                <div className="absolute bottom-6 left-6 bg-[#34342E]/90 backdrop-blur-md p-4 rounded-2xl border border-[#D7CCBA]/30 text-xs">
                   <p className="font-serif text-sm font-medium mb-1">Località Gasco, Pacengo di Lazise</p>
-                  <p className="text-[#F5F0EA]/70">{ui.setting}</p>
+                  <p className="text-[#F4F0E8]/70">{ui.setting}</p>
                 </div>
               </div>
             </div>
@@ -878,10 +886,10 @@ export default function App() {
           <section id="gallery" className="py-24 px-6 max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
               <div>
-                <span className="text-xs uppercase tracking-[0.25em] text-[#8C3F29] font-semibold block mb-3">
+                <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-3">
                   Visual Impressions & Casa Solea Views
                 </span>
-                <h2 className="text-3xl md:text-5xl font-serif text-[#3E2F24]">
+                <h2 className="text-3xl md:text-5xl font-serif text-[#34342E]">
                   Gallery & Casa Solea
                 </h2>
               </div>
@@ -891,7 +899,7 @@ export default function App() {
                   <button
                     key={tab}
                     onClick={() => setActiveGalleryTab(tab)}
-                    className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium transition ${activeGalleryTab === tab ? 'bg-[#8C3F29] text-[#F5F0EA]' : 'bg-[#EAE0D0]/50 text-[#2C241D] hover:bg-[#E2D6C5]'}`}
+                    className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium transition ${activeGalleryTab === tab ? 'bg-[#74755F] text-[#F4F0E8]' : 'bg-[#DDD2C0]/50 text-[#34342E] hover:bg-[#D7CCBA]'}`}
                   >
                     {tab}
                   </button>
@@ -903,17 +911,17 @@ export default function App() {
               {galleryImages
                 .filter(img => activeGalleryTab === 'All' || img.category === activeGalleryTab)
                 .map(img => (
-                  <div key={img.id} className="group relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg border border-[#E2D6C5]">
+                  <div key={img.id} className="group relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg border border-[#D7CCBA]">
                     <img 
                       src={img.url} 
                       alt={img.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                       onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1200&q=80"; }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#2C241D]/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-[#F5F0EA]">
-                      <span className="text-[10px] uppercase tracking-widest text-[#E2C4B8] mb-1">Casa Solea Garda · {img.category}</span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#34342E]/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-[#F4F0E8]">
+                      <span className="text-[10px] uppercase tracking-widest text-[#B79A77] mb-1">Casa Solea · {img.category}</span>
                       <h4 className="font-serif text-base mb-1">{img.title}</h4>
-                      <p className="text-xs text-[#F5F0EA]/80 font-light">{img.desc}</p>
+                      <p className="text-xs text-[#F4F0E8]/80 font-light">{img.desc}</p>
                     </div>
                   </div>
               ))}
@@ -921,20 +929,20 @@ export default function App() {
           </section>
 
           {/* Wine Teaser Section with Button linking to Subpage */}
-          <section className="py-24 bg-[#EAE0D0]/35 border-t border-[#E2D6C5]">
+          <section className="py-24 bg-[#DDD2C0]/35 border-t border-[#D7CCBA]">
             <div className="max-w-7xl mx-auto px-6 text-center">
-              <span className="text-xs uppercase tracking-[0.25em] text-[#8C3F29] font-semibold block mb-3">
+              <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-3">
                 Casa Solea Winery
               </span>
-              <h2 className="text-3xl md:text-5xl font-serif text-[#3E2F24] mb-4">
+              <h2 className="text-3xl md:text-5xl font-serif text-[#34342E] mb-4">
                 Take a piece of your stay home
               </h2>
-              <p className="text-base text-[#2C241D]/80 font-light max-w-2xl mx-auto mb-10">
+              <p className="text-base text-[#34342E]/80 font-light max-w-2xl mx-auto mb-10">
                 {t.winesIntro}
               </p>
               <button 
                 onClick={() => { setActiveTab('webshop'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                className="px-8 py-4 bg-[#8C3F29] text-[#F5F0EA] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#733120] transition shadow-xl inline-flex items-center gap-2"
+                className="px-8 py-4 bg-[#74755F] text-[#F4F0E8] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#4D503F] transition shadow-xl inline-flex items-center gap-2"
               >
                 <Wine className="w-4 h-4" /> {t.discoverWinesBtn} <ArrowRight className="w-4 h-4" />
               </button>
@@ -944,15 +952,15 @@ export default function App() {
       ) : (
         /* ================= WEBSHOP SUBPAGE ================= */
         <div className="py-16 px-6 max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-12 pb-6 border-b border-[#E2D6C5]">
+          <div className="flex items-center justify-between mb-12 pb-6 border-b border-[#D7CCBA]">
             <div>
-              <span className="text-xs uppercase tracking-[0.25em] text-[#8C3F29] font-semibold block mb-2">Casa Solea Subpage</span>
-              <h1 className="text-3xl md:text-5xl font-serif text-[#3E2F24]">{ui.winesPage}</h1>
-              <p className="text-sm text-[#2C241D]/80 font-light mt-1">{ui.winesLead}</p>
+              <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-2">Casa Solea Subpage</span>
+              <h1 className="text-3xl md:text-5xl font-serif text-[#34342E]">{ui.winesPage}</h1>
+              <p className="text-sm text-[#34342E]/80 font-light mt-1">{ui.winesLead}</p>
             </div>
             <button 
               onClick={() => { setActiveTab('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className="px-5 py-2.5 rounded-full border border-[#E2D6C5] bg-[#EAE0D0]/50 text-xs font-semibold uppercase tracking-wider hover:bg-[#E2D6C5] transition"
+              className="px-5 py-2.5 rounded-full border border-[#D7CCBA] bg-[#DDD2C0]/50 text-xs font-semibold uppercase tracking-wider hover:bg-[#D7CCBA] transition"
             >
               ← Back to Home
             </button>
@@ -960,26 +968,26 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {wineCatalogue.map(wine => (
-              <div key={wine.id} className="bg-[#F5F0EA] rounded-3xl p-6 border border-[#E2D6C5] flex flex-col justify-between shadow-sm">
+              <div key={wine.id} className="bg-[#F4F0E8] rounded-3xl p-6 border border-[#D7CCBA] flex flex-col justify-between shadow-sm">
                 <div>
-                  <div className="aspect-[3/4] rounded-2xl overflow-hidden mb-6 bg-[#EAE0D0]/50 relative">
+                  <div className="aspect-[3/4] rounded-2xl overflow-hidden mb-6 bg-[#DDD2C0]/50 relative">
                     <img src={wine.image} alt={wine.name} className="w-full h-full object-cover" onError={(e)=>{e.target.src="https://images.unsplash.com/photo-1584916313917-c48feb142355?auto=format&fit=crop&w=600&q=80"}} />
-                    <span className="absolute top-3 right-3 bg-[#8C3F29] text-[#F5F0EA] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-semibold">
+                    <span className="absolute top-3 right-3 bg-[#74755F] text-[#F4F0E8] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-semibold">
                       {wine.type}
                     </span>
                   </div>
-                  <span className="text-[10px] uppercase tracking-widest text-[#7A7265] block mb-1">{wine.origin}</span>
-                  <h3 className="font-serif text-xl text-[#3E2F24] mb-2">{wine.name}</h3>
-                  <p className="text-xs text-[#2C241D]/70 font-light mb-4 leading-relaxed">{wine.desc}</p>
+                  <span className="text-[10px] uppercase tracking-widest text-[#74756A] block mb-1">{wine.origin}</span>
+                  <h3 className="font-serif text-xl text-[#34342E] mb-2">{wine.name}</h3>
+                  <p className="text-xs text-[#34342E]/70 font-light mb-4 leading-relaxed">{wine.desc}</p>
                 </div>
-                <div className="flex items-center justify-between pt-4 border-t border-[#E2D6C5]">
+                <div className="flex items-center justify-between pt-4 border-t border-[#D7CCBA]">
                   <div>
-                    <span className="text-xs text-[#7A7265] block">{wine.size}</span>
-                    <span className="font-serif text-lg font-semibold text-[#3E2F24]">€{Number(wine.price).toFixed(2)}</span>
+                    <span className="text-xs text-[#74756A] block">{wine.size}</span>
+                    <span className="font-serif text-lg font-semibold text-[#34342E]">€{Number(wine.price).toFixed(2)}</span>
                   </div>
                   <button 
                     onClick={() => addToCart(wine)}
-                    className="px-4 py-2 bg-[#8C3F29] text-[#F5F0EA] rounded-full text-xs uppercase tracking-wider font-semibold hover:bg-[#733120] transition flex items-center gap-1.5 shadow-md"
+                    className="px-4 py-2 bg-[#74755F] text-[#F4F0E8] rounded-full text-xs uppercase tracking-wider font-semibold hover:bg-[#4D503F] transition flex items-center gap-1.5 shadow-md"
                   >
                     <Plus className="w-3.5 h-3.5" /> {t.addToBag}
                   </button>
@@ -992,24 +1000,24 @@ export default function App() {
 
       {/* 22m² Suite Specs Modal */}
       {isSpecsOpen && (
-        <div className="fixed inset-0 z-50 bg-[#2C241D]/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#F5F0EA] w-full max-w-2xl max-h-[90vh] rounded-3xl overflow-y-auto border border-[#E2D6C5] shadow-2xl p-8">
-            <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E2D6C5]">
+        <div className="fixed inset-0 z-50 bg-[#34342E]/70 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-[#F4F0E8] w-full max-w-2xl max-h-[90vh] rounded-3xl overflow-y-auto border border-[#D7CCBA] shadow-2xl p-8">
+            <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#D7CCBA]">
               <div>
-                <span className="text-xs uppercase tracking-widest text-[#8C3F29] block mb-1">Casa Solea Garda</span>
-                <h3 className="text-2xl font-serif text-[#3E2F24]">{ui.specs}</h3>
+                <span className="text-xs uppercase tracking-widest text-[#74755F] block mb-1">Casa Solea</span>
+                <h3 className="text-2xl font-serif text-[#34342E]">{ui.specs}</h3>
               </div>
-              <button onClick={() => setIsSpecsOpen(false)} className="p-2 rounded-full hover:bg-[#EAE0D0] transition">
-                <X className="w-6 h-6 text-[#3E2F24]" />
+              <button onClick={() => setIsSpecsOpen(false)} className="p-2 rounded-full hover:bg-[#DDD2C0] transition">
+                <X className="w-6 h-6 text-[#34342E]" />
               </button>
             </div>
 
-            <div className="space-y-6 text-sm font-light text-[#2C241D]">
-              <div className="bg-[#EAE0D0]/40 p-6 rounded-2xl border border-[#E2D6C5]">
-                <h4 className="font-serif font-semibold text-base mb-3 text-[#3E2F24]">{ui.breakdown}</h4>
+            <div className="space-y-6 text-sm font-light text-[#34342E]">
+              <div className="bg-[#DDD2C0]/40 p-6 rounded-2xl border border-[#D7CCBA]">
+                <h4 className="font-serif font-semibold text-base mb-3 text-[#34342E]">{ui.breakdown}</h4>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                   <li><strong>{ui.rentable}</strong> 22.00 m² (Private bedroom & ensuite bath)</li>
-                  <li><strong>{ui.poolLabel}</strong> 32.00 m² (Shared outdoor estate oasis)</li>
+                  <li><strong>{ui.poolLabel}</strong> 32.00 m² (Shared outdoor home oasis)</li>
                   <li><strong>{ui.terrace}</strong> 22.26 m²</li>
                   <li><strong>{ui.occupancy}</strong> 2 Guests (+ 1 infant)</li>
                   <li><strong>{ui.locationLabel}</strong> Località Gasco, Pacengo di Lazise (VR)</li>
@@ -1026,41 +1034,41 @@ export default function App() {
 
       {/* Wine Shopping Bag Drawer & Stripe Checkout Integration */}
       {isCartOpen && (
-        <div className="fixed inset-0 z-50 bg-[#2C241D]/70 backdrop-blur-sm flex justify-end">
-          <div className="bg-[#F5F0EA] w-full max-w-md h-full flex flex-col justify-between p-8 shadow-2xl border-l border-[#E2D6C5] overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-[#34342E]/70 backdrop-blur-sm flex justify-end">
+          <div className="bg-[#F4F0E8] w-full max-w-md h-full flex flex-col justify-between p-8 shadow-2xl border-l border-[#D7CCBA] overflow-y-auto">
             <div>
-              <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#E2D6C5]">
+              <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#D7CCBA]">
                 <div className="flex items-center gap-2">
-                  <Wine className="w-5 h-5 text-[#8C3F29]" />
-                  <h3 className="font-serif text-xl text-[#3E2F24]">{t.cartTitle}</h3>
+                  <Wine className="w-5 h-5 text-[#74755F]" />
+                  <h3 className="font-serif text-xl text-[#34342E]">{t.cartTitle}</h3>
                 </div>
-                <button onClick={() => { setIsCartOpen(false); setIsCheckoutOpen(false); setCheckoutStep('address'); }} className="p-2 rounded-full hover:bg-[#EAE0D0] transition">
-                  <X className="w-6 h-6 text-[#3E2F24]" />
+                <button onClick={() => { setIsCartOpen(false); setIsCheckoutOpen(false); setCheckoutStep('address'); }} className="p-2 rounded-full hover:bg-[#DDD2C0] transition">
+                  <X className="w-6 h-6 text-[#34342E]" />
                 </button>
               </div>
 
               {!isCheckoutOpen ? (
                 <>
                   {cart.length === 0 ? (
-                    <div className="text-center py-20 text-[#7A7265]">
+                    <div className="text-center py-20 text-[#74756A]">
                       <Wine className="w-12 h-12 mx-auto mb-4 opacity-40" />
                       <p className="text-sm font-light">{t.emptyCart}</p>
                     </div>
                   ) : (
                     <div className="space-y-4 max-h-[50vh] overflow-y-auto pr-2">
                       {cart.map(item => (
-                        <div key={item.id} className="flex items-center justify-between p-4 bg-[#EAE0D0]/40 rounded-2xl border border-[#E2D6C5]">
+                        <div key={item.id} className="flex items-center justify-between p-4 bg-[#DDD2C0]/40 rounded-2xl border border-[#D7CCBA]">
                           <div className="flex-1 pr-4">
-                            <h4 className="font-serif text-sm text-[#3E2F24]">{item.name}</h4>
-                            <span className="text-xs text-[#7A7265]">€{Number(item.price).toFixed(2)} each</span>
+                            <h4 className="font-serif text-sm text-[#34342E]">{item.name}</h4>
+                            <span className="text-xs text-[#74756A]">€{Number(item.price).toFixed(2)} each</span>
                           </div>
                           <div className="flex items-center space-x-3">
-                            <button onClick={() => updateQty(item.id, -1)} className="w-6 h-6 rounded-full bg-[#EAE0D0] flex items-center justify-center hover:bg-[#E2D6C5]">
-                              <Minus className="w-3 h-3 text-[#3E2F24]" />
+                            <button onClick={() => updateQty(item.id, -1)} className="w-6 h-6 rounded-full bg-[#DDD2C0] flex items-center justify-center hover:bg-[#D7CCBA]">
+                              <Minus className="w-3 h-3 text-[#34342E]" />
                             </button>
                             <span className="text-xs font-semibold w-4 text-center">{item.qty}</span>
-                            <button onClick={() => updateQty(item.id, 1)} className="w-6 h-6 rounded-full bg-[#EAE0D0] flex items-center justify-center hover:bg-[#E2D6C5]">
-                              <Plus className="w-3 h-3 text-[#3E2F24]" />
+                            <button onClick={() => updateQty(item.id, 1)} className="w-6 h-6 rounded-full bg-[#DDD2C0] flex items-center justify-center hover:bg-[#D7CCBA]">
+                              <Plus className="w-3 h-3 text-[#34342E]" />
                             </button>
                           </div>
                         </div>
@@ -1073,30 +1081,30 @@ export default function App() {
                 <div className="space-y-6">
                   {checkoutStep === 'address' && (
                     <form onSubmit={(e) => { e.preventDefault(); setCheckoutStep('payment'); }} className="space-y-4">
-                      <h4 className="font-serif text-base font-semibold text-[#3E2F24]">{ui.shipping}</h4>
+                      <h4 className="font-serif text-base font-semibold text-[#34342E]">{ui.shipping}</h4>
                       <div>
-                        <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.fullName}</label>
-                        <input type="text" required value={shippingAddress.fullName} onChange={(e)=>setShippingAddress({...shippingAddress, fullName: e.target.value})} placeholder="Jan de Vries" className="w-full px-4 py-3 rounded-xl bg-[#EAE0D0]/40 border border-[#E2D6C5] text-xs focus:outline-none" />
+                        <label className="block text-[10px] uppercase tracking-widest text-[#74756A] mb-1">{ui.fullName}</label>
+                        <input type="text" required value={shippingAddress.fullName} onChange={(e)=>setShippingAddress({...shippingAddress, fullName: e.target.value})} placeholder="Jan de Vries" className="w-full px-4 py-3 rounded-xl bg-[#DDD2C0]/40 border border-[#D7CCBA] text-xs focus:outline-none" />
                       </div>
                       <div>
-                        <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.email}</label>
-                        <input type="email" required value={shippingAddress.email} onChange={(e)=>setShippingAddress({...shippingAddress, email: e.target.value})} placeholder="jan@example.com" className="w-full px-4 py-3 rounded-xl bg-[#EAE0D0]/40 border border-[#E2D6C5] text-xs focus:outline-none" />
+                        <label className="block text-[10px] uppercase tracking-widest text-[#74756A] mb-1">{ui.email}</label>
+                        <input type="email" required value={shippingAddress.email} onChange={(e)=>setShippingAddress({...shippingAddress, email: e.target.value})} placeholder="jan@example.com" className="w-full px-4 py-3 rounded-xl bg-[#DDD2C0]/40 border border-[#D7CCBA] text-xs focus:outline-none" />
                       </div>
                       <div>
-                        <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.street}</label>
-                        <input type="text" required value={shippingAddress.street} onChange={(e)=>setShippingAddress({...shippingAddress, street: e.target.value})} placeholder="Keizersgracht 123" className="w-full px-4 py-3 rounded-xl bg-[#EAE0D0]/40 border border-[#E2D6C5] text-xs focus:outline-none" />
+                        <label className="block text-[10px] uppercase tracking-widest text-[#74756A] mb-1">{ui.street}</label>
+                        <input type="text" required value={shippingAddress.street} onChange={(e)=>setShippingAddress({...shippingAddress, street: e.target.value})} placeholder="Keizersgracht 123" className="w-full px-4 py-3 rounded-xl bg-[#DDD2C0]/40 border border-[#D7CCBA] text-xs focus:outline-none" />
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.city}</label>
-                          <input type="text" required value={shippingAddress.city} onChange={(e)=>setShippingAddress({...shippingAddress, city: e.target.value})} placeholder="Amsterdam" className="w-full px-4 py-3 rounded-xl bg-[#EAE0D0]/40 border border-[#E2D6C5] text-xs focus:outline-none" />
+                          <label className="block text-[10px] uppercase tracking-widest text-[#74756A] mb-1">{ui.city}</label>
+                          <input type="text" required value={shippingAddress.city} onChange={(e)=>setShippingAddress({...shippingAddress, city: e.target.value})} placeholder="Amsterdam" className="w-full px-4 py-3 rounded-xl bg-[#DDD2C0]/40 border border-[#D7CCBA] text-xs focus:outline-none" />
                         </div>
                         <div>
-                          <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.postal}</label>
-                          <input type="text" required value={shippingAddress.postalCode} onChange={(e)=>setShippingAddress({...shippingAddress, postalCode: e.target.value})} placeholder="1015 CJ" className="w-full px-4 py-3 rounded-xl bg-[#EAE0D0]/40 border border-[#E2D6C5] text-xs focus:outline-none" />
+                          <label className="block text-[10px] uppercase tracking-widest text-[#74756A] mb-1">{ui.postal}</label>
+                          <input type="text" required value={shippingAddress.postalCode} onChange={(e)=>setShippingAddress({...shippingAddress, postalCode: e.target.value})} placeholder="1015 CJ" className="w-full px-4 py-3 rounded-xl bg-[#DDD2C0]/40 border border-[#D7CCBA] text-xs focus:outline-none" />
                         </div>
                       </div>
-                      <button type="submit" className="w-full py-4 bg-[#8C3F29] text-[#F5F0EA] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#733120] transition shadow-lg mt-4">
+                      <button type="submit" className="w-full py-4 bg-[#74755F] text-[#F4F0E8] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#4D503F] transition shadow-lg mt-4">
                         Continue to Stripe Payment →
                       </button>
                     </form>
@@ -1105,28 +1113,28 @@ export default function App() {
                   {checkoutStep === 'payment' && (
                     <div className="space-y-4">
                       <div className="flex items-center gap-2 mb-2">
-                        <CreditCard className="w-5 h-5 text-[#8C3F29]" />
-                        <h4 className="font-serif text-base font-semibold text-[#3E2F24]">{ui.payment}</h4>
+                        <CreditCard className="w-5 h-5 text-[#74755F]" />
+                        <h4 className="font-serif text-base font-semibold text-[#34342E]">{ui.payment}</h4>
                       </div>
-                      <p className="text-xs text-[#7A7265]">{ui.paymentInfo}</p>
-                      <div className="p-4 rounded-2xl bg-[#EAE0D0]/50 border border-[#E2D6C5] space-y-3">
+                      <p className="text-xs text-[#74756A]">{ui.paymentInfo}</p>
+                      <div className="p-4 rounded-2xl bg-[#DDD2C0]/50 border border-[#D7CCBA] space-y-3">
                         <div>
-                          <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.card}</label>
-                          <input type="text" placeholder="4242 •••• •••• 4242" defaultValue="4242 4242 4242 4242" className="w-full px-4 py-3 rounded-xl bg-white border border-[#E2D6C5] text-xs font-mono focus:outline-none" />
+                          <label className="block text-[10px] uppercase tracking-widest text-[#74756A] mb-1">{ui.card}</label>
+                          <input type="text" placeholder="4242 •••• •••• 4242" defaultValue="4242 4242 4242 4242" className="w-full px-4 py-3 rounded-xl bg-white border border-[#D7CCBA] text-xs font-mono focus:outline-none" />
                         </div>
                         <div className="grid grid-cols-2 gap-3">
                           <div>
-                            <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.expires}</label>
-                            <input type="text" placeholder="MM / YY" defaultValue="12/28" className="w-full px-4 py-3 rounded-xl bg-white border border-[#E2D6C5] text-xs font-mono focus:outline-none" />
+                            <label className="block text-[10px] uppercase tracking-widest text-[#74756A] mb-1">{ui.expires}</label>
+                            <input type="text" placeholder="MM / YY" defaultValue="12/28" className="w-full px-4 py-3 rounded-xl bg-white border border-[#D7CCBA] text-xs font-mono focus:outline-none" />
                           </div>
                           <div>
-                            <label className="block text-[10px] uppercase tracking-widest text-[#7A7265] mb-1">{ui.cvc}</label>
-                            <input type="text" placeholder="123" defaultValue="888" className="w-full px-4 py-3 rounded-xl bg-white border border-[#E2D6C5] text-xs font-mono focus:outline-none" />
+                            <label className="block text-[10px] uppercase tracking-widest text-[#74756A] mb-1">{ui.cvc}</label>
+                            <input type="text" placeholder="123" defaultValue="888" className="w-full px-4 py-3 rounded-xl bg-white border border-[#D7CCBA] text-xs font-mono focus:outline-none" />
                           </div>
                         </div>
                       </div>
                       <div className="flex gap-3">
-                        <button onClick={()=>setCheckoutStep('address')} className="w-1/3 py-3 rounded-full border border-[#E2D6C5] text-xs font-semibold uppercase tracking-wider hover:bg-[#EAE0D0]">
+                        <button onClick={()=>setCheckoutStep('address')} className="w-1/3 py-3 rounded-full border border-[#D7CCBA] text-xs font-semibold uppercase tracking-wider hover:bg-[#DDD2C0]">
                           Back
                         </button>
                         <button onClick={() => {
@@ -1142,7 +1150,7 @@ export default function App() {
                           setWineOrders([newOrder, ...wineOrders]);
                           setCart([]);
                           setCheckoutStep('success');
-                        }} className="w-2/3 py-3 bg-[#8C3F29] text-[#F5F0EA] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#733120] transition shadow-lg">
+                        }} className="w-2/3 py-3 bg-[#74755F] text-[#F4F0E8] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#4D503F] transition shadow-lg">
                           Pay €{cartTotal.toFixed(2)}
                         </button>
                       </div>
@@ -1151,10 +1159,10 @@ export default function App() {
 
                   {checkoutStep === 'success' && (
                     <div className="text-center py-10 space-y-4">
-                      <CheckCircle2 className="w-16 h-16 text-[#8C3F29] mx-auto" />
-                      <h4 className="font-serif text-2xl text-[#3E2F24]">{ui.success}</h4>
-                      <p className="text-xs text-[#2C241D]/80 font-light">{ui.orderThanks}</p>
-                      <button onClick={() => { setIsCartOpen(false); setIsCheckoutOpen(false); setCheckoutStep('address'); }} className="px-6 py-3 bg-[#8C3F29] text-[#F5F0EA] rounded-full uppercase text-xs tracking-widest font-bold">
+                      <CheckCircle2 className="w-16 h-16 text-[#74755F] mx-auto" />
+                      <h4 className="font-serif text-2xl text-[#34342E]">{ui.success}</h4>
+                      <p className="text-xs text-[#34342E]/80 font-light">{ui.orderThanks}</p>
+                      <button onClick={() => { setIsCartOpen(false); setIsCheckoutOpen(false); setCheckoutStep('address'); }} className="px-6 py-3 bg-[#74755F] text-[#F4F0E8] rounded-full uppercase text-xs tracking-widest font-bold">
                         Close Webshop
                       </button>
                     </div>
@@ -1164,18 +1172,18 @@ export default function App() {
             </div>
 
             {!isCheckoutOpen && cart.length > 0 && (
-              <div className="pt-6 border-t border-[#E2D6C5]">
+              <div className="pt-6 border-t border-[#D7CCBA]">
                 <div className="flex items-center justify-between mb-6">
-                  <span className="text-sm uppercase tracking-wider font-semibold text-[#3E2F24]">{t.total}</span>
-                  <span className="font-serif text-2xl font-semibold text-[#3E2F24]">€{cartTotal.toFixed(2)}</span>
+                  <span className="text-sm uppercase tracking-wider font-semibold text-[#34342E]">{t.total}</span>
+                  <span className="font-serif text-2xl font-semibold text-[#34342E]">€{cartTotal.toFixed(2)}</span>
                 </div>
                 <button 
                   onClick={() => setIsCheckoutOpen(true)}
-                  className="w-full py-4 bg-[#8C3F29] text-[#F5F0EA] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#733120] transition shadow-lg text-center block"
+                  className="w-full py-4 bg-[#74755F] text-[#F4F0E8] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#4D503F] transition shadow-lg text-center block"
                 >
                   {t.checkout}
                 </button>
-                <p className="text-[10px] text-center text-[#7A7265] mt-3">Stripe Secure Checkout · Casa Solea Winery</p>
+                <p className="text-[10px] text-center text-[#74756A] mt-3">Stripe Secure Checkout · Casa Solea Winery</p>
               </div>
             )}
           </div>
@@ -1184,24 +1192,24 @@ export default function App() {
 
       {/* Availability Calendar */}
       {isBookingOpen && (
-        <div className="fixed inset-0 z-50 bg-[#2C241D]/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#F5F0EA] w-full max-w-2xl rounded-3xl p-6 md:p-8 border border-[#E2D6C5] shadow-2xl relative">
-            <button onClick={() => setIsBookingOpen(false)} className="absolute top-5 right-5 p-2 rounded-full hover:bg-[#EAE0D0] transition">
-              <X className="w-6 h-6 text-[#3E2F24]" />
+        <div className="fixed inset-0 z-50 bg-[#34342E]/70 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-[#F4F0E8] w-full max-w-2xl rounded-3xl p-6 md:p-8 border border-[#D7CCBA] shadow-2xl relative">
+            <button onClick={() => setIsBookingOpen(false)} className="absolute top-5 right-5 p-2 rounded-full hover:bg-[#DDD2C0] transition">
+              <X className="w-6 h-6 text-[#34342E]" />
             </button>
-            <span className="text-xs uppercase tracking-[0.25em] text-[#8C3F29] font-semibold block mb-2">{ui.availability}</span>
-            <h3 className="text-2xl md:text-3xl font-serif text-[#3E2F24] mb-2">Casa Solea Garda</h3>
-            <p className="text-xs text-[#2C241D]/65 mb-6">{ui.availableLegend}</p>
+            <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-2">{ui.availability}</span>
+            <h3 className="text-2xl md:text-3xl font-serif text-[#34342E] mb-2">Casa Solea</h3>
+            <p className="text-xs text-[#34342E]/65 mb-6">{ui.availableLegend}</p>
 
             <div className="flex items-center justify-between mb-5">
-              <button onClick={() => setAvailabilityMonth(new Date(availabilityMonth.getFullYear(), availabilityMonth.getMonth() - 1, 1))} className="px-4 py-2 rounded-full border border-[#E2D6C5] hover:bg-[#EAE0D0] text-sm">←</button>
-              <h4 className="font-serif text-xl text-[#3E2F24]">
+              <button onClick={() => setAvailabilityMonth(new Date(availabilityMonth.getFullYear(), availabilityMonth.getMonth() - 1, 1))} className="px-4 py-2 rounded-full border border-[#D7CCBA] hover:bg-[#DDD2C0] text-sm">←</button>
+              <h4 className="font-serif text-xl text-[#34342E]">
                 {availabilityMonth.toLocaleDateString(lang === 'de' ? 'de-DE' : lang === 'it' ? 'it-IT' : lang === 'nl' ? 'nl-NL' : 'en-GB', { month: 'long', year: 'numeric' })}
               </h4>
-              <button onClick={() => setAvailabilityMonth(new Date(availabilityMonth.getFullYear(), availabilityMonth.getMonth() + 1, 1))} className="px-4 py-2 rounded-full border border-[#E2D6C5] hover:bg-[#EAE0D0] text-sm">→</button>
+              <button onClick={() => setAvailabilityMonth(new Date(availabilityMonth.getFullYear(), availabilityMonth.getMonth() + 1, 1))} className="px-4 py-2 rounded-full border border-[#D7CCBA] hover:bg-[#DDD2C0] text-sm">→</button>
             </div>
 
-            <div className="grid grid-cols-7 gap-2 mb-2 text-center text-[10px] uppercase tracking-wider text-[#7A7265]">
+            <div className="grid grid-cols-7 gap-2 mb-2 text-center text-[10px] uppercase tracking-wider text-[#74756A]">
               {['Mo','Di','Mi','Do','Fr','Sa','So'].map(day => <div key={day}>{day}</div>)}
             </div>
             <div className="grid grid-cols-7 gap-2">
@@ -1215,17 +1223,17 @@ export default function App() {
                     disabled={unavailable}
                     onClick={() => handleAvailabilityDateClick(date)}
                     key={date.toISOString()}
-                    className={`aspect-square rounded-xl flex items-center justify-center text-sm font-semibold border transition ${unavailable ? 'bg-red-100 border-red-200 text-red-700 cursor-not-allowed' : selected ? 'bg-[#8C3F29] border-[#8C3F29] text-white ring-2 ring-[#8C3F29]/20' : 'bg-green-100 border-green-200 text-green-800 hover:bg-green-200 cursor-pointer'}`}
+                    className={`aspect-square rounded-xl flex items-center justify-center text-sm font-semibold border transition ${unavailable ? 'bg-red-100 border-red-200 text-red-700 cursor-not-allowed' : selected ? 'bg-[#74755F] border-[#74755F] text-white ring-2 ring-[#74755F]/20' : 'bg-green-100 border-green-200 text-green-800 hover:bg-green-200 cursor-pointer'}`}
                   >
                     {date.getDate()}
                   </button>
                 );
               })}
             </div>
-            <div className="mt-6 border-t border-[#E2D6C5] pt-5">
+            <div className="mt-6 border-t border-[#D7CCBA] pt-5">
               {!bookingSubmitted ? (
                 <>
-                  <p className="text-sm text-[#3E2F24] mb-4">
+                  <p className="text-sm text-[#34342E] mb-4">
                     {selectedCheckIn
                       ? selectedCheckOut
                         ? `${selectedCheckIn.toLocaleDateString()} – ${selectedCheckOut.toLocaleDateString()}`
@@ -1234,12 +1242,12 @@ export default function App() {
                   </p>
                   {selectedCheckIn && selectedCheckOut && (
                     <form onSubmit={handleDirectBooking} className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                      <input required value={bookingGuest.name} onChange={(e) => setBookingGuest({...bookingGuest, name: e.target.value})} placeholder={ui.name} className="px-4 py-3 rounded-xl border border-[#E2D6C5] bg-white text-sm focus:outline-none" />
-                      <input required type="email" value={bookingGuest.email} onChange={(e) => setBookingGuest({...bookingGuest, email: e.target.value})} placeholder={ui.email} className="px-4 py-3 rounded-xl border border-[#E2D6C5] bg-white text-sm focus:outline-none" />
-                      <select value={bookingGuest.guests} onChange={(e) => setBookingGuest({...bookingGuest, guests: e.target.value})} className="px-4 py-3 rounded-xl border border-[#E2D6C5] bg-white text-sm focus:outline-none">
+                      <input required value={bookingGuest.name} onChange={(e) => setBookingGuest({...bookingGuest, name: e.target.value})} placeholder={ui.name} className="px-4 py-3 rounded-xl border border-[#D7CCBA] bg-white text-sm focus:outline-none" />
+                      <input required type="email" value={bookingGuest.email} onChange={(e) => setBookingGuest({...bookingGuest, email: e.target.value})} placeholder={ui.email} className="px-4 py-3 rounded-xl border border-[#D7CCBA] bg-white text-sm focus:outline-none" />
+                      <select value={bookingGuest.guests} onChange={(e) => setBookingGuest({...bookingGuest, guests: e.target.value})} className="px-4 py-3 rounded-xl border border-[#D7CCBA] bg-white text-sm focus:outline-none">
                         <option value="1">{ui.oneGuest}</option><option value="2">2 {ui.guests}</option><option value="3">3 {ui.guests}</option><option value="4">4 {ui.guests}</option>
                       </select>
-                      <button type="submit" className="md:col-span-3 bg-[#8C3F29] text-white rounded-xl px-5 py-3 text-sm font-semibold hover:bg-[#74321f] transition">
+                      <button type="submit" className="md:col-span-3 bg-[#74755F] text-white rounded-xl px-5 py-3 text-sm font-semibold hover:bg-[#4D503F] transition">
                         Buchungsanfrage senden
                       </button>
                     </form>
@@ -1258,26 +1266,26 @@ export default function App() {
 
       {/* Upgraded Admin Portal Modal: Booking Approvals & Full Webshop CRUD */}
       {isAdminOpen && (
-        <div className="fixed inset-0 z-50 bg-[#2C241D]/80 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-[#F5F0EA] w-full max-w-5xl max-h-[92vh] rounded-3xl overflow-y-auto border border-[#E2D6C5] shadow-2xl p-8">
-            <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#E2D6C5]">
+        <div className="fixed inset-0 z-50 bg-[#34342E]/80 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="bg-[#F4F0E8] w-full max-w-5xl max-h-[92vh] rounded-3xl overflow-y-auto border border-[#D7CCBA] shadow-2xl p-8">
+            <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#D7CCBA]">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#8C3F29] text-white flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-[#74755F] text-white flex items-center justify-center">
                   <Lock className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-widest text-[#8C3F29] font-semibold block">Valentin&apos;s Admin Portal</span>
-                  <h3 className="text-2xl font-serif text-[#3E2F24]">{t.adminPortalTitle}</h3>
+                  <span className="text-xs uppercase tracking-widest text-[#74755F] font-semibold block">Valentin&apos;s Admin Portal</span>
+                  <h3 className="text-2xl font-serif text-[#34342E]">{t.adminPortalTitle}</h3>
                 </div>
               </div>
-              <button onClick={() => setIsAdminOpen(false)} className="p-2 rounded-full hover:bg-[#EAE0D0] transition">
-                <X className="w-6 h-6 text-[#3E2F24]" />
+              <button onClick={() => setIsAdminOpen(false)} className="p-2 rounded-full hover:bg-[#DDD2C0] transition">
+                <X className="w-6 h-6 text-[#34342E]" />
               </button>
             </div>
 
             {!isAdminLoggedIn ? (
               <div className="max-w-md mx-auto py-12 text-center">
-                <p className="text-sm text-[#2C241D]/80 mb-6 font-light">{t.adminLoginPrompt}</p>
+                <p className="text-sm text-[#34342E]/80 mb-6 font-light">{t.adminLoginPrompt}</p>
                 <form onSubmit={handleAdminLogin} className="space-y-4">
                   <input 
                     type="text" 
@@ -1285,7 +1293,7 @@ export default function App() {
                     value={adminUsernameInput}
                     onChange={(e) => setAdminUsernameInput(e.target.value)}
                     required
-                    className="w-full px-4 py-3.5 rounded-xl bg-[#EAE0D0]/50 border border-[#E2D6C5] text-sm focus:outline-none text-center font-medium"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#DDD2C0]/50 border border-[#D7CCBA] text-sm focus:outline-none text-center font-medium"
                   />
                   <input 
                     type="password" 
@@ -1293,9 +1301,9 @@ export default function App() {
                     value={adminPasswordInput}
                     onChange={(e) => setAdminPasswordInput(e.target.value)}
                     required
-                    className="w-full px-4 py-3.5 rounded-xl bg-[#EAE0D0]/50 border border-[#E2D6C5] text-sm focus:outline-none text-center font-medium"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#DDD2C0]/50 border border-[#D7CCBA] text-sm focus:outline-none text-center font-medium"
                   />
-                  <button type="submit" className="w-full py-4 bg-[#8C3F29] text-[#F5F0EA] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#733120] transition shadow-lg">
+                  <button type="submit" className="w-full py-4 bg-[#74755F] text-[#F4F0E8] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#4D503F] transition shadow-lg">
                     Sign In as Admin
                   </button>
                 </form>
@@ -1303,18 +1311,18 @@ export default function App() {
             ) : (
               <div className="space-y-12">
                 {/* OTA Channel Sync Status Bar */}
-                <div className="bg-[#EAE0D0]/50 p-6 rounded-2xl border border-[#E2D6C5] flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="bg-[#DDD2C0]/50 p-6 rounded-2xl border border-[#D7CCBA] flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div>
-                    <h4 className="font-serif font-semibold text-base text-[#3E2F24] mb-1">OTA Channel Synchronization (Airbnb & Booking.com)</h4>
-                    <p className="text-xs text-[#7A7265]">Live iCal feeds active. Availability is automatically blocked across platforms upon confirmation.</p>
+                    <h4 className="font-serif font-semibold text-base text-[#34342E] mb-1">OTA Channel Synchronization (Airbnb & Booking.com)</h4>
+                    <p className="text-xs text-[#74756A]">Live iCal feeds active. Availability is automatically blocked across platforms upon confirmation.</p>
                     <div className="flex gap-4 mt-2 text-xs">
-                      <span className="text-[#8C3F29] font-medium">Airbnb: {syncStatus.airbnb}</span>
-                      <span className="text-[#8C3F29] font-medium">Booking.com: {syncStatus.booking}</span>
+                      <span className="text-[#74755F] font-medium">Airbnb: {syncStatus.airbnb}</span>
+                      <span className="text-[#74755F] font-medium">Booking.com: {syncStatus.booking}</span>
                     </div>
                   </div>
                   <button 
                     onClick={triggerChannelSync}
-                    className="px-4 py-2.5 bg-[#3E2F24] text-[#F5F0EA] rounded-full text-xs uppercase tracking-wider font-semibold hover:bg-[#2C241D] transition flex items-center gap-2 shrink-0"
+                    className="px-4 py-2.5 bg-[#34342E] text-[#F4F0E8] rounded-full text-xs uppercase tracking-wider font-semibold hover:bg-[#34342E] transition flex items-center gap-2 shrink-0"
                   >
                     <RefreshCw className="w-3.5 h-3.5" /> Sync Now
                   </button>
@@ -1322,13 +1330,13 @@ export default function App() {
 
                 {/* Bookings Management & Direct Approvals */}
                 <div>
-                  <h4 className="font-serif font-semibold text-lg text-[#3E2F24] mb-4 flex items-center gap-2">
-                    <Calendar className="w-5 h-5 text-[#8C3F29]" /> Guest Reservations & Direct Approvals ({bookings.length})
+                  <h4 className="font-serif font-semibold text-lg text-[#34342E] mb-4 flex items-center gap-2">
+                    <Calendar className="w-5 h-5 text-[#74755F]" /> Guest Reservations & Direct Approvals ({bookings.length})
                   </h4>
                   <div className="overflow-x-auto">
                     <table className="w-full text-left text-xs">
                       <thead>
-                        <tr className="border-b border-[#E2D6C5] text-[#7A7265] uppercase tracking-wider">
+                        <tr className="border-b border-[#D7CCBA] text-[#74756A] uppercase tracking-wider">
                           <th className="pb-3 font-semibold">Guest</th>
                           <th className="pb-3 font-semibold">Platform</th>
                           <th className="pb-3 font-semibold">Dates</th>
@@ -1337,21 +1345,21 @@ export default function App() {
                           <th className="pb-3 font-semibold text-right">Action</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-[#E2D6C5]/50">
+                      <tbody className="divide-y divide-[#D7CCBA]/50">
                         {bookings.map(b => (
-                          <tr key={b.id} className="hover:bg-[#EAE0D0]/30">
-                            <td className="py-3.5 font-medium text-[#3E2F24]">{b.guest}</td>
+                          <tr key={b.id} className="hover:bg-[#DDD2C0]/30">
+                            <td className="py-3.5 font-medium text-[#34342E]">{b.guest}</td>
                             <td className="py-3.5">
                               <span className={`px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase ${b.platform === 'Airbnb' ? 'bg-rose-100 text-rose-800' : b.platform === 'Booking.com' ? 'bg-blue-100 text-blue-800' : 'bg-amber-100 text-amber-800'}`}>
                                 {b.platform}
                               </span>
                             </td>
-                            <td className="py-3.5 text-[#2C241D]">{b.checkIn} to {b.checkOut}</td>
-                            <td className="py-3.5 text-[#7A7265]">{b.guests}</td>
-                            <td className="py-3.5 font-semibold text-[#8C3F29]">{b.status}</td>
+                            <td className="py-3.5 text-[#34342E]">{b.checkIn} to {b.checkOut}</td>
+                            <td className="py-3.5 text-[#74756A]">{b.guests}</td>
+                            <td className="py-3.5 font-semibold text-[#74755F]">{b.status}</td>
                             <td className="py-3.5 text-right">
                               {b.status.includes('Pending') ? (
-                                <button onClick={() => approveBooking(b.id)} className="px-3 py-1 bg-[#8C3F29] text-white rounded-full text-[10px] font-bold uppercase tracking-wider hover:bg-[#733120]">
+                                <button onClick={() => approveBooking(b.id)} className="px-3 py-1 bg-[#74755F] text-white rounded-full text-[10px] font-bold uppercase tracking-wider hover:bg-[#4D503F]">
                                   Approve
                                 </button>
                               ) : (
@@ -1367,13 +1375,13 @@ export default function App() {
 
                 {/* Wine Webshop Orders Management (Stripe Payment & Shipping Details) */}
                 <div>
-                  <h4 className="font-serif font-semibold text-lg text-[#3E2F24] mb-4 flex items-center gap-2">
-                    <Wine className="w-5 h-5 text-[#8C3F29]" /> Webshop Orders & Stripe Payments ({wineOrders.length})
+                  <h4 className="font-serif font-semibold text-lg text-[#34342E] mb-4 flex items-center gap-2">
+                    <Wine className="w-5 h-5 text-[#74755F]" /> Webshop Orders & Stripe Payments ({wineOrders.length})
                   </h4>
                   <div className="overflow-x-auto">
                     <table className="w-full text-left text-xs">
                       <thead>
-                        <tr className="border-b border-[#E2D6C5] text-[#7A7265] uppercase tracking-wider">
+                        <tr className="border-b border-[#D7CCBA] text-[#74756A] uppercase tracking-wider">
                           <th className="pb-3 font-semibold">Order / Customer</th>
                           <th className="pb-3 font-semibold">Items & Address</th>
                           <th className="pb-3 font-semibold">Total / Payment</th>
@@ -1381,30 +1389,30 @@ export default function App() {
                           <th className="pb-3 font-semibold text-right">Update</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-[#E2D6C5]/50">
+                      <tbody className="divide-y divide-[#D7CCBA]/50">
                         {wineOrders.map(w => (
-                          <tr key={w.id} className="hover:bg-[#EAE0D0]/30">
+                          <tr key={w.id} className="hover:bg-[#DDD2C0]/30">
                             <td className="py-3.5">
-                              <span className="font-mono text-[10px] text-[#7A7265] block">{w.id}</span>
-                              <span className="font-medium text-[#3E2F24]">{w.customer}</span>
+                              <span className="font-mono text-[10px] text-[#74756A] block">{w.id}</span>
+                              <span className="font-medium text-[#34342E]">{w.customer}</span>
                             </td>
                             <td className="py-3.5 max-w-xs">
-                              <span className="text-[#2C241D] block">{w.items}</span>
-                              <span className="text-[10px] text-[#7A7265] block truncate">📍 {w.address}</span>
+                              <span className="text-[#34342E] block">{w.items}</span>
+                              <span className="text-[10px] text-[#74756A] block truncate">📍 {w.address}</span>
                             </td>
                             <td className="py-3.5">
-                              <span className="font-serif font-semibold text-[#3E2F24] block">{w.total}</span>
+                              <span className="font-serif font-semibold text-[#34342E] block">{w.total}</span>
                               <span className="text-[10px] text-emerald-700 font-semibold">{w.paymentStatus}</span>
                             </td>
                             <td className="py-3.5">
-                              <span className="text-[#8C3F29] font-medium block">{w.shippingStatus}</span>
-                              <span className="font-mono text-[10px] text-[#7A7265] block">Tracking: {w.trackingNumber}</span>
+                              <span className="text-[#74755F] font-medium block">{w.shippingStatus}</span>
+                              <span className="font-mono text-[10px] text-[#74756A] block">Tracking: {w.trackingNumber}</span>
                             </td>
                             <td className="py-3.5 text-right">
                               <button onClick={() => {
                                 const newTrack = prompt('Enter DHL Tracking Number:', w.trackingNumber);
                                 if (newTrack) updateOrderShipping(w.id, 'Shipped', newTrack);
-                              }} className="px-3 py-1 bg-[#3E2F24] text-white rounded-full text-[10px] font-bold uppercase tracking-wider hover:bg-[#2C241D]">
+                              }} className="px-3 py-1 bg-[#34342E] text-white rounded-full text-[10px] font-bold uppercase tracking-wider hover:bg-[#34342E]">
                                 Add Shipping
                               </button>
                             </td>
@@ -1418,29 +1426,29 @@ export default function App() {
                 {/* Webshop Product Management (Add, Edit, Remove Products, Prices, Pictures, Descriptions) */}
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <h4 className="font-serif font-semibold text-lg text-[#3E2F24] flex items-center gap-2">
-                      <ShoppingBag className="w-5 h-5 text-[#8C3F29]" /> Webshop Product Catalogue ({wineCatalogue.length})
+                    <h4 className="font-serif font-semibold text-lg text-[#34342E] flex items-center gap-2">
+                      <ShoppingBag className="w-5 h-5 text-[#74755F]" /> Webshop Product Catalogue ({wineCatalogue.length})
                     </h4>
-                    <button onClick={() => setIsAddingProduct(true)} className="px-4 py-2 bg-[#8C3F29] text-white rounded-full text-xs uppercase tracking-wider font-bold">
+                    <button onClick={() => setIsAddingProduct(true)} className="px-4 py-2 bg-[#74755F] text-white rounded-full text-xs uppercase tracking-wider font-bold">
                       + Add New Wine Product
                     </button>
                   </div>
 
                   {/* Add Product Modal/Form */}
                   {isAddingProduct && (
-                    <form onSubmit={handleAddNewProduct} className="bg-[#EAE0D0]/60 p-6 rounded-2xl border border-[#E2D6C5] mb-6 space-y-4">
-                      <h5 className="font-serif text-sm font-semibold text-[#3E2F24]">New Wine Details</h5>
+                    <form onSubmit={handleAddNewProduct} className="bg-[#DDD2C0]/60 p-6 rounded-2xl border border-[#D7CCBA] mb-6 space-y-4">
+                      <h5 className="font-serif text-sm font-semibold text-[#34342E]">New Wine Details</h5>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <input type="text" placeholder="Wine Name" required value={newProductForm.name} onChange={e=>setNewProductForm({...newProductForm, name:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#E2D6C5] text-xs" />
-                        <input type="text" placeholder="Origin / Region" required value={newProductForm.origin} onChange={e=>setNewProductForm({...newProductForm, origin:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#E2D6C5] text-xs" />
-                        <input type="number" step="0.05" placeholder="Price (€)" required value={newProductForm.price} onChange={e=>setNewProductForm({...newProductForm, price:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#E2D6C5] text-xs" />
+                        <input type="text" placeholder="Wine Name" required value={newProductForm.name} onChange={e=>setNewProductForm({...newProductForm, name:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#D7CCBA] text-xs" />
+                        <input type="text" placeholder="Origin / Region" required value={newProductForm.origin} onChange={e=>setNewProductForm({...newProductForm, origin:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#D7CCBA] text-xs" />
+                        <input type="number" step="0.05" placeholder="Price (€)" required value={newProductForm.price} onChange={e=>setNewProductForm({...newProductForm, price:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#D7CCBA] text-xs" />
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <input type="text" placeholder="Image URL" required value={newProductForm.image} onChange={e=>setNewProductForm({...newProductForm, image:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#E2D6C5] text-xs" />
-                        <input type="text" placeholder="Description" required value={newProductForm.desc} onChange={e=>setNewProductForm({...newProductForm, desc:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#E2D6C5] text-xs" />
+                        <input type="text" placeholder="Image URL" required value={newProductForm.image} onChange={e=>setNewProductForm({...newProductForm, image:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#D7CCBA] text-xs" />
+                        <input type="text" placeholder="Description" required value={newProductForm.desc} onChange={e=>setNewProductForm({...newProductForm, desc:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#D7CCBA] text-xs" />
                       </div>
                       <div className="flex gap-2">
-                        <button type="submit" className="px-5 py-2 bg-[#8C3F29] text-white rounded-full text-xs font-bold uppercase">Save Product</button>
+                        <button type="submit" className="px-5 py-2 bg-[#74755F] text-white rounded-full text-xs font-bold uppercase">Save Product</button>
                         <button type="button" onClick={()=>setIsAddingProduct(false)} className="px-5 py-2 bg-gray-300 text-gray-800 rounded-full text-xs font-bold uppercase">Cancel</button>
                       </div>
                     </form>
@@ -1448,19 +1456,19 @@ export default function App() {
 
                   {/* Edit Product Modal/Form */}
                   {editingProduct && (
-                    <form onSubmit={handleSaveProductEdit} className="bg-[#EAE0D0]/80 p-6 rounded-2xl border border-[#8C3F29] mb-6 space-y-4">
-                      <h5 className="font-serif text-sm font-semibold text-[#8C3F29]">Editing: {editingProduct.name}</h5>
+                    <form onSubmit={handleSaveProductEdit} className="bg-[#DDD2C0]/80 p-6 rounded-2xl border border-[#74755F] mb-6 space-y-4">
+                      <h5 className="font-serif text-sm font-semibold text-[#74755F]">Editing: {editingProduct.name}</h5>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <input type="text" required value={editingProduct.name} onChange={e=>setEditingProduct({...editingProduct, name:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#E2D6C5] text-xs" />
-                        <input type="text" required value={editingProduct.origin} onChange={e=>setEditingProduct({...editingProduct, origin:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#E2D6C5] text-xs" />
-                        <input type="number" step="0.05" required value={editingProduct.price} onChange={e=>setEditingProduct({...editingProduct, price:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#E2D6C5] text-xs" />
+                        <input type="text" required value={editingProduct.name} onChange={e=>setEditingProduct({...editingProduct, name:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#D7CCBA] text-xs" />
+                        <input type="text" required value={editingProduct.origin} onChange={e=>setEditingProduct({...editingProduct, origin:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#D7CCBA] text-xs" />
+                        <input type="number" step="0.05" required value={editingProduct.price} onChange={e=>setEditingProduct({...editingProduct, price:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#D7CCBA] text-xs" />
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <input type="text" required value={editingProduct.image} onChange={e=>setEditingProduct({...editingProduct, image:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#E2D6C5] text-xs" />
-                        <input type="text" required value={editingProduct.desc} onChange={e=>setEditingProduct({...editingProduct, desc:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#E2D6C5] text-xs" />
+                        <input type="text" required value={editingProduct.image} onChange={e=>setEditingProduct({...editingProduct, image:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#D7CCBA] text-xs" />
+                        <input type="text" required value={editingProduct.desc} onChange={e=>setEditingProduct({...editingProduct, desc:e.target.value})} className="px-4 py-2.5 rounded-xl bg-white border border-[#D7CCBA] text-xs" />
                       </div>
                       <div className="flex gap-2">
-                        <button type="submit" className="px-5 py-2 bg-[#8C3F29] text-white rounded-full text-xs font-bold uppercase">Update Product</button>
+                        <button type="submit" className="px-5 py-2 bg-[#74755F] text-white rounded-full text-xs font-bold uppercase">Update Product</button>
                         <button type="button" onClick={()=>setEditingProduct(null)} className="px-5 py-2 bg-gray-300 text-gray-800 rounded-full text-xs font-bold uppercase">Cancel</button>
                       </div>
                     </form>
@@ -1468,15 +1476,15 @@ export default function App() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {wineCatalogue.map(wine => (
-                      <div key={wine.id} className="bg-white p-4 rounded-2xl border border-[#E2D6C5] flex items-center justify-between gap-4">
+                      <div key={wine.id} className="bg-white p-4 rounded-2xl border border-[#D7CCBA] flex items-center justify-between gap-4">
                         <img src={wine.image} alt={wine.name} className="w-12 h-16 object-cover rounded-lg" />
                         <div className="flex-1">
-                          <h6 className="font-serif text-sm font-semibold text-[#3E2F24]">{wine.name}</h6>
-                          <span className="text-xs text-[#7A7265]">€{Number(wine.price).toFixed(2)} · {wine.origin}</span>
+                          <h6 className="font-serif text-sm font-semibold text-[#34342E]">{wine.name}</h6>
+                          <span className="text-xs text-[#74756A]">€{Number(wine.price).toFixed(2)} · {wine.origin}</span>
                         </div>
                         <div className="flex gap-2">
-                          <button onClick={()=>setEditingProduct(wine)} className="p-2 bg-[#EAE0D0] rounded-full hover:bg-[#E2D6C5]" title="Edit">
-                            <Edit3 className="w-4 h-4 text-[#3E2F24]" />
+                          <button onClick={()=>setEditingProduct(wine)} className="p-2 bg-[#DDD2C0] rounded-full hover:bg-[#D7CCBA]" title="Edit">
+                            <Edit3 className="w-4 h-4 text-[#34342E]" />
                           </button>
                           <button onClick={()=>deleteProduct(wine.id)} className="p-2 bg-rose-100 rounded-full hover:bg-rose-200" title="Delete">
                             <Trash2 className="w-4 h-4 text-rose-800" />
@@ -1493,51 +1501,51 @@ export default function App() {
       )}
 
       {/* Footer */}
-      <footer className="bg-[#2C241D] text-[#F5F0EA] py-16 px-6 border-t border-[#E2D6C5]/20">
+      <footer className="bg-[#34342E] text-[#F4F0E8] py-16 px-6 border-t border-[#D7CCBA]/20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div>
-            <h4 className="font-serif text-lg tracking-widest uppercase mb-4 text-[#E2C4B8]">Casa Solea Garda</h4>
-            <p className="text-xs text-[#F5F0EA]/70 font-light leading-relaxed mb-4">
+            <h4 className="font-serif text-lg tracking-widest uppercase mb-4 text-[#B79A77]">Casa Solea</h4>
+            <p className="text-xs text-[#F4F0E8]/70 font-light leading-relaxed mb-4">
               {ui.intro}
             </p>
-            <span className="text-[10px] uppercase tracking-widest text-[#7A7265]">Via Gasco, 37017 Lazise VR, Italy</span>
+            <span className="text-[10px] uppercase tracking-widest text-[#74756A]">Via Gasco, 37017 Lazise VR, Italy</span>
           </div>
 
           <div>
-            <h5 className="text-xs uppercase tracking-widest text-[#E2C4B8] font-semibold mb-4">{ui.navigation}</h5>
-            <ul className="space-y-2 text-xs font-light text-[#F5F0EA]/80">
-              <li><button onClick={() => { setActiveTab('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-[#E2C4B8] transition">{ui.home}</button></li>
-              <li><button onClick={() => { setActiveTab('webshop'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-[#E2C4B8] transition">{ui.winesPage}</button></li>
-              <li><a href="#stay" onClick={() => setActiveTab('home')} className="hover:text-[#E2C4B8] transition">{t.theStay}</a></li>
-              <li><a href="#outdoors" onClick={() => setActiveTab('home')} className="hover:text-[#E2C4B8] transition">{t.outdoors}</a></li>
-              <li><a href="#location" onClick={() => setActiveTab('home')} className="hover:text-[#E2C4B8] transition">{t.location}</a></li>
+            <h5 className="text-xs uppercase tracking-widest text-[#B79A77] font-semibold mb-4">{ui.navigation}</h5>
+            <ul className="space-y-2 text-xs font-light text-[#F4F0E8]/80">
+              <li><button onClick={() => { setActiveTab('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-[#B79A77] transition">{ui.home}</button></li>
+              <li><button onClick={() => { setActiveTab('webshop'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-[#B79A77] transition">{ui.winesPage}</button></li>
+              <li><a href="#stay" onClick={() => setActiveTab('home')} className="hover:text-[#B79A77] transition">{t.theStay}</a></li>
+              <li><a href="#outdoors" onClick={() => setActiveTab('home')} className="hover:text-[#B79A77] transition">{t.outdoors}</a></li>
+              <li><a href="#location" onClick={() => setActiveTab('home')} className="hover:text-[#B79A77] transition">{t.location}</a></li>
             </ul>
           </div>
 
           <div>
-            <h5 className="text-xs uppercase tracking-widest text-[#E2C4B8] font-semibold mb-4">{ui.connect}</h5>
-            <ul className="space-y-2 text-xs font-light text-[#F5F0EA]/80">
-              <li className="flex items-center gap-2"><Instagram className="w-4 h-4 text-[#E2C4B8]" /> @casasoleagarda</li>
-              <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#E2C4B8]" /> stay@casasoleagarda.it</li>
-              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-[#E2C4B8]" /> +39 045 0000000</li>
+            <h5 className="text-xs uppercase tracking-widest text-[#B79A77] font-semibold mb-4">{ui.connect}</h5>
+            <ul className="space-y-2 text-xs font-light text-[#F4F0E8]/80">
+              <li className="flex items-center gap-2"><Instagram className="w-4 h-4 text-[#B79A77]" /> @casasoleagarda</li>
+              <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#B79A77]" /> stay@casasoleagarda.it</li>
+              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-[#B79A77]" /> +39 045 0000000</li>
             </ul>
           </div>
 
           <div>
-            <h5 className="text-xs uppercase tracking-widest text-[#E2C4B8] font-semibold mb-4">{ui.legal}</h5>
-            <ul className="space-y-2 text-xs font-light text-[#F5F0EA]/80">
-              <li><a href="#privacy" className="hover:text-[#E2C4B8] transition">{ui.privacy}</a></li>
-              <li><a href="#terms" className="hover:text-[#E2C4B8] transition">{ui.terms}</a></li>
-              <li><a href="#imprint" className="hover:text-[#E2C4B8] transition">{ui.imprint}</a></li>
+            <h5 className="text-xs uppercase tracking-widest text-[#B79A77] font-semibold mb-4">{ui.legal}</h5>
+            <ul className="space-y-2 text-xs font-light text-[#F4F0E8]/80">
+              <li><a href="#privacy" className="hover:text-[#B79A77] transition">{ui.privacy}</a></li>
+              <li><a href="#terms" className="hover:text-[#B79A77] transition">{ui.terms}</a></li>
+              <li><a href="#imprint" className="hover:text-[#B79A77] transition">{ui.imprint}</a></li>
             </ul>
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto pt-8 border-t border-[#E2D6C5]/20 flex flex-col sm:flex-row items-center justify-between text-xs text-[#F5F0EA]/60 font-light">
-          <p>© {new Date().getFullYear()} Casa Solea Garda. {t.rights}</p>
+        <div className="max-w-7xl mx-auto pt-8 border-t border-[#D7CCBA]/20 flex flex-col sm:flex-row items-center justify-between text-xs text-[#F4F0E8]/60 font-light">
+          <p>© {new Date().getFullYear()} Casa Solea. {t.rights}</p>
           <div className="flex items-center gap-6 mt-4 sm:mt-0">
             <span>Valentin, Lisa & Sam · Pacengo di Lazise</span>
-            <span className="text-[#E2C4B8] flex items-center gap-1 font-semibold">
+            <span className="text-[#B79A77] flex items-center gap-1 font-semibold">
               <Lock className="w-3 h-3" /> Host portal coming soon
             </span>
           </div>
