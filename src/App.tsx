@@ -362,9 +362,18 @@ const galleryImages = [
 
 const CasaSoleaMark = ({ className = "w-9 h-9" }) => (
   <svg viewBox="0 0 72 72" aria-hidden="true" className={className} fill="none">
-    <path d="M57 18C52 10 44 6 35 6 19 6 8 18 8 36s11 30 27 30c9 0 17-4 22-12" stroke="currentColor" strokeWidth="4.2" strokeLinecap="round"/>
-    <path d="M53 17c-4-4-9-6-14-6-9 0-16 5-16 12 0 8 7 11 16 14 10 3 17 7 17 16 0 8-8 14-18 14-7 0-13-2-18-7" stroke="currentColor" strokeWidth="3.1" strokeLinecap="round"/>
-    <path d="M18 36h36" stroke="currentColor" strokeWidth="1.2" opacity=".45"/>
+    <path
+      d="M58 18C53 10.5 45 7 36 7C19.5 7 9 19 9 36s10.5 29 27 29c9 0 17-3.5 22-10.5"
+      stroke="currentColor"
+      strokeWidth="3.6"
+      strokeLinecap="round"
+    />
+    <path
+      d="M58 18C52.5 13 46 11 39.5 11C31 11 25 15.5 25 21.5c0 6.5 6 9.5 14.5 12.5C49.5 37.5 57 41.5 57 50c0 8.5-8 14.5-18.5 14.5-7.5 0-14-2.5-19-7"
+      stroke="currentColor"
+      strokeWidth="2.7"
+      strokeLinecap="round"
+    />
   </svg>
 );
 
