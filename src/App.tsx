@@ -283,7 +283,7 @@ const initialWineCatalogue = [
     desc: 'Bred in the sun-drenched clay soils near Sirmione and Lazise. Notes of white peach, crushed flint, and zesty citrus with a creamy, structured finish.',
     size: '0.75 L',
     price: 19.50,
-    image: 'https://images.unsplash.com/photo-1584916313917-c48feb142355?auto=format&fit=crop&w=600&q=80'
+    image: '/Mediterrane%20Sonnenuntergangsterrasse%20am%20See.png'
   },
   {
     id: 'cs2',
@@ -294,7 +294,7 @@ const initialWineCatalogue = [
     desc: 'The iconic rosé of Lake Garda. Delicate salmon pink with aromas of wild raspberry, red currant, and a refreshing mineral breeze.',
     size: '0.75 L',
     price: 16.50,
-    image: 'https://images.unsplash.com/photo-1557682250-33bd709cbe85?auto=format&fit=crop&w=600&q=80'
+    image: '/Mediterrane%20Sonnenuntergangsterrasse%20am%20See.png'
   },
   {
     id: 'cs3',
@@ -305,7 +305,7 @@ const initialWineCatalogue = [
     desc: 'Crafted from Lisa’s family home vines. Ruby-red elegance with notes of tart cherry, violet, and subtle sweet spices. Deliciously smooth.',
     size: '0.75 L',
     price: 18.00,
-    image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80'
+    image: '/Mediterrane%20Sonnenuntergangsterrasse%20am%20See.png'
   },
   {
     id: 'cs4',
@@ -316,7 +316,7 @@ const initialWineCatalogue = [
     desc: 'Fine, persistent perlage with floral bouquets and crisp green apple notes. The quintessential aperitivo by our pool.',
     size: '0.75 L',
     price: 21.00,
-    image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80'
+    image: '/Mediterrane%20Sonnenuntergangsterrasse%20am%20See.png'
   }
 ];
 
@@ -352,7 +352,7 @@ const localRecommendations = [
 ];
 
 const galleryImages = [
-  { id: 1, category: "Casa Solea", title: "Casa Solea", url: "/Casa%20Solea%20am%20Gardasee%20bei%20Sonnenuntergang.png", desc: "Casa Solea visualisation." },
+  { id: 1, category: "Casa Solea", title: "Casa Solea", url: "/casa-solea-hero.png", desc: "Casa Solea visualisation." },
   { id: 2, category: "Apartment (22m²)", title: "Apartment", url: "/Mediterranes%20Luxusapartment%20bei%20Sonnenuntergang.png", desc: "Interior design visualisation." },
   { id: 3, category: "Interior", title: "Bedroom", url: "/Mediterranes%20Schlafzimmer%20mit%20Seeblick%20bei%20Sonnenuntergang.png", desc: "Bedroom design visualisation." },
   { id: 4, category: "Interior", title: "Bathroom", url: "/bad.png", desc: "Bathroom design visualisation." },
@@ -579,7 +579,7 @@ export default function App() {
         <>
           {/* CASA SOLEA — approved editorial mockup */}
           <header className="relative min-h-[760px] md:min-h-[700px] lg:h-[580px] overflow-visible bg-[#EDE6D9]">
-            <img src="/Casa%20Solea%20am%20Gardasee%20bei%20Sonnenuntergang.png" alt="Casa Solea visualisation" className="absolute inset-0 w-full h-full object-cover" />
+            <img src="/casa-solea-hero.png" alt="Casa Solea visualisation" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#F6F1E8]/95 via-[#F6F1E8]/48 to-transparent"></div>
 
             <div className="relative z-20 max-w-[1440px] mx-auto px-6 md:px-10 pt-5">
@@ -656,7 +656,7 @@ export default function App() {
               ['/Mediterranes%20Luxusapartment%20bei%20Sonnenuntergang.png',t.theStay,lang==='de'?'Modern. Natürlich. Entspannt.':lang==='it'?'Moderno. Naturale. Rilassato.':lang==='nl'?'Modern. Natuurlijk. Ontspannen.':'Modern. Natural. Relaxed.','#stay'],
               ['/Mediterrane%20Sonnenuntergangsterrasse%20am%20See.png',t.outdoors,lang==='de'?'Ihr privater Rückzugsort':lang==='it'?'Il vostro spazio all’aperto':lang==='nl'?'Jouw plek buiten':'Your outdoor retreat','#outdoors'],
               ['/Goldene%20Stunde%20am%20Gardasee.png',t.location,t.brandSubtitle,'#location'],
-              ['/Ostseite.png',t.wines,lang==='de'?'Ein Stück unserer Heimat':lang==='it'?'Un pezzo di casa nostra':lang==='nl'?'Een stukje van ons thuis':'A piece of our home','wine']
+              ['/Mediterrane%20Sonnenuntergangsterrasse%20am%20See.png',t.wines,lang==='de'?'Ein Stück unserer Heimat':lang==='it'?'Un pezzo di casa nostra':lang==='nl'?'Een stukje van ons thuis':'A piece of our home','wine']
             ].map(([img,title,sub,target],i)=><button key={i} onClick={()=>target==='wine'?(setActiveTab('webshop'),window.scrollTo({top:0})):document.querySelector(target)?.scrollIntoView({behavior:'smooth'})} className="group relative aspect-[1.55] overflow-hidden text-left">
               <img src={img} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.025] transition duration-700"/>
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent"></div>
@@ -955,7 +955,7 @@ export default function App() {
               <div key={wine.id} className="bg-[#F4F0E8] rounded-sm p-6 border border-[#D7CCBA] flex flex-col justify-between shadow-sm">
                 <div>
                   <div className="aspect-[3/4] rounded-sm overflow-hidden mb-6 bg-[#DDD2C0]/50 relative">
-                    <img src={wine.image} alt={wine.name} loading="lazy" decoding="async" className="w-full h-full object-cover" onError={(e)=>{e.target.src="/Ostseite.png"}} />
+                    <img src={wine.image} alt={wine.name} loading="lazy" decoding="async" className="w-full h-full object-cover" onError={(e)=>{e.target.src="/Mediterrane%20Sonnenuntergangsterrasse%20am%20See.png"}} />
                     <span className="absolute top-3 right-3 bg-[#74755F] text-[#F4F0E8] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-semibold">
                       {lang==='de' ? ({'White Wine':'Weißwein','Rosé Wine':'Roséwein','Red Wine':'Rotwein','Sparkling Wine':'Schaumwein'}[wine.type] || wine.type) : lang==='it' ? ({'White Wine':'Vino bianco','Rosé Wine':'Vino rosato','Red Wine':'Vino rosso','Sparkling Wine':'Spumante'}[wine.type] || wine.type) : lang==='nl' ? ({'White Wine':'Witte wijn','Rosé Wine':'Rosé','Red Wine':'Rode wijn','Sparkling Wine':'Mousserende wijn'}[wine.type] || wine.type) : wine.type}
                     </span>
