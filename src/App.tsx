@@ -29,7 +29,7 @@ const translations = {
     heroSub: "800 Meter vom Gardasee. Ein 22 m² Gäste-Apartment mit Garten und Pool.",
     storyHeading: "Von Amsterdam an den Gardasee",
     storyText1: "Wir sind Valentin, Lisa und unser kleiner Sohn Sam – geboren in Amsterdam, wo wir fast ein Jahrzehnt lebten. Doch die Sehnsucht nach dem Licht Italiens und dem Gardasee führte uns hierher.",
-    storyText2: "Lisas familiäre Weintradition ist tief in der Region verwurzelt. In ruhiger Lage in Pacengo di Lazise (Località Gasco) haben wir unser neues Zuhause erbaut und heißen Gäste in unserem feinen, privaten 22 m² Apartment herzlich willkommen.",
+    storyText2: "In ruhiger Lage in Pacengo di Lazise (Località Gasco) haben wir unser neues Zuhause erbaut und heißen Gäste in unserem feinen, privaten 22 m² Apartment herzlich willkommen.",
     apartmentTitle: "Das 22 m² Gäste-Apartment",
     apartmentDesc: "Für Paare und junge Familien konzipiert. Liebevoll gestaltet im Inneren, verbunden mit großzügigem Außenbereich, Pool und Garten.",
     poolText: "32 m² Pool im Garten",
