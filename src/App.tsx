@@ -614,7 +614,7 @@ export default function App() {
       {activeTab === 'home' ? (
         <>
           {/* CASA SOLEA — approved editorial mockup */}
-          <header className="relative min-h-[700px] lg:h-[580px] overflow-visible bg-[#EDE6D9]">
+          <header className="relative min-h-[760px] md:min-h-[700px] lg:h-[580px] overflow-visible bg-[#EDE6D9]">
             <img src="/main_background_pic.jpg" alt="Lake Garda" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#F6F1E8]/95 via-[#F6F1E8]/48 to-transparent"></div>
 
@@ -641,30 +641,30 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="mt-8 md:mt-10 max-w-[460px]">
+              <div className="mt-6 md:mt-10 max-w-[460px] pr-2">
                 <div className="w-8 h-px bg-[#4D503F] mb-4"></div>
                 <div className="text-[9px] uppercase tracking-[.38em] mb-6 text-[#555444]">{ui.tagline}</div>
-                <h1 className="font-serif text-[52px] md:text-[58px] leading-[.88] tracking-[-.025em] text-[#22221D] mb-6">{ui.escape}</h1>
+                <h1 className="font-serif text-[43px] sm:text-[48px] md:text-[58px] leading-[.92] md:leading-[.88] tracking-[-.025em] text-[#22221D] mb-6">{ui.escape}</h1>
                 <p className="font-serif text-[17px] leading-[1.15] max-w-[390px] text-[#292921]">{ui.intro}</p>
               </div>
             </div>
 
             {/* booking checker — separate from copy, exactly like mockup */}
-            <div className="absolute z-30 left-1/2 -translate-x-1/2 -bottom-[2px] w-[92%] max-w-[1215px] bg-[#F8F5EE]/98 shadow-xl border border-[#D8D0C2] rounded-[8px] p-3">
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1.15fr_1.35fr]">
-                <button onClick={()=>setIsBookingOpen(true)} className="px-5 py-2 text-left md:border-r border-[#D8D0C2]">
+            <div className="absolute z-30 left-1/2 -translate-x-1/2 bottom-3 md:-bottom-[2px] w-[92%] max-w-[1215px] bg-[#F8F5EE]/98 shadow-xl border border-[#D8D0C2] rounded-[8px] p-3">
+              <div className="grid grid-cols-2 md:grid-cols-[1fr_1fr_1.15fr_1.35fr]">
+                <button onClick={()=>setIsBookingOpen(true)} className="px-3 sm:px-5 py-2 text-left md:border-r border-[#D8D0C2]">
                   <span className="block text-[12px] font-serif text-[#777064]">${lang==='de'?'Anreise':lang==='it'?'Arrivo':lang==='nl'?'Aankomst':'Arrival'}</span>
                   <span className="font-serif text-[15px]">${selectedCheckIn?selectedCheckIn.toLocaleDateString(lang==='de'?'de-DE':lang==='it'?'it-IT':lang==='nl'?'nl-NL':'en-GB'): (lang==='de'?'Datum wählen':lang==='it'?'Scegli data':lang==='nl'?'Kies datum':'Choose date')}</span>
                 </button>
-                <button onClick={()=>setIsBookingOpen(true)} className="px-5 py-2 text-left md:border-r border-[#D8D0C2]">
+                <button onClick={()=>setIsBookingOpen(true)} className="px-3 sm:px-5 py-2 text-left md:border-r border-[#D8D0C2]">
                   <span className="block text-[12px] font-serif text-[#777064]">${lang==='de'?'Abreise':lang==='it'?'Partenza':lang==='nl'?'Vertrek':'Departure'}</span>
                   <span className="font-serif text-[15px]">${selectedCheckOut?selectedCheckOut.toLocaleDateString(lang==='de'?'de-DE':lang==='it'?'it-IT':lang==='nl'?'nl-NL':'en-GB'): (lang==='de'?'Datum wählen':lang==='it'?'Scegli data':lang==='nl'?'Kies datum':'Choose date')}</span>
                 </button>
-                <button onClick={()=>setIsBookingOpen(true)} className="px-5 py-2 text-left">
+                <button onClick={()=>setIsBookingOpen(true)} className="px-3 sm:px-5 py-2 text-left border-t md:border-t-0 border-[#D8D0C2]">
                   <span className="block text-[12px] font-serif text-[#777064]">${ui.guests}</span>
                   <span className="font-serif text-[15px]">${bookingGuest.guests} ${ui.guests}</span>
                 </button>
-                <div>
+                <div className="border-t md:border-t-0 border-[#D8D0C2] pt-2 md:pt-0">
                   <button onClick={()=>setIsBookingOpen(true)} className="w-full h-12 bg-[#66664C] text-white px-6 uppercase tracking-[.14em] text-[11px] flex items-center justify-between">${t.bookStay}<ArrowRight className="w-4 h-4"/></button>
                   <div className="text-[9px] text-right text-[#777064] pt-1">{ui.noPayment}</div>
                 </div>
@@ -674,7 +674,7 @@ export default function App() {
 
           {/* icon facts strip */}
           <section className="bg-[#F8F5EE] border-b border-[#D8D0C2]">
-            <div className="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 py-7">
+            <div className="max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 py-5 md:py-7">
               {[
                 [Home,lang==='de'?'Modernes Apartment':lang==='it'?'Appartamento moderno':lang==='nl'?'Modern appartement':'Modern apartment','22 m²'],
                 [Waves,lang==='de'?'Poolzugang':lang==='it'?'Accesso piscina':lang==='nl'?'Zwembad':'Pool access','8 × 4 m'],
@@ -682,7 +682,7 @@ export default function App() {
                 [MapPin,lang==='de'?'Top Lage':lang==='it'?'Posizione ideale':lang==='nl'?'Toplocatie':'Great location','800 m'],
                 [Star,'Gardaland & CanevaWorld','~1 km'],
                 [Car,lang==='de'?'E-Mobilität':'E-Mobility',lang==='de'?'Laden vor Ort':lang==='it'?'Ricarica in loco':lang==='nl'?'Laden op locatie':'EV charging']
-              ].map(([Icon,title,sub],i)=><div key={i} className="flex items-center gap-4 px-5 lg:border-r last:border-r-0 border-[#D8D0C2]"><Icon className="w-8 h-8 stroke-[1.25] text-[#4D503F]"/><div><div className="font-serif text-[14px]">{title}</div><div className="text-[10px] text-[#777064] mt-1">{sub}</div></div></div>)}
+              ].map(([Icon,title,sub],i)=><div key={i} className="flex items-center gap-4 px-6 py-3 lg:py-0 lg:border-r last:border-r-0 border-[#D8D0C2]"><Icon className="w-8 h-8 stroke-[1.25] text-[#4D503F]"/><div><div className="font-serif text-[14px]">{title}</div><div className="text-[10px] text-[#777064] mt-1">{sub}</div></div></div>)}
             </div>
           </section>
 
@@ -700,12 +700,12 @@ export default function App() {
             </button>)}
           </section>
 
-          <div className="bg-[#F8F5EE] py-8 flex items-center justify-center gap-5 text-[9px] uppercase tracking-[.38em] text-[#777064]">
+          <div className="bg-[#F8F5EE] py-7 px-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-[9px] uppercase tracking-[.24em] sm:tracking-[.38em] text-[#777064]">
             <span>Casa Solea</span><span className="w-8 h-px bg-[#9A9487]"></span><span className="hidden sm:inline">{ui.goodPeople}</span><span className="hidden sm:block w-8 h-px bg-[#9A9487]"></span><span>{ui.beautifulPlaces}</span><span className="hidden md:block w-8 h-px bg-[#9A9487]"></span><span className="hidden md:inline">{ui.lastingMemories}</span><span className="ml-8 font-serif normal-case italic tracking-normal text-xl text-[#4D503F]">{ui.italianNature}</span>
           </div>
 
           {/* The 22 m² Private Suite & Home Section */}
-          <section id="stay" className="py-24 px-6 max-w-7xl mx-auto">
+          <section id="stay" className="py-16 md:py-24 px-5 md:px-6 max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
                 <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-3">
@@ -770,7 +770,7 @@ export default function App() {
           </section>
 
           {/* Outdoors & Kids Oasis */}
-          <section id="outdoors" className="py-24 bg-[#DDD2C0]/35 border-y border-[#D7CCBA]">
+          <section id="outdoors" className="py-16 md:py-24 bg-[#DDD2C0]/35 border-y border-[#D7CCBA]">
             <div className="max-w-7xl mx-auto px-6">
               <div className="text-center max-w-2xl mx-auto mb-16">
                 <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-3">
@@ -819,7 +819,7 @@ export default function App() {
           </section>
 
           {/* Our Story */}
-          <section id="story" className="py-24 px-6 max-w-7xl mx-auto">
+          <section id="story" className="py-16 md:py-24 px-5 md:px-6 max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="order-2 lg:order-1">
                 <div className="aspect-[4/3] rounded-sm overflow-hidden shadow-xl border border-[#D7CCBA]">
@@ -855,7 +855,7 @@ export default function App() {
           </section>
 
           {/* Location */}
-          <section id="location" className="py-24 bg-[#34342E] text-[#F4F0E8]">
+          <section id="location" className="py-16 md:py-24 bg-[#34342E] text-[#F4F0E8]">
             <div className="max-w-7xl mx-auto px-6">
               <div className="text-center max-w-2xl mx-auto mb-16">
                 <span className="text-xs uppercase tracking-[0.25em] text-[#B79A77] font-semibold block mb-3">
@@ -894,7 +894,7 @@ export default function App() {
                   allowFullScreen="" 
                   loading="lazy"
                 ></iframe>
-                <div className="absolute bottom-6 left-6 bg-[#34342E]/90 backdrop-blur-md p-4 rounded-sm border border-[#D7CCBA]/30 text-xs">
+                <div className="absolute bottom-4 left-4 right-4 sm:right-auto sm:bottom-6 sm:left-6 bg-[#34342E]/90 backdrop-blur-md p-4 rounded-sm border border-[#D7CCBA]/30 text-xs">
                   <p className="font-serif text-sm font-medium mb-1">Località Gasco, Pacengo di Lazise</p>
                   <p className="text-[#F4F0E8]/70">{ui.setting}</p>
                 </div>
@@ -903,7 +903,7 @@ export default function App() {
           </section>
 
           {/* Gallery */}
-          <section id="gallery" className="py-24 px-6 max-w-7xl mx-auto">
+          <section id="gallery" className="py-16 md:py-24 px-5 md:px-6 max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
               <div>
                 <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-3">
@@ -914,7 +914,7 @@ export default function App() {
                 </h2>
               </div>
 
-              <div className="flex flex-wrap gap-2 mt-6 md:mt-0">
+              <div className="flex gap-2 mt-6 md:mt-0 overflow-x-auto max-w-full pb-2">
                 {[['All',ui.all], ['Casa Solea','Casa Solea'], ['Pool',ui.poolLabel], ['Apartment (22m²)',t.theStay], ['Interior',ui.interior], ['For Children',ui.children], ['Winery',ui.winery]].map(([tab,label]) => (
                   <button
                     key={tab}
@@ -949,7 +949,7 @@ export default function App() {
           </section>
 
           {/* Wine Teaser Section with Button linking to Subpage */}
-          <section className="py-24 bg-[#DDD2C0]/35 border-t border-[#D7CCBA]">
+          <section className="py-16 md:py-24 bg-[#DDD2C0]/35 border-t border-[#D7CCBA]">
             <div className="max-w-7xl mx-auto px-6 text-center">
               <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-3">
                 {ui.wineEyebrow}
@@ -1021,7 +1021,7 @@ export default function App() {
       {/* 22m² Suite Specs Modal */}
       {isSpecsOpen && (
         <div className="fixed inset-0 z-50 bg-[#34342E]/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#F4F0E8] w-full max-w-2xl max-h-[90vh] rounded-sm overflow-y-auto border border-[#D7CCBA] shadow-xl p-8">
+          <div className="bg-[#F4F0E8] w-full max-w-2xl max-h-[90vh] rounded-sm overflow-y-auto border border-[#D7CCBA] shadow-xl p-5 sm:p-8">
             <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#D7CCBA]">
               <div>
                 <span className="text-xs uppercase tracking-widest text-[#74755F] block mb-1">Casa Solea</span>
@@ -1287,7 +1287,7 @@ export default function App() {
       {/* Upgraded Admin Portal Modal: Booking Approvals & Full Webshop CRUD */}
       {isAdminOpen && (
         <div className="fixed inset-0 z-50 bg-[#34342E]/80 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-[#F4F0E8] w-full max-w-5xl max-h-[92vh] rounded-sm overflow-y-auto border border-[#D7CCBA] shadow-xl p-8">
+          <div className="bg-[#F4F0E8] w-full max-w-5xl max-h-[92vh] rounded-sm overflow-y-auto border border-[#D7CCBA] shadow-xl p-5 sm:p-8">
             <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#D7CCBA]">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#74755F] text-white flex items-center justify-center">
