@@ -361,23 +361,12 @@ const galleryImages = [
 ]
 
 const CasaSoleaMark = ({ className = "w-9 h-9" }) => (
-  <svg viewBox="0 0 72 72" aria-hidden="true" className={className} fill="none">
-    {/* One continuous CS gesture: the S sits fully inside the C silhouette, with no lower protrusion. */}
-    <path
-      d="M58 18C52.5 10.5 44.5 7 35.5 7C19.5 7 9 19.2 9 36c0 16.8 10.5 29 26.5 29 9.3 0 17.4-3.8 22.5-11"
-      stroke="currentColor"
-      strokeWidth="3.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M56.5 18.5C51.5 14 45.8 12 39.7 12c-8.3 0-14.3 4.2-14.3 10.2 0 6.1 5.7 9.1 14 12 9.7 3.4 16.6 7.3 16.6 15.2 0 7.3-6.2 12.1-15.1 13.2-7.6.9-14.6-1.3-20.2-6.1"
-      stroke="currentColor"
-      strokeWidth="2.65"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
+  <img
+    src="/Logo%20CS%20transparent%20background.png"
+    alt=""
+    aria-hidden="true"
+    className={`${className} object-contain`}
+  />
 );
 
 export default function App() {
