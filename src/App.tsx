@@ -1262,7 +1262,7 @@ export default function App() {
                   <Lock className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-widest text-[#74755F] font-semibold block">Valentin&apos;s Admin Portal</span>
+                  <span className="text-xs uppercase tracking-widest text-[#74755F] font-semibold block">Casa Solea</span>
                   <h3 className="text-2xl font-serif text-[#34342E]">{t.adminPortalTitle}</h3>
                 </div>
               </div>
@@ -1533,9 +1533,9 @@ export default function App() {
           <p>© {new Date().getFullYear()} Casa Solea. {t.rights}</p>
           <div className="flex items-center gap-6 mt-4 sm:mt-0">
             <span>Valentin, Lisa & Sam · Pacengo di Lazise</span>
-            <span className="text-[#B79A77] flex items-center gap-1 font-semibold">
-              <Lock className="w-3 h-3" /> Host portal coming soon
-            </span>
+            <button type="button" onClick={() => setIsAdminOpen(true)} className="text-[#B79A77] flex items-center gap-1 font-semibold hover:text-[#F4F0E8] transition">
+              <Lock className="w-3 h-3" /> Admin Portal
+            </button>
           </div>
         </div>
       </footer>
