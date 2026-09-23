@@ -446,7 +446,7 @@ export default function App() {
   };
 
   useEffect(() => { loadPublicAvailability(); }, []);
-  useEffect(() => { if (isAdminLoggedIn) loadAdminBookings(); }, [isAdminLoggedIn]);
+  useEffect(() => { if (isAdminLoggedIn) { loadAdminBookings(); loadChannelCalendars(); } }, [isAdminLoggedIn]);
 
   const isUnavailable = (date) => blockedDates.some(b => {
     const start = new Date(b.start + 'T00:00:00');
@@ -511,6 +511,21 @@ export default function App() {
   ]);
 
   const [syncStatus, setSyncStatus] = useState({ airbnb: 'Not connected', booking: 'Not connected' });
+  const [channelCalendars, setChannelCalendars] = useState({ Airbnb:'', 'Booking.com':'' });
+  const casaSoleaCalendarUrl = 'https://opnswxgdfmprbkvztzyt.supabase.co/functions/v1/casa-solea-calendar';
+
+  const loadChannelCalendars = async () => {
+    const { data } = await supabase.from('channel_calendars').select('platform,import_url,last_sync_status,last_synced_at');
+    if (!data) return;
+    const urls = { Airbnb:'', 'Booking.com':'' };
+    const status = { airbnb:'Not connected', booking:'Not connected' };
+    data.forEach(row => {
+      urls[row.platform] = row.import_url || '';
+      const label = row.last_synced_at ? `Synced ${new Date(row.last_synced_at).toLocaleString()}` : (row.import_url ? 'Connected' : 'Not connected');
+      if(row.platform==='Airbnb') status.airbnb=label; else status.booking=label;
+    });
+    setChannelCalendars(urls); setSyncStatus(status);
+  };
 
   const t = translations[lang];
   const ui = uiTranslations[lang];
@@ -600,11 +615,20 @@ export default function App() {
     setAdminPasswordInput('');
   };
 
-  const triggerChannelSync = () => {
-    setSyncStatus({ airbnb: 'Syncing...', booking: 'Syncing...' });
-    setTimeout(() => {
-      setSyncStatus({ airbnb: 'Not connected', booking: 'Not connected' });
-    }, 1000);
+  const saveChannelUrl = async (platform) => {
+    const import_url = channelCalendars[platform].trim();
+    const { error } = await supabase.from('channel_calendars').update({ import_url, enabled:Boolean(import_url), updated_at:new Date().toISOString() }).eq('platform',platform);
+    if (error) { alert(error.message); return; }
+    await loadChannelCalendars();
+  };
+  const syncChannel = async (platform) => {
+    setSyncStatus(prev=>({...prev,[platform==='Airbnb'?'airbnb':'booking']:'Syncing…'}));
+    const { data, error } = await supabase.functions.invoke('sync-ota-calendar',{ body:{platform} });
+    if(error || data?.error) { alert(data?.error || error?.message || 'Sync failed'); await loadChannelCalendars(); return; }
+    await Promise.all([loadChannelCalendars(),loadAdminBookings(),loadPublicAvailability()]);
+  };
+  const triggerChannelSync = async () => {
+    for (const platform of ['Airbnb','Booking.com']) if(channelCalendars[platform]) await syncChannel(platform);
   };
 
   const approveBooking = async (id) => {
@@ -1412,7 +1436,17 @@ export default function App() {
                 <div className="bg-[#DDD2C0]/50 p-6 rounded-sm border border-[#D7CCBA] flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div>
                     <h4 className="font-serif font-semibold text-base text-[#34342E] mb-1">OTA Channel Synchronization (Airbnb & Booking.com)</h4>
-                    <p className="text-xs text-[#74756A]">iCal/channel synchronization is not connected yet. Connect Airbnb and Booking.com before accepting live reservations.</p>
+                    <p className="text-xs text-[#74756A]">Connect the exported iCal (.ics) URL from each OTA. Casa Solea imports occupied dates; the Casa Solea export URL below can be imported back into both OTAs.</p>
+                    <div className="mt-3 space-y-2">
+                      {['Airbnb','Booking.com'].map(platform=><div key={platform} className="flex flex-col sm:flex-row gap-2">
+                        <input type="url" placeholder={platform+' iCal export URL (.ics)'} value={channelCalendars[platform]} onChange={e=>setChannelCalendars({...channelCalendars,[platform]:e.target.value})} className="flex-1 p-2 border rounded-lg bg-white text-xs"/>
+                        <button type="button" onClick={()=>saveChannelUrl(platform)} className="px-3 py-2 border rounded-full text-[10px] uppercase font-bold">Save</button>
+                        <button type="button" onClick={()=>syncChannel(platform)} disabled={!channelCalendars[platform]} className="px-3 py-2 bg-[#74755F] disabled:opacity-40 text-white rounded-full text-[10px] uppercase font-bold">Sync</button>
+                      </div>)}
+                      <div className="p-2.5 rounded-lg bg-[#F4F0E8] border border-[#D7CCBA] text-[10px] break-all">
+                        <strong>Casa Solea calendar to import into Airbnb & Booking.com:</strong><br/>{casaSoleaCalendarUrl}
+                      </div>
+                    </div>
                     <div className="flex gap-4 mt-2 text-xs">
                       <span className="text-[#74755F] font-medium">Airbnb: {syncStatus.airbnb}</span>
                       <span className="text-[#74755F] font-medium">Booking.com: {syncStatus.booking}</span>
