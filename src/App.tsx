@@ -372,7 +372,8 @@ const CasaSoleaMark = ({ className = "w-9 h-9" }) => (
 
 export default function App() {
   const [lang, setLang] = useState('de');
-  const [activeTab, setActiveTab] = useState('home'); // 'home' or 'webshop'
+  const routeFromPath = () => window.location.pathname === '/unsere-weine' ? 'webshop' : 'home';
+  const [activeTab, setActiveTab] = useState(routeFromPath());
   const [wineCatalogue, setWineCatalogue] = useState(initialWineCatalogue);
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -446,6 +447,18 @@ export default function App() {
     const { data, error } = await supabase.from('bookings').select('*').order('check_in', { ascending: true });
     if (!error) setBookings((data || []).map(mapBooking));
     setBookingDataLoading(false);
+  };
+
+  useEffect(() => {
+    const onPopState = () => setActiveTab(routeFromPath());
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
+  const navigateTo = (tab) => {
+    const path = tab === 'webshop' ? '/unsere-weine' : '/';
+    if (window.location.pathname !== path) window.history.pushState({}, '', path);
+    setActiveTab(tab);
+    window.scrollTo({top:0, behavior:'smooth'});
   };
 
   useEffect(() => { loadPublicAvailability(); }, []);
@@ -719,8 +732,8 @@ export default function App() {
       
       {activeTab === 'webshop' && <nav className="sticky top-0 z-50 bg-[#F4F0E8]/95 backdrop-blur border-b border-[#D7CCBA]">
         <div className="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
-          <button onClick={()=>setActiveTab('home')} className="flex items-center gap-3"><CasaSoleaMark className="w-10 h-10 text-[#4D503F]"/><span className="font-serif tracking-[.2em] uppercase">Casa Solea</span></button>
-          <button onClick={()=>setActiveTab('home')} className="text-xs uppercase tracking-widest">← {ui.home}</button>
+          <button onClick={()=>navigateTo('home')} className="flex items-center gap-3"><CasaSoleaMark className="w-10 h-10 text-[#4D503F]"/><span className="font-serif tracking-[.2em] uppercase">Casa Solea</span></button>
+          <button onClick={()=>navigateTo('home')} className="text-xs uppercase tracking-widest">← {ui.home}</button>
         </div>
       </nav>}
 
@@ -744,7 +757,7 @@ export default function App() {
                   </div>
                 </button>
                 <div className="hidden lg:flex items-center gap-8 pt-5 font-serif text-[15px]">
-                  <button onClick={()=>{setActiveTab('webshop');window.scrollTo({top:0})}}>{t.wines}</button>
+                  <button onClick={()=>{navigateTo('webshop')}}>{t.wines}</button>
                   <a href="#footer">{t.contact}</a>
                 </div>
                 <div className="flex items-center gap-4 pt-2">
@@ -793,7 +806,7 @@ export default function App() {
               ['/Mediterrane%20Sonnenuntergangsterrasse%20am%20See.png',t.outdoors,lang==='de'?'Ihr privater Rückzugsort':lang==='it'?'Il vostro spazio all’aperto':lang==='nl'?'Jouw plek buiten':'Your outdoor retreat','#outdoors'],
               ['/Goldene%20Stunde%20am%20Gardasee.png',t.location,t.brandSubtitle,'#location'],
               ['/Casa%20Solea%20am%20Gardasee%20bei%20Sonnenuntergang.png',t.wines,lang==='de'?'Ein Stück unserer Heimat':lang==='it'?'Un pezzo di casa nostra':lang==='nl'?'Een stukje van ons thuis':'A piece of our home','wine']
-            ].map(([img,title,sub,target],i)=><button key={i} onClick={()=>target==='wine'?(setActiveTab('webshop'),window.scrollTo({top:0})):document.querySelector(target)?.scrollIntoView({behavior:'smooth'})} className="group relative aspect-[1.55] overflow-hidden text-left">
+            ].map(([img,title,sub,target],i)=><button key={i} onClick={()=>target==='wine'?(navigateTo('webshop')):document.querySelector(target)?.scrollIntoView({behavior:'smooth'})} className="group relative aspect-[1.55] overflow-hidden text-left">
               <img src={img} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.025] transition duration-700"/>
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent"></div>
               <div className="absolute bottom-5 left-6 right-5 text-white"><div className="font-serif text-[27px]">{title}</div><div className="flex items-end justify-between"><span className="text-[9px] uppercase tracking-[.22em] mt-1">{sub}</span><ArrowRight className="w-5 h-5"/></div></div>
@@ -1070,52 +1083,53 @@ export default function App() {
           </section>
         </>
       ) : (
-        /* ================= WEBSHOP SUBPAGE ================= */
-        <div className="py-16 px-6 max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-12 pb-6 border-b border-[#D7CCBA]">
-            <div>
-              <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-2">{ui.subpage}</span>
-              <h1 className="text-3xl md:text-5xl font-serif text-[#34342E]">{ui.winesPage}</h1>
-              <p className="text-sm text-[#34342E]/80 font-light mt-1">{ui.winesLead}</p>
-            </div>
-            <button 
-              onClick={() => { setActiveTab('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className="px-5 py-2.5 rounded-full border border-[#D7CCBA] bg-[#DDD2C0]/50 text-xs font-semibold uppercase tracking-wider hover:bg-[#D7CCBA] transition"
-            >
-              {ui.backHome}
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {wineCatalogue.map(wine => (
-              <div key={wine.id} className="bg-[#F4F0E8] rounded-sm p-6 border border-[#D7CCBA] flex flex-col justify-between shadow-sm">
-                <div>
-                  <div className="aspect-[3/4] rounded-sm overflow-hidden mb-6 bg-[#DDD2C0]/50 relative">
-                    <img src={wine.image} alt={wine.name} loading="lazy" decoding="async" className="w-full h-full object-cover" onError={(e)=>{e.target.src="/Casa%20Solea%20am%20Gardasee%20bei%20Sonnenuntergang.png"}} />
-                    <span className="absolute top-3 right-3 bg-[#74755F] text-[#F4F0E8] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-semibold">
-                      {lang==='de' ? ({'White Wine':'Weißwein','Rosé Wine':'Roséwein','Red Wine':'Rotwein','Sparkling Wine':'Schaumwein'}[wine.type] || wine.type) : lang==='it' ? ({'White Wine':'Vino bianco','Rosé Wine':'Vino rosato','Red Wine':'Vino rosso','Sparkling Wine':'Spumante'}[wine.type] || wine.type) : lang==='nl' ? ({'White Wine':'Witte wijn','Rosé Wine':'Rosé','Red Wine':'Rode wijn','Sparkling Wine':'Mousserende wijn'}[wine.type] || wine.type) : wine.type}
-                    </span>
-                  </div>
-                  <span className="text-[10px] uppercase tracking-widest text-[#74756A] block mb-1">{lang==='de'?'Gardasee, Italien':lang==='it'?'Lago di Garda, Italia':lang==='nl'?'Gardameer, Italië':wine.origin}</span>
-                  <h3 className="font-serif text-xl text-[#34342E] mb-2">{wine.name}</h3>
-                  <p className="text-xs text-[#34342E]/70 font-light mb-4 leading-relaxed">{lang==='de' ? ({1:'Frisch und elegant, mit feiner Frucht und mineralischer Note.',2:'Feiner Rosé vom Gardasee mit frischer Beerenfrucht und lebendiger Mineralität.',3:'Elegant und weich mit Noten von Kirsche, Veilchen und feinen Gewürzen.',4:'Feine Perlage, florale Noten und frischer grüner Apfel – ideal als Aperitif.'}[wine.id] || wine.desc) : lang==='it' ? ({1:'Fresco ed elegante, con frutto delicato e una nota minerale.',2:'Rosato fine del Garda, con piccoli frutti rossi e una mineralità vivace.',3:'Elegante e morbido, con note di ciliegia, violetta e spezie delicate.',4:'Perlage fine, note floreali e mela verde fresca, ideale come aperitivo.'}[wine.id] || wine.desc) : lang==='nl' ? ({1:'Fris en elegant, met verfijnd fruit en een minerale toets.',2:'Fijne rosé van het Gardameer met rood fruit en levendige mineraliteit.',3:'Elegant en zacht, met tonen van kers, viooltjes en fijne kruiden.',4:'Fijne mousse, florale tonen en frisse groene appel, ideaal als aperitief.'}[wine.id] || wine.desc) : wine.desc}</p>
-                </div>
-                <div className="flex items-center justify-between pt-4 border-t border-[#D7CCBA]">
-                  <div>
-                    <span className="text-xs text-[#74756A] block">{wine.size}</span>
-                    <span className="font-serif text-lg font-semibold text-[#34342E]">€{Number(wine.price).toFixed(2)}</span>
-                  </div>
-                  <button 
-                    onClick={() => addToCart(wine)}
-                    className="px-4 py-2 bg-[#74755F] text-[#F4F0E8] rounded-full text-xs uppercase tracking-wider font-semibold hover:bg-[#4D503F] transition flex items-center gap-1.5 shadow-md"
-                  >
-                    <Plus className="w-3.5 h-3.5" /> {ui.add}
-                  </button>
-                </div>
+        /* ================= WINE SHOP SUBPAGE ================= */
+        <main className="bg-[#F4F0E8] min-h-screen">
+          <section className="max-w-[1440px] mx-auto px-6 md:px-10 pt-14 md:pt-20 pb-10">
+            <div className="grid lg:grid-cols-[1.15fr_.85fr] gap-8 lg:gap-16 items-end border-b border-[#D7CCBA] pb-10">
+              <div>
+                <div className="text-[10px] uppercase tracking-[.28em] text-[#74755F] mb-4">Casa Solea · Wine Collection</div>
+                <h1 className="font-serif text-[46px] md:text-[68px] leading-[.92] tracking-[-.025em]">{lang==='de'?'Unsere Weine':lang==='it'?'I nostri vini':lang==='nl'?'Onze wijnen':'Our wines'}</h1>
               </div>
-            ))}
-          </div>
-        </div>
+              <div className="lg:pb-1">
+                <p className="font-serif text-lg md:text-xl leading-snug text-[#514F47]">{lang==='de'?'Eine kleine, sorgfältig ausgewählte Kollektion vom Gardasee. Acht Weine, die wir selbst gerne öffnen und mit unseren Gästen teilen.':lang==='it'?'Una piccola collezione selezionata con cura dal Lago di Garda. Otto vini da aprire e condividere.':lang==='nl'?'Een kleine, zorgvuldig gekozen collectie van het Gardameer. Acht wijnen om te openen en te delen.':'A small, carefully selected collection from Lake Garda. Eight wines made for opening and sharing.'}</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="max-w-[1440px] mx-auto px-6 md:px-10 pb-24">
+            <div className="flex items-center justify-between mb-7">
+              <span className="text-xs text-[#74756A]">{wineCatalogue.length} {lang==='de'?'Weine':lang==='it'?'vini':lang==='nl'?'wijnen':'wines'}</span>
+              <button onClick={()=>setIsCartOpen(true)} className="flex items-center gap-2 border border-[#4D503F] rounded-full px-5 py-2.5 text-[10px] uppercase tracking-[.14em] font-semibold">
+                {lang==='de'?'Warenkorb':lang==='it'?'Carrello':lang==='nl'?'Winkelmand':'Bag'} <span className="min-w-5 h-5 px-1 rounded-full bg-[#4D503F] text-white flex items-center justify-center">{cart.reduce((s,i)=>s+i.qty,0)}</span>
+              </button>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-12">
+              {wineCatalogue.map(wine => (
+                <article key={wine.id} className="group">
+                  <div className="aspect-[4/5] overflow-hidden bg-[#E8E0D2] relative mb-5">
+                    <img src={wine.image} alt={wine.name} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-[1.02] transition duration-700" onError={(e)=>{e.currentTarget.src="/Casa%20Solea%20am%20Gardasee%20bei%20Sonnenuntergang.png"}}/>
+                    <div className="absolute top-3 left-3 bg-[#F8F5EE] px-3 py-1.5 text-[9px] uppercase tracking-[.14em]">{lang==='de'?({'White Wine':'Weißwein','Rosé Wine':'Rosé','Red Wine':'Rotwein','Sparkling Wine':'Schaumwein'}[wine.type]||wine.type):wine.type}</div>
+                  </div>
+                  <div className="flex justify-between gap-4 items-start">
+                    <div className="min-w-0">
+                      <div className="text-[9px] uppercase tracking-[.18em] text-[#777064] mb-2">{wine.grape || wine.origin}</div>
+                      <h2 className="font-serif text-[22px] leading-tight">{wine.name}</h2>
+                      <p className="text-xs leading-relaxed text-[#74756A] mt-2 line-clamp-2">{wine.desc}</p>
+                      <div className="text-[10px] text-[#777064] mt-3">{wine.size}</div>
+                    </div>
+                    <div className="font-serif text-lg whitespace-nowrap">€{Number(wine.price).toFixed(2)}</div>
+                  </div>
+                  <button onClick={()=>addToCart(wine)} className="mt-5 w-full border border-[#4D503F] hover:bg-[#4D503F] hover:text-white transition rounded-full py-3 text-[10px] uppercase tracking-[.16em] font-semibold flex items-center justify-center gap-2"><Plus className="w-3.5 h-3.5"/>{ui.add}</button>
+                </article>
+              ))}
+            </div>
+            <div className="mt-20 border-t border-[#D7CCBA] pt-8 flex flex-col md:flex-row justify-between gap-5 text-xs text-[#74756A]">
+              <p className="max-w-xl">{lang==='de'?'Unsere Auswahl wird auf rund acht Weine begrenzt bleiben – bewusst klein statt beliebig groß.':lang==='it'?'La selezione resterà volutamente limitata a circa otto vini.':lang==='nl'?'De selectie blijft bewust beperkt tot ongeveer acht wijnen.':'The collection will intentionally remain limited to around eight wines.'}</p>
+              <button onClick={()=>navigateTo('home')} className="text-[#34342E] uppercase tracking-[.14em] text-[10px] self-start">← {ui.backHome}</button>
+            </div>
+          </section>
+        </main>
       )}
 
       {/* 22m² Suite Specs Modal */}
@@ -1694,7 +1708,7 @@ export default function App() {
           <div>
             <h5 className="text-xs uppercase tracking-widest text-[#B79A77] font-semibold mb-4">{ui.navigation}</h5>
             <ul className="space-y-2 text-xs font-light text-[#F4F0E8]/80">
-              <li><button onClick={() => { setActiveTab('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-[#B79A77] transition">{ui.home}</button></li>
+              <li><button onClick={() => { navigateTo('home'); }} className="hover:text-[#B79A77] transition">{ui.home}</button></li>
               <li><button onClick={() => { setActiveTab('webshop'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-[#B79A77] transition">{ui.winesPage}</button></li>
               <li><a href="#stay" onClick={() => setActiveTab('home')} className="hover:text-[#B79A77] transition">{t.theStay}</a></li>
               <li><a href="#outdoors" onClick={() => setActiveTab('home')} className="hover:text-[#B79A77] transition">{t.outdoors}</a></li>
