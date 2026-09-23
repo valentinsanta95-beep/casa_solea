@@ -743,11 +743,13 @@ export default function App() {
                     </div>
                   </div>
                 </button>
-                <div className="hidden lg:flex items-center gap-9 pt-5 font-serif text-[15px]">
-                  <a href="#stay">{t.theStay}</a>
-                  <a href="#gallery">{t.gallery}</a>
-                  <a href="#location">{t.location}</a>
-                  <a href="#story">{lang==='de'?'Gut zu wissen':lang==='it'?'Da sapere':lang==='nl'?'Goed om te weten':'Good to know'}</a>
+                <div className="hidden lg:flex items-center gap-8 pt-5 font-serif text-[15px]">
+                  <button onClick={()=>{setActiveTab('webshop');window.scrollTo({top:0})}}>{t.wines}</button>
+                  <a href="#footer">{t.contact}</a>
+                </div>
+                <div className="flex items-center gap-4 pt-2">
+                  <select value={lang} onChange={e=>setLang(e.target.value)} className="bg-transparent text-xs uppercase outline-none"><option value="de">DE</option><option value="it">IT</option><option value="nl">NL</option><option value="en">EN</option></select>
+                  <button onClick={()=>setIsBookingOpen(true)} className="hidden md:block border border-[#4D503F] bg-[#5E5E46]/90 text-white rounded-full px-7 py-3 text-[10px] uppercase tracking-[.14em]">{t.bookStay}</button>
                 </div>
               </div>
 
