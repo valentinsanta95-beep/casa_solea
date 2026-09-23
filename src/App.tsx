@@ -618,19 +618,19 @@ export default function App() {
             <div className="absolute z-30 left-1/2 -translate-x-1/2 bottom-3 md:-bottom-[2px] w-[92%] max-w-[1215px] bg-[#F8F5EE]/98 shadow-xl border border-[#D8D0C2] rounded-[8px] p-3">
               <div className="grid grid-cols-2 md:grid-cols-[1fr_1fr_1.15fr_1.35fr]">
                 <button onClick={()=>setIsBookingOpen(true)} className="px-3 sm:px-5 py-2 text-left md:border-r border-[#D8D0C2]">
-                  <span className="block text-[12px] font-serif text-[#777064]">${lang==='de'?'Anreise':lang==='it'?'Arrivo':lang==='nl'?'Aankomst':'Arrival'}</span>
-                  <span className="font-serif text-[15px]">${selectedCheckIn?selectedCheckIn.toLocaleDateString(lang==='de'?'de-DE':lang==='it'?'it-IT':lang==='nl'?'nl-NL':'en-GB'): (lang==='de'?'Datum wählen':lang==='it'?'Scegli data':lang==='nl'?'Kies datum':'Choose date')}</span>
+                  <span className="block text-[12px] font-serif text-[#777064]">{lang==='de'?'Anreise':lang==='it'?'Arrivo':lang==='nl'?'Aankomst':'Arrival'}</span>
+                  <span className="font-serif text-[15px]">{selectedCheckIn?selectedCheckIn.toLocaleDateString(lang==='de'?'de-DE':lang==='it'?'it-IT':lang==='nl'?'nl-NL':'en-GB'): (lang==='de'?'Datum wählen':lang==='it'?'Scegli data':lang==='nl'?'Kies datum':'Choose date')}</span>
                 </button>
                 <button onClick={()=>setIsBookingOpen(true)} className="px-3 sm:px-5 py-2 text-left md:border-r border-[#D8D0C2]">
-                  <span className="block text-[12px] font-serif text-[#777064]">${lang==='de'?'Abreise':lang==='it'?'Partenza':lang==='nl'?'Vertrek':'Departure'}</span>
-                  <span className="font-serif text-[15px]">${selectedCheckOut?selectedCheckOut.toLocaleDateString(lang==='de'?'de-DE':lang==='it'?'it-IT':lang==='nl'?'nl-NL':'en-GB'): (lang==='de'?'Datum wählen':lang==='it'?'Scegli data':lang==='nl'?'Kies datum':'Choose date')}</span>
+                  <span className="block text-[12px] font-serif text-[#777064]">{lang==='de'?'Abreise':lang==='it'?'Partenza':lang==='nl'?'Vertrek':'Departure'}</span>
+                  <span className="font-serif text-[15px]">{selectedCheckOut?selectedCheckOut.toLocaleDateString(lang==='de'?'de-DE':lang==='it'?'it-IT':lang==='nl'?'nl-NL':'en-GB'): (lang==='de'?'Datum wählen':lang==='it'?'Scegli data':lang==='nl'?'Kies datum':'Choose date')}</span>
                 </button>
                 <button onClick={()=>setIsBookingOpen(true)} className="px-3 sm:px-5 py-2 text-left border-t md:border-t-0 border-[#D8D0C2]">
-                  <span className="block text-[12px] font-serif text-[#777064]">${ui.guests}</span>
-                  <span className="font-serif text-[15px]">${bookingGuest.guests} ${ui.guests}</span>
+                  <span className="block text-[12px] font-serif text-[#777064]">{ui.guests}</span>
+                  <span className="font-serif text-[15px]">{bookingGuest.guests} {ui.guests}</span>
                 </button>
                 <div className="border-t md:border-t-0 border-[#D8D0C2] pt-2 md:pt-0">
-                  <button onClick={()=>setIsBookingOpen(true)} className="w-full h-12 bg-[#66664C] text-white px-6 uppercase tracking-[.14em] text-[11px] flex items-center justify-between">${t.bookStay}<ArrowRight className="w-4 h-4"/></button>
+                  <button onClick={()=>setIsBookingOpen(true)} className="w-full h-12 bg-[#66664C] text-white px-6 uppercase tracking-[.14em] text-[11px] flex items-center justify-between">{t.bookStay}<ArrowRight className="w-4 h-4"/></button>
                   <div className="text-[9px] text-right text-[#777064] pt-1">{ui.noPayment}</div>
                 </div>
               </div>
@@ -1177,9 +1177,9 @@ export default function App() {
 
       {/* Availability Calendar */}
       {isBookingOpen && (
-        <div className="fixed inset-0 z-50 bg-[#34342E]/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#F4F0E8] w-full max-w-2xl rounded-sm p-6 md:p-8 border border-[#D7CCBA] shadow-xl relative">
-            <button onClick={() => setIsBookingOpen(false)} className="absolute top-5 right-5 p-2 rounded-full hover:bg-[#DDD2C0] transition">
+        <div className="fixed inset-0 z-50 bg-[#34342E]/65 flex items-start md:items-center justify-center overflow-y-auto overscroll-contain p-0 sm:p-4">
+          <div className="bg-[#F8F5EE] w-full max-w-2xl min-h-full sm:min-h-0 sm:max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-none sm:rounded-2xl p-5 sm:p-6 md:p-8 border border-[#D7CCBA] shadow-2xl relative my-0 sm:my-auto">
+            <button type="button" aria-label="Close" onClick={() => setIsBookingOpen(false)} className="sticky top-0 float-right z-20 p-2 -mt-1 -mr-1 rounded-full bg-[#F8F5EE] border border-[#D7CCBA] hover:bg-[#E9E1D4] transition">
               <X className="w-6 h-6 text-[#34342E]" />
             </button>
             <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-2">{ui.availability}</span>
@@ -1195,9 +1195,9 @@ export default function App() {
             </div>
 
             <div className="grid grid-cols-7 gap-2 mb-2 text-center text-[10px] uppercase tracking-wider text-[#74756A]">
-              {['Mo','Di','Mi','Do','Fr','Sa','So'].map(day => <div key={day}>{day}</div>)}
+              {(lang==='de'?['Mo','Di','Mi','Do','Fr','Sa','So']:lang==='it'?['Lu','Ma','Me','Gi','Ve','Sa','Do']:lang==='nl'?['Ma','Di','Wo','Do','Vr','Za','Zo']:['Mo','Tu','We','Th','Fr','Sa','Su']).map(day => <div key={day}>{day}</div>)}
             </div>
-            <div className="grid grid-cols-7 gap-2">
+            <div className="grid grid-cols-7 gap-1.5 sm:gap-2">
               {calendarDays.map((date, idx) => {
                 if (!date) return <div key={`empty-${idx}`} />;
                 const unavailable = isUnavailable(date);
@@ -1208,7 +1208,7 @@ export default function App() {
                     disabled={unavailable}
                     onClick={() => handleAvailabilityDateClick(date)}
                     key={date.toISOString()}
-                    className={`aspect-square rounded-xl flex items-center justify-center text-sm font-semibold border transition ${unavailable ? 'bg-red-100 border-red-200 text-red-700 cursor-not-allowed' : selected ? 'bg-[#74755F] border-[#74755F] text-white ring-2 ring-[#74755F]/20' : 'bg-green-100 border-green-200 text-green-800 hover:bg-green-200 cursor-pointer'}`}
+                    className={`aspect-square min-h-10 rounded-lg sm:rounded-xl flex items-center justify-center text-sm font-medium border transition ${unavailable ? 'bg-[#E9DDD6] border-[#DDCEC5] text-[#8B6D62] cursor-not-allowed' : selected ? 'bg-[#66664C] border-[#66664C] text-white ring-2 ring-[#66664C]/20' : 'bg-white border-[#D7CCBA] text-[#34342E] hover:bg-[#E9E4D8] hover:border-[#9A967E] cursor-pointer'}`}
                   >
                     {date.getDate()}
                   </button>
@@ -1233,7 +1233,7 @@ export default function App() {
                         <option value="1">{ui.oneGuest}</option><option value="2">2 {ui.guests}</option><option value="3">3 {ui.guests}</option><option value="4">4 {ui.guests}</option>
                       </select>
                       <button type="submit" className="md:col-span-3 bg-[#74755F] text-white rounded-xl px-5 py-3 text-sm font-semibold hover:bg-[#4D503F] transition">
-                        Buchungsanfrage senden
+                        {ui.request}
                       </button>
                     </form>
                   )}
@@ -1245,6 +1245,9 @@ export default function App() {
                 </div>
               )}
             </div>
+            <button type="button" onClick={() => setIsBookingOpen(false)} className="mt-5 w-full py-3 border border-[#BDB3A3] rounded-xl text-sm font-medium text-[#34342E] hover:bg-[#E9E1D4] transition">
+              {lang==='de'?'Zurück zur Seite':lang==='it'?'Torna alla pagina':lang==='nl'?'Terug naar de pagina':'Back to page'}
+            </button>
           </div>
         </div>
       )}
