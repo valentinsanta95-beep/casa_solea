@@ -365,11 +365,11 @@ const CasaSoleaMark = ({ className = "w-9 h-9" }) => (
     <path
       d="M58 18C53 10.5 45 7 36 7C19.5 7 9 19 9 36s10.5 29 27 29c9 0 17-3.5 22-10.5"
       stroke="currentColor"
-      strokeWidth="3.6"
+      strokeWidth="3.5"
       strokeLinecap="round"
     />
     <path
-      d="M58 18C52.5 13 46 11 39.5 11C31 11 25 15.5 25 21.5c0 6.5 6 9.5 14.5 12.5C49.5 37.5 57 41.5 57 50c0 8.5-8 14.5-18.5 14.5-7.5 0-14-2.5-19-7"
+      d="M58 18C52.5 13 46 11 39.5 11C31 11 25 15.5 25 21.5c0 6.5 6 9.5 14.5 12.5C49.5 37.5 57 41.5 57 50c0 7.2-6.1 12.7-14.9 14.2C34 65.6 26.1 63.1 20 57.2"
       stroke="currentColor"
       strokeWidth="2.7"
       strokeLinecap="round"
