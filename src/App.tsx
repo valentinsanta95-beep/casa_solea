@@ -430,7 +430,10 @@ export default function App() {
     paymentStatus: b.payment_status,
     amountTotal: b.amount_total,
     amountPaid: b.amount_paid,
-    notes: b.notes || ''
+    notes: b.notes || '',
+    cleaningStatus: b.cleaning_status || 'Not required',
+    checkedIn: Boolean(b.checked_in),
+    checkedOut: Boolean(b.checked_out)
   });
 
   const loadPublicAvailability = async () => {
@@ -669,6 +672,22 @@ export default function App() {
     return [...Array((first.getDay()+6)%7).fill(null), ...Array.from({length:count},(_,i)=>new Date(y,m,i+1))];
   })();
   const bookingForAdminDate = (date) => adminMonthBookings.find(b => b.status !== 'Cancelled' && date >= new Date(b.checkIn+'T00:00:00') && date < new Date(b.checkOut+'T00:00:00'));
+  const adminMonthStart = new Date(adminMonth.getFullYear(), adminMonth.getMonth(), 1);
+  const adminMonthEnd = new Date(adminMonth.getFullYear(), adminMonth.getMonth()+1, 1);
+  const daysInAdminMonth = new Date(adminMonth.getFullYear(), adminMonth.getMonth()+1, 0).getDate();
+  const confirmedMonthBookings = adminMonthBookings.filter(b=>b.status==='Confirmed');
+  const occupiedNights = confirmedMonthBookings.reduce((sum,b)=>{
+    const s=new Date(b.checkIn+'T00:00:00'), e=new Date(b.checkOut+'T00:00:00');
+    const from=s>adminMonthStart?s:adminMonthStart, to=e<adminMonthEnd?e:adminMonthEnd;
+    return sum+Math.max(0,Math.round((to-from)/86400000));
+  },0);
+  const occupancyPct = daysInAdminMonth ? Math.round(occupiedNights/daysInAdminMonth*100) : 0;
+  const monthlyRevenue = confirmedMonthBookings.reduce((s,b)=>s+Number(b.amountTotal||0),0);
+  const monthlyPaid = confirmedMonthBookings.reduce((s,b)=>s+Number(b.amountPaid||0),0);
+  const outstanding = confirmedMonthBookings.reduce((s,b)=>s+Math.max(0,Number(b.amountTotal||0)-Number(b.amountPaid||0)),0);
+  const arrivals = confirmedMonthBookings.filter(b=>{const d=new Date(b.checkIn+'T00:00:00');return d>=adminMonthStart&&d<adminMonthEnd;}).sort((a,b)=>a.checkIn.localeCompare(b.checkIn));
+  const departures = confirmedMonthBookings.filter(b=>{const d=new Date(b.checkOut+'T00:00:00');return d>=adminMonthStart&&d<adminMonthEnd;}).sort((a,b)=>a.checkOut.localeCompare(b.checkOut));
+  const platformStyle=(p)=>p==='Airbnb'?'bg-rose-100 border-rose-300':p==='Booking.com'?'bg-blue-100 border-blue-300':p==='Website Direct'?'bg-amber-100 border-amber-300':'bg-stone-100 border-stone-300';
 
   const updateOrderShipping = (id, newStatus, tracking) => {
     setWineOrders(prev => prev.map(o => o.id === id ? { ...o, shippingStatus: newStatus, trackingNumber: tracking } : o));
@@ -1460,6 +1479,27 @@ export default function App() {
                   </button>
                 </div>
 
+                {/* PMS dashboard */}
+                <div>
+                  <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5">
+                    <div><div className="text-[10px] uppercase tracking-[.22em] text-[#74756A]">Property Management</div><h3 className="font-serif text-2xl mt-1">Casa Solea Dashboard</h3></div>
+                    <div className="text-xs text-[#74756A]">{adminMonth.toLocaleDateString('en-GB',{month:'long',year:'numeric'})}</div>
+                  </div>
+                  <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
+                    {[
+                      ['Occupancy',occupancyPct+'%',occupiedNights+' / '+daysInAdminMonth+' nights'],
+                      ['Revenue','€'+monthlyRevenue.toFixed(2),'Confirmed bookings'],
+                      ['Paid','€'+monthlyPaid.toFixed(2),'Recorded payments'],
+                      ['Outstanding','€'+outstanding.toFixed(2),'Still to collect'],
+                      ['Reservations',String(confirmedMonthBookings.length),arrivals.length+' arrivals']
+                    ].map(([label,value,sub])=><div key={label} className="rounded-xl border border-[#D7CCBA] bg-white/60 p-4"><div className="text-[10px] uppercase tracking-wider text-[#74756A]">{label}</div><div className="font-serif text-2xl mt-1">{value}</div><div className="text-[10px] text-[#74756A] mt-1">{sub}</div></div>)}
+                  </div>
+                  <div className="grid lg:grid-cols-2 gap-4 mb-8">
+                    <div className="rounded-xl border border-[#D7CCBA] bg-white/45 p-4"><h4 className="font-serif font-semibold mb-3">Arrivals</h4>{arrivals.length?arrivals.map(b=><div key={'a'+b.id} className="flex justify-between gap-3 py-2 border-t border-[#D7CCBA]/60 text-xs"><div><strong>{b.checkIn.slice(8,10)} · {b.guest}</strong><div className="text-[#74756A]">{b.platform} · {b.guests} guests</div></div><div className="text-right">{b.paymentStatus}</div></div>):<p className="text-xs text-[#74756A]">No arrivals this month.</p>}</div>
+                    <div className="rounded-xl border border-[#D7CCBA] bg-white/45 p-4"><h4 className="font-serif font-semibold mb-3">Departures</h4>{departures.length?departures.map(b=><div key={'d'+b.id} className="flex justify-between gap-3 py-2 border-t border-[#D7CCBA]/60 text-xs"><div><strong>{b.checkOut.slice(8,10)} · {b.guest}</strong><div className="text-[#74756A]">{b.platform} · {b.guests} guests</div></div><button onClick={()=>updateBookingField(b.id,{cleaning_status:b.cleaningStatus==='Ready'?'To clean':'Ready'})} className="text-[10px] border rounded-full px-2">{b.cleaningStatus}</button></div>):<p className="text-xs text-[#74756A]">No departures this month.</p>}</div>
+                  </div>
+                </div>
+
                 {/* Booking calendar & reservation management */}
                 <div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
@@ -1475,16 +1515,17 @@ export default function App() {
                   <div className="grid grid-cols-7 gap-1 text-center text-[10px] uppercase tracking-wider text-[#74756A] mb-1">
                     {['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d=><div key={d} className="py-1">{d}</div>)}
                   </div>
+                  <div className="flex flex-wrap gap-3 mb-3 text-[10px]"><span className="px-2 py-1 rounded bg-rose-100">Airbnb</span><span className="px-2 py-1 rounded bg-blue-100">Booking.com</span><span className="px-2 py-1 rounded bg-amber-100">Website Direct</span><span className="px-2 py-1 rounded bg-white border">Available</span></div>
                   <div className="grid grid-cols-7 gap-1 mb-6">
                     {adminCalendarDays.map((date,i)=>{
                       if(!date) return <div key={'blank-'+i} className="min-h-16 sm:min-h-20"/>;
                       const b=bookingForAdminDate(date);
-                      return <div key={dateKey(date)} className={`min-h-16 sm:min-h-20 rounded-lg border p-1.5 ${b ? 'bg-[#DDD2C0] border-[#B79A77]' : 'bg-white/60 border-[#E5DCCD]'}`}>
+                      return <div key={dateKey(date)} className={`min-h-20 sm:min-h-24 rounded-lg border p-1.5 ${b ? platformStyle(b.platform) : 'bg-white/60 border-[#E5DCCD]'}`}>
                         <div className="text-xs font-semibold">{date.getDate()}</div>
                         {b ? <div className="mt-1 text-[9px] sm:text-[10px] leading-tight">
-                          <div className="font-bold truncate">{b.guest}</div>
-                          <div className="truncate">{b.platform}</div>
+                          <div className="font-bold truncate">{b.guest}</div><div className="truncate">{b.platform}</div>
                           <div>{b.guests} guest{b.guests===1?'':'s'}</div>
+                          <div className={b.paymentStatus==='Paid'?'text-emerald-700':'text-amber-800'}>{b.paymentStatus}</div>
                           <div className={b.status==='Confirmed'?'text-emerald-700':'text-amber-700'}>{b.status}</div>
                         </div> : <div className="mt-2 text-[9px] text-emerald-700">Available</div>}
                       </div>;
