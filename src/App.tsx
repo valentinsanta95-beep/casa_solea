@@ -761,31 +761,35 @@ export default function App() {
               </div>
             </div>
 
-            {/* booking checker — separate from copy, exactly like mockup */}
-            <div className="absolute z-30 left-1/2 -translate-x-1/2 bottom-3 md:-bottom-[2px] w-[92%] max-w-[1215px] bg-[#F8F5EE]/98 shadow-xl border border-[#D8D0C2] rounded-[8px] p-3">
-              <div className="grid grid-cols-2 md:grid-cols-[1fr_1fr_1.15fr_1.35fr]">
-                <button onClick={()=>setIsBookingOpen(true)} className="px-3 sm:px-5 py-2 text-left md:border-r border-[#D8D0C2]">
-                  <span className="block text-[12px] font-serif text-[#777064]">{lang==='de'?'Anreise':lang==='it'?'Arrivo':lang==='nl'?'Aankomst':'Arrival'}</span>
-                  <span className="font-serif text-[15px]">{selectedCheckIn?selectedCheckIn.toLocaleDateString(lang==='de'?'de-DE':lang==='it'?'it-IT':lang==='nl'?'nl-NL':'en-GB'): (lang==='de'?'Datum wählen':lang==='it'?'Scegli data':lang==='nl'?'Kies datum':'Choose date')}</span>
-                </button>
-                <button onClick={()=>setIsBookingOpen(true)} className="px-3 sm:px-5 py-2 text-left md:border-r border-[#D8D0C2]">
-                  <span className="block text-[12px] font-serif text-[#777064]">{lang==='de'?'Abreise':lang==='it'?'Partenza':lang==='nl'?'Vertrek':'Departure'}</span>
-                  <span className="font-serif text-[15px]">{selectedCheckOut?selectedCheckOut.toLocaleDateString(lang==='de'?'de-DE':lang==='it'?'it-IT':lang==='nl'?'nl-NL':'en-GB'): (lang==='de'?'Datum wählen':lang==='it'?'Scegli data':lang==='nl'?'Kies datum':'Choose date')}</span>
-                </button>
-                <button onClick={()=>setIsBookingOpen(true)} className="px-3 sm:px-5 py-2 text-left border-t md:border-t-0 border-[#D8D0C2]">
-                  <span className="block text-[12px] font-serif text-[#777064]">{ui.guests}</span>
-                  <span className="font-serif text-[15px]">{bookingGuest.guests} {ui.guests}</span>
-                </button>
-                <div className="border-t md:border-t-0 border-[#D8D0C2] pt-2 md:pt-0">
-                  <button onClick={()=>setIsBookingOpen(true)} className="w-full h-12 bg-[#66664C] text-white px-6 uppercase tracking-[.14em] text-[11px] flex items-center justify-between">{t.bookStay}<ArrowRight className="w-4 h-4"/></button>
-                  <div className="text-[9px] text-right text-[#777064] pt-1">{ui.noPayment}</div>
+            {/* booking checker — solid, calm and immediately actionable */}
+            <div className="absolute z-30 left-1/2 -translate-x-1/2 bottom-4 md:-bottom-10 w-[92%] max-w-[1120px]">
+              <div className="bg-[#F8F5EE] shadow-[0_18px_45px_rgba(49,43,34,.18)] border border-[#D8D0C2] rounded-[14px] p-2.5 md:p-3">
+                <div className="grid grid-cols-2 md:grid-cols-[1fr_1fr_.72fr_1.18fr] items-stretch">
+                  <button onClick={()=>setIsBookingOpen(true)} className="group px-4 md:px-6 py-3.5 md:py-4 text-left md:border-r border-[#D8D0C2] hover:bg-white rounded-lg transition">
+                    <span className="block text-[9px] uppercase tracking-[.18em] text-[#777064] mb-1.5">{lang==='de'?'Anreise':lang==='it'?'Arrivo':lang==='nl'?'Aankomst':'Arrival'}</span>
+                    <span className="font-serif text-[17px] md:text-[19px] text-[#292921]">{selectedCheckIn?selectedCheckIn.toLocaleDateString(lang==='de'?'de-DE':lang==='it'?'it-IT':lang==='nl'?'nl-NL':'en-GB'): (lang==='de'?'Datum wählen':lang==='it'?'Scegli data':lang==='nl'?'Kies datum':'Choose date')}</span>
+                  </button>
+                  <button onClick={()=>setIsBookingOpen(true)} className="group px-4 md:px-6 py-3.5 md:py-4 text-left md:border-r border-[#D8D0C2] hover:bg-white rounded-lg transition">
+                    <span className="block text-[9px] uppercase tracking-[.18em] text-[#777064] mb-1.5">{lang==='de'?'Abreise':lang==='it'?'Partenza':lang==='nl'?'Vertrek':'Departure'}</span>
+                    <span className="font-serif text-[17px] md:text-[19px] text-[#292921]">{selectedCheckOut?selectedCheckOut.toLocaleDateString(lang==='de'?'de-DE':lang==='it'?'it-IT':lang==='nl'?'nl-NL':'en-GB'): (lang==='de'?'Datum wählen':lang==='it'?'Scegli data':lang==='nl'?'Kies datum':'Choose date')}</span>
+                  </button>
+                  <button onClick={()=>setIsBookingOpen(true)} className="group col-span-2 md:col-span-1 px-4 md:px-6 py-3 md:py-4 text-left border-t md:border-t-0 md:border-r border-[#D8D0C2] hover:bg-white rounded-lg transition">
+                    <span className="block text-[9px] uppercase tracking-[.18em] text-[#777064] mb-1.5">{ui.guests}</span>
+                    <span className="font-serif text-[17px] md:text-[19px] text-[#292921]">{bookingGuest.guests} {ui.guests}</span>
+                  </button>
+                  <div className="col-span-2 md:col-span-1 p-1.5 md:pl-3 flex flex-col justify-center">
+                    <button onClick={()=>setIsBookingOpen(true)} className="w-full min-h-[58px] bg-[#5F604A] hover:bg-[#4D503F] text-white rounded-[9px] px-5 uppercase tracking-[.15em] text-[10px] font-semibold flex items-center justify-between transition">
+                      <span>{t.bookStay}</span><ArrowRight className="w-4 h-4"/>
+                    </button>
+                    <div className="text-[9px] text-center text-[#777064] pt-1.5">{ui.noPayment}</div>
+                  </div>
                 </div>
               </div>
             </div>
           </header>
 
           {/* icon facts strip */}
-          <section className="bg-[#F8F5EE] border-b border-[#D8D0C2]">
+          <section className="bg-[#F8F5EE] border-b border-[#D8D0C2] md:pt-10">
             <div className="max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 py-5 md:py-7">
               {[
                 [Home,lang==='de'?'Modernes Apartment':lang==='it'?'Appartamento moderno':lang==='nl'?'Modern appartement':'Modern apartment','22 m²'],
