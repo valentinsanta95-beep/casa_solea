@@ -352,49 +352,13 @@ const localRecommendations = [
 ];
 
 const galleryImages = [
-  { 
-    id: 1, 
-    category: "Casa Solea", 
-    title: "Casa Solea · House, Garden & Pool", 
-    url: "/Westseite.png",
-    desc: "Architectural view of Casa Solea from the west."
-  },
-  { 
-    id: 2, 
-    category: "Casa Solea", 
-    title: "Casa Solea · East View", 
-    url: "/Ostseite.png",
-    desc: "Architectural view of Casa Solea from the east."
-  },
-  { 
-    id: 3, 
-    category: "Casa Solea", 
-    title: "Casa Solea · Exterior Visualization", 
-    url: "https://raw.githubusercontent.com/valentinsanta95-beep/casa_solea/main/Fotoinserimento_03_c.png",
-    desc: "Architectural visualization of Casa Solea in its setting."
-  },
-  { 
-    id: 4, 
-    category: "Interior", 
-    title: "Minimalist Warm Mediterranean Suite", 
-    url: "/Fotoinserimento_03_c.png",
-    desc: "Refined custom oak joinery, natural stone finishes, and soothing earth tones."
-  },
-  { 
-    id: 5, 
-    category: "For Children", 
-    title: "Kids' Oasis & Trampoline", 
-    url: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=1200&q=80",
-    desc: "Secure lawn areas designed specifically for young families."
-  },
-  { 
-    id: 6, 
-    category: "Winery", 
-    title: "Wine around Lake Garda", 
-    url: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1200&q=80",
-    desc: "Wine country around Lake Garda."
-  }
-];
+  { id: 1, category: "Casa Solea", title: "Casa Solea", url: "/Casa%20Solea%20am%20Gardasee%20bei%20Sonnenuntergang.png", desc: "Casa Solea visualisation." },
+  { id: 2, category: "Apartment (22m²)", title: "Apartment", url: "/Mediterranes%20Luxusapartment%20bei%20Sonnenuntergang.png", desc: "Interior design visualisation." },
+  { id: 3, category: "Interior", title: "Bedroom", url: "/Mediterranes%20Schlafzimmer%20mit%20Seeblick%20bei%20Sonnenuntergang.png", desc: "Bedroom design visualisation." },
+  { id: 4, category: "Interior", title: "Bathroom", url: "/bad.png", desc: "Bathroom design visualisation." },
+  { id: 5, category: "Pool", title: "Garden & Pool", url: "/Mediterrane%20Sonnenuntergangsterrasse%20am%20See.png", desc: "Outdoor design visualisation." },
+  { id: 6, category: "Casa Solea", title: "Lake Garda", url: "/Goldene%20Stunde%20am%20Gardasee.png", desc: "Lake Garda destination image." }
+]
 
 const CasaSoleaMark = ({ className = "w-9 h-9" }) => (
   <svg viewBox="0 0 72 72" aria-hidden="true" className={className} fill="none">
@@ -615,7 +579,7 @@ export default function App() {
         <>
           {/* CASA SOLEA — approved editorial mockup */}
           <header className="relative min-h-[760px] md:min-h-[700px] lg:h-[580px] overflow-visible bg-[#EDE6D9]">
-            <img src="/main_background_pic.jpg" alt="Lake Garda" className="absolute inset-0 w-full h-full object-cover" />
+            <img src="/Casa%20Solea%20am%20Gardasee%20bei%20Sonnenuntergang.png" alt="Casa Solea visualisation" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#F6F1E8]/95 via-[#F6F1E8]/48 to-transparent"></div>
 
             <div className="relative z-20 max-w-[1440px] mx-auto px-6 md:px-10 pt-5">
@@ -689,9 +653,9 @@ export default function App() {
           {/* four visual doors */}
           <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[8px] bg-[#F8F5EE] p-[8px]">
             {[
-              ['/Fotoinserimento_03_c.png',t.theStay,lang==='de'?'Modern. Natürlich. Entspannt.':lang==='it'?'Moderno. Naturale. Rilassato.':lang==='nl'?'Modern. Natuurlijk. Ontspannen.':'Modern. Natural. Relaxed.','#stay'],
-              ['/Westseite.png',t.outdoors,lang==='de'?'Ihr privater Rückzugsort':lang==='it'?'Il vostro spazio all’aperto':lang==='nl'?'Jouw plek buiten':'Your outdoor retreat','#outdoors'],
-              ['/main_background_pic.jpg',t.location,t.brandSubtitle,'#location'],
+              ['/Mediterranes%20Luxusapartment%20bei%20Sonnenuntergang.png',t.theStay,lang==='de'?'Modern. Natürlich. Entspannt.':lang==='it'?'Moderno. Naturale. Rilassato.':lang==='nl'?'Modern. Natuurlijk. Ontspannen.':'Modern. Natural. Relaxed.','#stay'],
+              ['/Mediterrane%20Sonnenuntergangsterrasse%20am%20See.png',t.outdoors,lang==='de'?'Ihr privater Rückzugsort':lang==='it'?'Il vostro spazio all’aperto':lang==='nl'?'Jouw plek buiten':'Your outdoor retreat','#outdoors'],
+              ['/Goldene%20Stunde%20am%20Gardasee.png',t.location,t.brandSubtitle,'#location'],
               ['/Ostseite.png',t.wines,lang==='de'?'Ein Stück unserer Heimat':lang==='it'?'Un pezzo di casa nostra':lang==='nl'?'Een stukje van ons thuis':'A piece of our home','wine']
             ].map(([img,title,sub,target],i)=><button key={i} onClick={()=>target==='wine'?(setActiveTab('webshop'),window.scrollTo({top:0})):document.querySelector(target)?.scrollIntoView({behavior:'smooth'})} className="group relative aspect-[1.55] overflow-hidden text-left">
               <img src={img} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.025] transition duration-700"/>
@@ -754,7 +718,7 @@ export default function App() {
               <div className="relative">
                 <div className="aspect-[4/3] rounded-sm overflow-hidden shadow-xl border border-[#D7CCBA] relative group">
                   <img 
-                    src="https://raw.githubusercontent.com/valentinsanta95-beep/casa_solea/main/Fotoinserimento_03_c.png" 
+                    src="/Mediterranes%20Luxusapartment%20bei%20Sonnenuntergang.png" 
                     alt="Architectural visualization of Casa Solea in Pacengo di Lazise" 
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                     onError={(e) => { e.currentTarget.style.display = 'none'; }}
