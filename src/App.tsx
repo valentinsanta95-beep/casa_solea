@@ -191,7 +191,13 @@ const uiTranslations = {
     thanks:"Vielen Dank", requestReceived:"Ihre Buchungsanfrage wurde für die ausgewählten Daten erfasst. Wir bestätigen die Buchung anschließend per E-Mail.", noPayment:"Unverbindliche Buchungsanfrage · noch keine Zahlung erforderlich.", visuals:"Visualisierungen zeigen die geplante Gestaltung von Casa Solea.",
     shipping:"Lieferadresse", fullName:"Vollständiger Name", street:"Straße und Hausnummer", city:"Ort", postal:"Postleitzahl",
     payment:"Sichere Zahlung", paymentInfo:"Bereit für die spätere Stripe-Anbindung. Derzeit ist keine Zahlung erforderlich.", card:"Kartennummer", expires:"Gültig bis", cvc:"CVC", success:"Bestellung erfolgreich!", orderThanks:"Vielen Dank für Ihre Bestellung. Casa Solea bereitet Ihre Bestellung vor und informiert Sie über den weiteren Verlauf.",
-    navigation:"Navigation", home:"Startseite", connect:"Kontakt", legal:"Rechtliches & Impressum", privacy:"Datenschutz", terms:"Allgemeine Geschäftsbedingungen", imprint:"Impressum"
+    navigation:"Navigation", home:"Startseite", connect:"Kontakt", legal:"Rechtliches & Impressum", privacy:"Datenschutz", terms:"Allgemeine Geschäftsbedingungen", imprint:"Impressum",
+tagline:"Italienisches Lebensgefühl, ganz nah", goodPeople:"Gute Menschen", beautifulPlaces:"Schöne Orte", lastingMemories:"Bleibende Erinnerungen", italianNature:"Italienisch von Natur aus",
+stayEyebrow:"Privates Gäste-Apartment", stayTitle:"Ihr privater Rückzugsort am Gardasee", outdoorsEyebrow:"Garten, Pool & Leben im Freien", outdoorsTitle:"Für Paare und junge Familien", outdoorsLead:"Ein Garten zum Entspannen und Spielen: Poolzugang, Rasenfläche und Bereiche für gemeinsame Zeit im Freien.",
+playText:"Sandkasten, Kinderrutsche, Trampolin und Rasenfläche bieten Platz zum Spielen unter der italienischen Sonne.", peaceText:"Casa Solea ist unser Familienzuhause im ruhigen Pacengo di Lazise – mit privatem Gäste-Apartment, Garten und Poolzugang.", nearbyText:"Gardaland und CanevaWorld liegen rund 1 km entfernt – nah für einen Ausflug und dennoch angenehm getrennt vom Trubel.",
+hostsEyebrow:"Ihre Gastgeber", locationLead:"Via Gasco, 37017 Lazise VR, Italien. Ein idealer Ausgangspunkt, um den Gardasee zu entdecken.", galleryEyebrow:"Einblicke in Casa Solea", galleryTitle:"Galerie", all:"Alle", interior:"Innenbereich", children:"Für Kinder", winery:"Weine",
+wineEyebrow:"Casa Solea Weine", wineTitle:"Ein Stück Casa Solea für zuhause", subpage:"Weine", backHome:"← Zurück zur Startseite", add:"Hinzufügen",
+privateBedroom:"Privater Schlafbereich mit Bad", sharedPool:"Poolzugang im Außenbereich", closeShop:"Webshop schließen", each:"pro Flasche", continuePayment:"Weiter zur Zahlung →", back:"Zurück", pay:"Bezahlen", secureCheckout:"Sicherer Checkout", visualLabel:"Visualisierung"
   },
   it: {
     privateGuestApartment:"Appartamento privato per ospiti", escape:"Arriva. Respira. Casa Solea.",
@@ -619,7 +625,7 @@ export default function App() {
 
               <div className="mt-8 md:mt-10 max-w-[460px]">
                 <div className="w-8 h-px bg-[#4D503F] mb-4"></div>
-                <div className="text-[9px] uppercase tracking-[.38em] mb-6 text-[#555444]">Italian living, a little closer</div>
+                <div className="text-[9px] uppercase tracking-[.38em] mb-6 text-[#555444]">{lang==='de'?ui.tagline:lang==='it'?'Vivere italiano, più vicino':lang==='nl'?'Italiaans leven, dichterbij':'Italian living, a little closer'}</div>
                 <h1 className="font-serif text-[52px] md:text-[58px] leading-[.88] tracking-[-.025em] text-[#22221D] mb-6">{ui.escape}</h1>
                 <p className="font-serif text-[17px] leading-[1.15] max-w-[390px] text-[#292921]">{ui.intro}</p>
               </div>
@@ -657,7 +663,7 @@ export default function App() {
                 [Trees,lang==='de'?'Familienfreundlich':lang==='it'?'Per famiglie':lang==='nl'?'Gezinsvriendelijk':'Family friendly',lang==='de'?'Ideal für Paare und Familien':''],
                 [MapPin,lang==='de'?'Top Lage':lang==='it'?'Posizione ideale':lang==='nl'?'Toplocatie':'Great location','800 m'],
                 [Star,'Gardaland & CanevaWorld','~1 km'],
-                [Car,'E-Mobility',lang==='de'?'Laden vor Ort':'EV charging']
+                [Car,lang==='de'?'E-Mobilität':'E-Mobility',lang==='de'?'Laden vor Ort':lang==='it'?'Ricarica in loco':lang==='nl'?'Laden op locatie':'EV charging']
               ].map(([Icon,title,sub],i)=><div key={i} className="flex items-center gap-4 px-5 lg:border-r last:border-r-0 border-[#D8D0C2]"><Icon className="w-8 h-8 stroke-[1.25] text-[#4D503F]"/><div><div className="font-serif text-[14px]">{title}</div><div className="text-[10px] text-[#777064] mt-1">{sub}</div></div></div>)}
             </div>
           </section>
@@ -665,10 +671,10 @@ export default function App() {
           {/* four visual doors */}
           <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[8px] bg-[#F8F5EE] p-[8px]">
             {[
-              ['/Fotoinserimento_03_c.png',t.theStay,lang==='de'?'Modern. Natürlich. Entspannt.':'Modern. Natural. Relaxed.','#stay'],
-              ['/Westseite.png',t.outdoors,lang==='de'?'Ihr privater Rückzugsort':'Your outdoor retreat','#outdoors'],
+              ['/Fotoinserimento_03_c.png',t.theStay,lang==='de'?'Modern. Natürlich. Entspannt.':lang==='it'?'Moderno. Naturale. Rilassato.':lang==='nl'?'Modern. Natuurlijk. Ontspannen.':'Modern. Natural. Relaxed.','#stay'],
+              ['/Westseite.png',t.outdoors,lang==='de'?'Ihr privater Rückzugsort':lang==='it'?'Il vostro spazio all’aperto':lang==='nl'?'Jouw plek buiten':'Your outdoor retreat','#outdoors'],
               ['/main_background_pic.jpg',t.location,t.brandSubtitle,'#location'],
-              ['/Ostseite.png',t.wines,lang==='de'?'Ein Stück unserer Heimat':'A piece of our home','wine']
+              ['/Ostseite.png',t.wines,lang==='de'?'Ein Stück unserer Heimat':lang==='it'?'Un pezzo di casa nostra':lang==='nl'?'Een stukje van ons thuis':'A piece of our home','wine']
             ].map(([img,title,sub,target],i)=><button key={i} onClick={()=>target==='wine'?(setActiveTab('webshop'),window.scrollTo({top:0})):document.querySelector(target)?.scrollIntoView({behavior:'smooth'})} className="group relative aspect-[1.55] overflow-hidden text-left">
               <img src={img} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.025] transition duration-700"/>
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent"></div>
@@ -677,7 +683,7 @@ export default function App() {
           </section>
 
           <div className="bg-[#F8F5EE] py-8 flex items-center justify-center gap-5 text-[9px] uppercase tracking-[.38em] text-[#777064]">
-            <span>Casa Solea</span><span className="w-8 h-px bg-[#9A9487]"></span><span className="hidden sm:inline">Good people</span><span className="hidden sm:block w-8 h-px bg-[#9A9487]"></span><span>Beautiful places</span><span className="hidden md:block w-8 h-px bg-[#9A9487]"></span><span className="hidden md:inline">Lasting memories</span><span className="ml-8 font-serif normal-case italic tracking-normal text-xl text-[#4D503F]">Italian by nature</span>
+            <span>Casa Solea</span><span className="w-8 h-px bg-[#9A9487]"></span><span className="hidden sm:inline">{lang==='de'?ui.goodPeople:'Good people'}</span><span className="hidden sm:block w-8 h-px bg-[#9A9487]"></span><span>{lang==='de'?ui.beautifulPlaces:'Beautiful places'}</span><span className="hidden md:block w-8 h-px bg-[#9A9487]"></span><span className="hidden md:inline">{lang==='de'?ui.lastingMemories:'Lasting memories'}</span><span className="ml-8 font-serif normal-case italic tracking-normal text-xl text-[#4D503F]">{lang==='de'?ui.italianNature:'Italian by nature'}</span>
           </div>
 
           {/* The 22 m² Private Suite & Home Section */}
@@ -685,10 +691,10 @@ export default function App() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
                 <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-3">
-                  Private Guest Apartment
+                  {ui.stayEyebrow}
                 </span>
                 <h2 className="text-3xl md:text-5xl font-serif text-[#34342E] mb-6 leading-tight">
-                  Your private escape at Lake Garda
+                  {ui.stayTitle}
                 </h2>
                 <p className="text-base text-[#34342E]/80 leading-relaxed mb-6 font-light">
                   {ui.intro}
@@ -750,13 +756,13 @@ export default function App() {
             <div className="max-w-7xl mx-auto px-6">
               <div className="text-center max-w-2xl mx-auto mb-16">
                 <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-3">
-                  Outdoor Living, Garden & Pool Oasis
+                  {ui.outdoorsEyebrow}
                 </span>
                 <h2 className="text-3xl md:text-5xl font-serif text-[#34342E] mb-4">
-                  Designed for young families
+                  {ui.outdoorsTitle}
                 </h2>
                 <p className="text-base text-[#34342E]/80 font-light">
-                  On Airbnb & Booking.com, our guests love our spacious garden and pool sanctuary. Here, parents unwind under the the garden while children play securely.
+                  {ui.outdoorsLead}
                 </p>
               </div>
 
@@ -767,7 +773,7 @@ export default function App() {
                   </div>
                   <h3 className="font-serif text-xl text-[#34342E] mb-3">{ui.play}</h3>
                   <p className="text-sm text-[#34342E]/80 font-light leading-relaxed">
-                    Featuring a dedicated sandbox, wooden children&apos;s slide, secure trampoline, and expansive lawn space for outdoor games under the Italian sun.
+                    {ui.playText}
                   </p>
                 </div>
 
@@ -777,7 +783,7 @@ export default function App() {
                   </div>
                   <h3 className="font-serif text-xl text-[#34342E] mb-3">{ui.peace}</h3>
                   <p className="text-sm text-[#34342E]/80 font-light leading-relaxed">
-                    Casa Solea is our family home in peaceful Pacengo di Lazise, with a private guest apartment, garden and pool.
+                    {ui.peaceText}
                   </p>
                 </div>
 
@@ -787,7 +793,7 @@ export default function App() {
                   </div>
                   <h3 className="font-serif text-xl text-[#34342E] mb-3">{ui.nearby}</h3>
                   <p className="text-sm text-[#34342E]/80 font-light leading-relaxed">
-                    Gardaland and CanevaWorld are approximately 1 km away. Enjoy the excitement during daylight and absolute silence by the pool at night.
+                    {ui.nearbyText}
                   </p>
                 </div>
               </div>
@@ -809,7 +815,7 @@ export default function App() {
 
               <div className="order-1 lg:order-2">
                 <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-3">
-                  Meet Your Hosts
+                  {ui.hostsEyebrow}
                 </span>
                 <h2 className="text-3xl md:text-5xl font-serif text-[#34342E] mb-6 leading-tight">
                   {t.storyHeading}
@@ -841,7 +847,7 @@ export default function App() {
                   {t.distanceTitle}
                 </h2>
                 <p className="text-base text-[#F4F0E8]/80 font-light">
-                  Via Gasco, 37017 Lazise VR, Italy. Perfectly positioned for exploring Lake Garda.
+                  {ui.locationLead}
                 </p>
               </div>
 
@@ -883,21 +889,21 @@ export default function App() {
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
               <div>
                 <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-3">
-                  Visual Impressions & Casa Solea Views
+                  {ui.galleryEyebrow}
                 </span>
                 <h2 className="text-3xl md:text-5xl font-serif text-[#34342E]">
-                  Gallery & Casa Solea
+                  {ui.galleryTitle}
                 </h2>
               </div>
 
               <div className="flex flex-wrap gap-2 mt-6 md:mt-0">
-                {['All', 'Casa Solea', 'Pool', 'Apartment (22m²)', 'Interior', 'For Children', 'Winery'].map(tab => (
+                {[['All',ui.all], ['Casa Solea','Casa Solea'], ['Pool',ui.poolLabel], ['Apartment (22m²)',t.theStay], ['Interior',ui.interior], ['For Children',ui.children], ['Winery',ui.winery]].map(([tab,label]) => (
                   <button
                     key={tab}
                     onClick={() => setActiveGalleryTab(tab)}
                     className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium transition ${activeGalleryTab === tab ? 'bg-[#74755F] text-[#F4F0E8]' : 'bg-[#DDD2C0]/50 text-[#34342E] hover:bg-[#D7CCBA]'}`}
                   >
-                    {tab}
+                    {label}
                   </button>
                 ))}
               </div>
@@ -928,10 +934,10 @@ export default function App() {
           <section className="py-24 bg-[#DDD2C0]/35 border-t border-[#D7CCBA]">
             <div className="max-w-7xl mx-auto px-6 text-center">
               <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-3">
-                Casa Solea Winery
+                {ui.wineEyebrow}
               </span>
               <h2 className="text-3xl md:text-5xl font-serif text-[#34342E] mb-4">
-                Take a piece of your stay home
+                {ui.wineTitle}
               </h2>
               <p className="text-base text-[#34342E]/80 font-light max-w-2xl mx-auto mb-10">
                 {t.winesIntro}
@@ -950,7 +956,7 @@ export default function App() {
         <div className="py-16 px-6 max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-12 pb-6 border-b border-[#D7CCBA]">
             <div>
-              <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-2">Casa Solea Subpage</span>
+              <span className="text-xs uppercase tracking-[0.25em] text-[#74755F] font-semibold block mb-2">{ui.subpage}</span>
               <h1 className="text-3xl md:text-5xl font-serif text-[#34342E]">{ui.winesPage}</h1>
               <p className="text-sm text-[#34342E]/80 font-light mt-1">{ui.winesLead}</p>
             </div>
@@ -958,7 +964,7 @@ export default function App() {
               onClick={() => { setActiveTab('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className="px-5 py-2.5 rounded-full border border-[#D7CCBA] bg-[#DDD2C0]/50 text-xs font-semibold uppercase tracking-wider hover:bg-[#D7CCBA] transition"
             >
-              ← Back to Home
+              {ui.backHome}
             </button>
           </div>
 
@@ -969,12 +975,12 @@ export default function App() {
                   <div className="aspect-[3/4] rounded-sm overflow-hidden mb-6 bg-[#DDD2C0]/50 relative">
                     <img src={wine.image} alt={wine.name} loading="lazy" decoding="async" className="w-full h-full object-cover" onError={(e)=>{e.target.src="/Ostseite.png"}} />
                     <span className="absolute top-3 right-3 bg-[#74755F] text-[#F4F0E8] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-semibold">
-                      {wine.type}
+                      {lang==='de' ? ({'White Wine':'Weißwein','Rosé Wine':'Roséwein','Red Wine':'Rotwein','Sparkling Wine':'Schaumwein'}[wine.type] || wine.type) : wine.type}
                     </span>
                   </div>
-                  <span className="text-[10px] uppercase tracking-widest text-[#74756A] block mb-1">{wine.origin}</span>
+                  <span className="text-[10px] uppercase tracking-widest text-[#74756A] block mb-1">{lang==='de' ? 'Gardasee, Italien' : wine.origin}</span>
                   <h3 className="font-serif text-xl text-[#34342E] mb-2">{wine.name}</h3>
-                  <p className="text-xs text-[#34342E]/70 font-light mb-4 leading-relaxed">{wine.desc}</p>
+                  <p className="text-xs text-[#34342E]/70 font-light mb-4 leading-relaxed">{lang==='de' ? ({1:'Frisch und elegant, mit feiner Frucht und mineralischer Note.',2:'Feiner Rosé vom Gardasee mit frischer Beerenfrucht und lebendiger Mineralität.',3:'Elegant und weich mit Noten von Kirsche, Veilchen und feinen Gewürzen.',4:'Feine Perlage, florale Noten und frischer grüner Apfel – ideal als Aperitif.'}[wine.id] || wine.desc) : wine.desc}</p>
                 </div>
                 <div className="flex items-center justify-between pt-4 border-t border-[#D7CCBA]">
                   <div>
@@ -985,7 +991,7 @@ export default function App() {
                     onClick={() => addToCart(wine)}
                     className="px-4 py-2 bg-[#74755F] text-[#F4F0E8] rounded-full text-xs uppercase tracking-wider font-semibold hover:bg-[#4D503F] transition flex items-center gap-1.5 shadow-md"
                   >
-                    <Plus className="w-3.5 h-3.5" /> {t.addToBag}
+                    <Plus className="w-3.5 h-3.5" /> {lang==='de'?ui.add:t.addToBag}
                   </button>
                 </div>
               </div>
@@ -1012,16 +1018,16 @@ export default function App() {
               <div className="bg-[#DDD2C0]/40 p-6 rounded-sm border border-[#D7CCBA]">
                 <h4 className="font-serif font-semibold text-base mb-3 text-[#34342E]">{ui.breakdown}</h4>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                  <li><strong>{ui.rentable}</strong> 22.00 m² (Private bedroom & ensuite bath)</li>
-                  <li><strong>{ui.poolLabel}</strong> 32.00 m² (Shared outdoor home oasis)</li>
+                  <li><strong>{ui.rentable}</strong> 22,00 m² · {ui.privateBedroom}</li>
+                  <li><strong>{ui.poolLabel}</strong> 32,00 m² · {ui.sharedPool}</li>
                   <li><strong>{ui.terrace}</strong> 22.26 m²</li>
-                  <li><strong>{ui.occupancy}</strong> 2 Guests (+ 1 infant)</li>
+                  <li><strong>{ui.occupancy}</strong> {ui.guests2}</li>
                   <li><strong>{ui.locationLabel}</strong> Località Gasco, Pacengo di Lazise (VR)</li>
                 </ul>
               </div>
 
               <p className="text-xs leading-relaxed">
-                Enjoy your own private apartment and garden, with access to the pool, in peaceful Pacengo di Lazise.
+                {ui.intro}
               </p>
             </div>
           </div>
@@ -1056,7 +1062,7 @@ export default function App() {
                         <div key={item.id} className="flex items-center justify-between p-4 bg-[#DDD2C0]/40 rounded-sm border border-[#D7CCBA]">
                           <div className="flex-1 pr-4">
                             <h4 className="font-serif text-sm text-[#34342E]">{item.name}</h4>
-                            <span className="text-xs text-[#74756A]">€{Number(item.price).toFixed(2)} each</span>
+                            <span className="text-xs text-[#74756A]">€{Number(item.price).toFixed(2)} {lang==='de'?ui.each:'each'}</span>
                           </div>
                           <div className="flex items-center space-x-3">
                             <button onClick={() => updateQty(item.id, -1)} className="w-6 h-6 rounded-full bg-[#DDD2C0] flex items-center justify-center hover:bg-[#D7CCBA]">
@@ -1101,7 +1107,7 @@ export default function App() {
                         </div>
                       </div>
                       <button type="submit" className="w-full py-4 bg-[#74755F] text-[#F4F0E8] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#4D503F] transition shadow-lg mt-4">
-                        Continue to Stripe Payment →
+                        {ui.continuePayment}
                       </button>
                     </form>
                   )}
@@ -1131,7 +1137,7 @@ export default function App() {
                       </div>
                       <div className="flex gap-3">
                         <button onClick={()=>setCheckoutStep('address')} className="w-1/3 py-3 rounded-full border border-[#D7CCBA] text-xs font-semibold uppercase tracking-wider hover:bg-[#DDD2C0]">
-                          Back
+                          {lang==='de'?ui.back:'Back'}
                         </button>
                         <button onClick={() => {
                           const newOrder = {
@@ -1147,7 +1153,7 @@ export default function App() {
                           setCart([]);
                           setCheckoutStep('success');
                         }} className="w-2/3 py-3 bg-[#74755F] text-[#F4F0E8] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#4D503F] transition shadow-lg">
-                          Pay €{cartTotal.toFixed(2)}
+                          {lang==='de'?ui.pay:'Pay'} €{cartTotal.toFixed(2)}
                         </button>
                       </div>
                     </div>
@@ -1159,7 +1165,7 @@ export default function App() {
                       <h4 className="font-serif text-2xl text-[#34342E]">{ui.success}</h4>
                       <p className="text-xs text-[#34342E]/80 font-light">{ui.orderThanks}</p>
                       <button onClick={() => { setIsCartOpen(false); setIsCheckoutOpen(false); setCheckoutStep('address'); }} className="px-6 py-3 bg-[#74755F] text-[#F4F0E8] rounded-full uppercase text-xs tracking-widest font-bold">
-                        Close Webshop
+                        {ui.closeShop}
                       </button>
                     </div>
                   )}
@@ -1179,7 +1185,7 @@ export default function App() {
                 >
                   {t.checkout}
                 </button>
-                <p className="text-[10px] text-center text-[#74756A] mt-3">Stripe Secure Checkout · Casa Solea Winery</p>
+                <p className="text-[10px] text-center text-[#74756A] mt-3">Stripe Secure Checkout · {ui.wineEyebrow}</p>
               </div>
             )}
           </div>
