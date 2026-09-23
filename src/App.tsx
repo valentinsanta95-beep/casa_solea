@@ -6,6 +6,7 @@ import {
   Baby, Waves, Trees, Car, ArrowRight, ExternalLink, Plus, Minus, Trash2, CheckCircle2,
   Smile, Home, Layers, Eye, Lock, RefreshCw, Calendar, CheckSquare, Settings, CreditCard, Truck, Edit3, Save
 } from 'lucide-react';
+import { supabase } from './supabaseClient';
 
 const translations = {
   de: {
@@ -381,6 +382,8 @@ export default function App() {
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [adminUsernameInput, setAdminUsernameInput] = useState('');
   const [adminPasswordInput, setAdminPasswordInput] = useState('');
+  const [adminLoginError, setAdminLoginError] = useState('');
+  const [adminLoginLoading, setAdminLoginLoading] = useState(false);
   const [activeGalleryTab, setActiveGalleryTab] = useState('All');
   const [bookingSubmitted, setBookingSubmitted] = useState(false);
   const [availabilityMonth, setAvailabilityMonth] = useState(new Date(2026, 8, 1));
@@ -522,11 +525,58 @@ export default function App() {
   const cartTotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
   const cartItemCount = cart.reduce((sum, item) => sum + item.qty, 0);
 
-  const handleAdminLogin = (e) => {
+  const handleAdminLogin = async (e) => {
     e.preventDefault();
-    // Admin access is intentionally disabled in the public static preview.
-    // Add server-side authentication before enabling the host portal.
-    alert('Host portal is not enabled in this preview.');
+    setAdminLoginError('');
+    setAdminLoginLoading(true);
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: adminUsernameInput.trim(),
+        password: adminPasswordInput
+      });
+      if (error) throw error;
+      const { data: adminRow, error: adminError } = await supabase
+        .from('admin_users')
+        .select('user_id')
+        .eq('user_id', data.user.id)
+        .maybeSingle();
+      if (adminError || !adminRow) {
+        await supabase.auth.signOut();
+        throw new Error('This account is not authorized for the Casa Solea Admin Portal.');
+      }
+      setIsAdminLoggedIn(true);
+      setAdminPasswordInput('');
+    } catch (error) {
+      setIsAdminLoggedIn(false);
+      setAdminLoginError(error?.message || 'Login failed.');
+    } finally {
+      setAdminLoginLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    let active = true;
+    const restoreAdminSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session || !active) return;
+      const { data } = await supabase.from('admin_users').select('user_id').eq('user_id', session.user.id).maybeSingle();
+      if (active) setIsAdminLoggedIn(Boolean(data));
+    };
+    restoreAdminSession();
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!session && active) setIsAdminLoggedIn(false);
+    });
+    return () => {
+      active = false;
+      listener.subscription.unsubscribe();
+    };
+  }, []);
+
+  const handleAdminLogout = async () => {
+    await supabase.auth.signOut();
+    setIsAdminLoggedIn(false);
+    setAdminUsernameInput('');
+    setAdminPasswordInput('');
   };
 
   const triggerChannelSync = () => {
@@ -1264,6 +1314,7 @@ export default function App() {
                 <div>
                   <span className="text-xs uppercase tracking-widest text-[#74755F] font-semibold block">Casa Solea</span>
                   <h3 className="text-2xl font-serif text-[#34342E]">{t.adminPortalTitle}</h3>
+                  {isAdminLoggedIn && <button type="button" onClick={handleAdminLogout} className="mt-1 text-xs underline text-[#74755F]">Sign out</button>}
                 </div>
               </div>
               <button onClick={() => setIsAdminOpen(false)} className="p-2 rounded-full hover:bg-[#DDD2C0] transition">
@@ -1276,8 +1327,9 @@ export default function App() {
                 <p className="text-sm text-[#34342E]/80 mb-6 font-light">{t.adminLoginPrompt}</p>
                 <form onSubmit={handleAdminLogin} className="space-y-4">
                   <input 
-                    type="text" 
-                    placeholder="Admin Username (valentin)"
+                    type="email" 
+                    autoComplete="username"
+                    placeholder="Admin email"
                     value={adminUsernameInput}
                     onChange={(e) => setAdminUsernameInput(e.target.value)}
                     required
@@ -1285,14 +1337,16 @@ export default function App() {
                   />
                   <input 
                     type="password" 
-                    placeholder="Admin Password"
+                    autoComplete="current-password"
+                    placeholder="Admin password"
                     value={adminPasswordInput}
                     onChange={(e) => setAdminPasswordInput(e.target.value)}
                     required
                     className="w-full px-4 py-3.5 rounded-xl bg-[#DDD2C0]/50 border border-[#D7CCBA] text-sm focus:outline-none text-center font-medium"
                   />
-                  <button type="submit" className="w-full py-4 bg-[#74755F] text-[#F4F0E8] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#4D503F] transition shadow-lg">
-                    Sign In as Admin
+                  {adminLoginError && <p className="text-sm text-red-700">{adminLoginError}</p>}
+                  <button type="submit" disabled={adminLoginLoading} className="w-full py-4 bg-[#74755F] disabled:opacity-60 text-[#F4F0E8] rounded-full uppercase text-xs tracking-[0.2em] font-bold hover:bg-[#4D503F] transition shadow-lg">
+                    {adminLoginLoading ? 'Signing in…' : 'Sign In as Admin'}
                   </button>
                 </form>
               </div>
