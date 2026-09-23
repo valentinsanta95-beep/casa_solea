@@ -411,18 +411,46 @@ export default function App() {
   });
   const [isAddingProduct, setIsAddingProduct] = useState(false);
 
-  // Mock bookings database
-  const [bookings, setBookings] = useState([
-    { id: 'b1', guest: 'Marco Bellini', platform: 'Airbnb', checkIn: '2026-07-10', checkOut: '2026-07-15', guests: '2 Adults', status: 'Confirmed' },
-    { id: 'b2', guest: 'Sophie van Dijk', platform: 'Booking.com', checkIn: '2026-07-20', checkOut: '2026-07-27', guests: '2 Adults + 1 Child', status: 'Confirmed' },
-    { id: 'b3', guest: 'Lucas & Emma', platform: 'Website Direct', checkIn: '2026-08-02', checkOut: '2026-08-09', guests: '2 Adults', status: 'Pending Review' }
-  ]);
+  // Persistent booking & availability data
+  const [bookings, setBookings] = useState([]);
+  const [blockedDates, setBlockedDates] = useState([]);
+  const [bookingDataLoading, setBookingDataLoading] = useState(false);
+  const [adminMonth, setAdminMonth] = useState(new Date());
 
-  const confirmedBookings = bookings.filter(b => b.status.toLowerCase().includes('confirmed'));
-  const isUnavailable = (date) => confirmedBookings.some(b => {
-    const checkIn = new Date(b.checkIn + 'T00:00:00');
-    const checkOut = new Date(b.checkOut + 'T00:00:00');
-    return date >= checkIn && date < checkOut;
+  const mapBooking = (b) => ({
+    id: b.id,
+    guest: b.guest_name,
+    email: b.guest_email,
+    platform: b.source,
+    checkIn: b.check_in,
+    checkOut: b.check_out,
+    guests: Number(b.guests),
+    status: b.status,
+    paymentStatus: b.payment_status,
+    amountTotal: b.amount_total,
+    amountPaid: b.amount_paid,
+    notes: b.notes || ''
+  });
+
+  const loadPublicAvailability = async () => {
+    const { data, error } = await supabase.rpc('get_unavailable_dates');
+    if (!error) setBlockedDates((data || []).map(d => ({ start: d.start_date, end: d.end_date })));
+  };
+
+  const loadAdminBookings = async () => {
+    setBookingDataLoading(true);
+    const { data, error } = await supabase.from('bookings').select('*').order('check_in', { ascending: true });
+    if (!error) setBookings((data || []).map(mapBooking));
+    setBookingDataLoading(false);
+  };
+
+  useEffect(() => { loadPublicAvailability(); }, []);
+  useEffect(() => { if (isAdminLoggedIn) loadAdminBookings(); }, [isAdminLoggedIn]);
+
+  const isUnavailable = (date) => blockedDates.some(b => {
+    const start = new Date(b.start + 'T00:00:00');
+    const end = new Date(b.end + 'T00:00:00');
+    return date >= start && date <= end;
   });
   const calendarDays = (() => {
     const year = availabilityMonth.getFullYear();
@@ -430,10 +458,7 @@ export default function App() {
     const first = new Date(year, month, 1);
     const count = new Date(year, month + 1, 0).getDate();
     const mondayOffset = (first.getDay() + 6) % 7;
-    return [
-      ...Array(mondayOffset).fill(null),
-      ...Array.from({ length: count }, (_, i) => new Date(year, month, i + 1))
-    ];
+    return [...Array(mondayOffset).fill(null), ...Array.from({ length: count }, (_, i) => new Date(year, month, i + 1))];
   })();
 
   const dateKey = (date) => {
@@ -450,37 +475,32 @@ export default function App() {
   const handleAvailabilityDateClick = (date) => {
     if (isUnavailable(date)) return;
     if (!selectedCheckIn || selectedCheckOut || date < selectedCheckIn) {
-      setSelectedCheckIn(date);
-      setSelectedCheckOut(null);
-      setBookingSubmitted(false);
-      return;
+      setSelectedCheckIn(date); setSelectedCheckOut(null); setBookingSubmitted(false); return;
     }
-    const blockedInsideRange = confirmedBookings.some(b => {
-      const checkIn = new Date(b.checkIn + 'T00:00:00');
-      const checkOut = new Date(b.checkOut + 'T00:00:00');
-      return checkIn < date && checkOut > selectedCheckIn;
+    const blockedInsideRange = blockedDates.some(b => {
+      const start = new Date(b.start + 'T00:00:00');
+      const end = new Date(b.end + 'T00:00:00');
+      return start < date && end >= selectedCheckIn;
     });
-    if (blockedInsideRange) {
-      setSelectedCheckIn(date);
-      setSelectedCheckOut(null);
-      return;
-    }
+    if (blockedInsideRange) { setSelectedCheckIn(date); setSelectedCheckOut(null); return; }
     setSelectedCheckOut(date);
   };
-  const handleDirectBooking = (e) => {
+  const handleDirectBooking = async (e) => {
     e.preventDefault();
     if (!selectedCheckIn || !selectedCheckOut) return;
-    setBookings(prev => [...prev, {
-      id: 'direct-' + Date.now(),
-      guest: bookingGuest.name,
-      email: bookingGuest.email,
-      platform: 'Website Direct',
-      checkIn: dateKey(selectedCheckIn),
-      checkOut: dateKey(selectedCheckOut),
-      guests: `${bookingGuest.guests} guest${bookingGuest.guests === '1' ? '' : 's'}`,
-      status: 'Pending Review'
-    }]);
+    const { error } = await supabase.from('bookings').insert({
+      guest_name: bookingGuest.name.trim(),
+      guest_email: bookingGuest.email.trim(),
+      guests: Number(bookingGuest.guests),
+      source: 'Website Direct',
+      status: 'Pending',
+      payment_status: 'Not paid',
+      check_in: dateKey(selectedCheckIn),
+      check_out: dateKey(selectedCheckOut)
+    });
+    if (error) { alert('Booking request could not be sent. Please try again.'); return; }
     setBookingSubmitted(true);
+    setBookingGuest({ name: '', email: '', guests: '2' });
   };
 
   // Mock wine orders database
@@ -586,9 +606,31 @@ export default function App() {
     }, 1000);
   };
 
-  const approveBooking = (id) => {
-    setBookings(prev => prev.map(b => b.id === id ? { ...b, status: 'Confirmed & Blocked on OTA' } : b));
+  const approveBooking = async (id) => {
+    const { error } = await supabase.rpc('confirm_booking', { p_booking_id: id });
+    if (error) { alert(error.message); return; }
+    await Promise.all([loadAdminBookings(), loadPublicAvailability()]);
   };
+
+  const updateBookingField = async (id, changes) => {
+    const { error } = await supabase.from('bookings').update({ ...changes, updated_at: new Date().toISOString() }).eq('id', id);
+    if (error) { alert(error.message); return; }
+    await loadAdminBookings();
+  };
+
+  const adminMonthBookings = bookings.filter(b => {
+    const start = new Date(b.checkIn + 'T00:00:00');
+    const end = new Date(b.checkOut + 'T00:00:00');
+    const monthStart = new Date(adminMonth.getFullYear(), adminMonth.getMonth(), 1);
+    const monthEnd = new Date(adminMonth.getFullYear(), adminMonth.getMonth() + 1, 1);
+    return start < monthEnd && end > monthStart;
+  });
+  const adminCalendarDays = (() => {
+    const y = adminMonth.getFullYear(), m = adminMonth.getMonth();
+    const first = new Date(y,m,1), count = new Date(y,m+1,0).getDate();
+    return [...Array((first.getDay()+6)%7).fill(null), ...Array.from({length:count},(_,i)=>new Date(y,m,i+1))];
+  })();
+  const bookingForAdminDate = (date) => adminMonthBookings.find(b => b.status !== 'Cancelled' && date >= new Date(b.checkIn+'T00:00:00') && date < new Date(b.checkOut+'T00:00:00'));
 
   const updateOrderShipping = (id, newStatus, tracking) => {
     setWineOrders(prev => prev.map(o => o.id === id ? { ...o, shippingStatus: newStatus, trackingNumber: tracking } : o));
@@ -1370,49 +1412,56 @@ export default function App() {
                   </button>
                 </div>
 
-                {/* Bookings Management & Direct Approvals */}
+                {/* Booking calendar & reservation management */}
                 <div>
-                  <h4 className="font-serif font-semibold text-lg text-[#34342E] mb-4 flex items-center gap-2">
-                    <Calendar className="w-5 h-5 text-[#74755F]" /> Guest Reservations & Direct Approvals ({bookings.length})
-                  </h4>
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-left text-xs">
-                      <thead>
-                        <tr className="border-b border-[#D7CCBA] text-[#74756A] uppercase tracking-wider">
-                          <th className="pb-3 font-semibold">Guest</th>
-                          <th className="pb-3 font-semibold">Platform</th>
-                          <th className="pb-3 font-semibold">Dates</th>
-                          <th className="pb-3 font-semibold">Guests</th>
-                          <th className="pb-3 font-semibold">Status</th>
-                          <th className="pb-3 font-semibold text-right">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-[#D7CCBA]/50">
-                        {bookings.map(b => (
-                          <tr key={b.id} className="hover:bg-[#DDD2C0]/30">
-                            <td className="py-3.5 font-medium text-[#34342E]">{b.guest}</td>
-                            <td className="py-3.5">
-                              <span className={`px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase ${b.platform === 'Airbnb' ? 'bg-rose-100 text-rose-800' : b.platform === 'Booking.com' ? 'bg-blue-100 text-blue-800' : 'bg-amber-100 text-amber-800'}`}>
-                                {b.platform}
-                              </span>
-                            </td>
-                            <td className="py-3.5 text-[#34342E]">{b.checkIn} to {b.checkOut}</td>
-                            <td className="py-3.5 text-[#74756A]">{b.guests}</td>
-                            <td className="py-3.5 font-semibold text-[#74755F]">{b.status}</td>
-                            <td className="py-3.5 text-right">
-                              {b.status.includes('Pending') ? (
-                                <button onClick={() => approveBooking(b.id)} className="px-3 py-1 bg-[#74755F] text-white rounded-full text-[10px] font-bold uppercase tracking-wider hover:bg-[#4D503F]">
-                                  Approve
-                                </button>
-                              ) : (
-                                <span className="text-emerald-700 font-semibold">Confirmed</span>
-                              )}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                    <h4 className="font-serif font-semibold text-lg text-[#34342E] flex items-center gap-2">
+                      <Calendar className="w-5 h-5 text-[#74755F]" /> Booking Calendar
+                    </h4>
+                    <div className="flex items-center gap-2">
+                      <button onClick={()=>setAdminMonth(new Date(adminMonth.getFullYear(),adminMonth.getMonth()-1,1))} className="p-2 border border-[#D7CCBA] rounded-full"><ChevronLeft className="w-4 h-4"/></button>
+                      <span className="min-w-32 text-center font-semibold">{adminMonth.toLocaleDateString('en-GB',{month:'long',year:'numeric'})}</span>
+                      <button onClick={()=>setAdminMonth(new Date(adminMonth.getFullYear(),adminMonth.getMonth()+1,1))} className="p-2 border border-[#D7CCBA] rounded-full"><ChevronRight className="w-4 h-4"/></button>
+                    </div>
                   </div>
+                  <div className="grid grid-cols-7 gap-1 text-center text-[10px] uppercase tracking-wider text-[#74756A] mb-1">
+                    {['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d=><div key={d} className="py-1">{d}</div>)}
+                  </div>
+                  <div className="grid grid-cols-7 gap-1 mb-6">
+                    {adminCalendarDays.map((date,i)=>{
+                      if(!date) return <div key={'blank-'+i} className="min-h-16 sm:min-h-20"/>;
+                      const b=bookingForAdminDate(date);
+                      return <div key={dateKey(date)} className={`min-h-16 sm:min-h-20 rounded-lg border p-1.5 ${b ? 'bg-[#DDD2C0] border-[#B79A77]' : 'bg-white/60 border-[#E5DCCD]'}`}>
+                        <div className="text-xs font-semibold">{date.getDate()}</div>
+                        {b ? <div className="mt-1 text-[9px] sm:text-[10px] leading-tight">
+                          <div className="font-bold truncate">{b.guest}</div>
+                          <div className="truncate">{b.platform}</div>
+                          <div>{b.guests} guest{b.guests===1?'':'s'}</div>
+                          <div className={b.status==='Confirmed'?'text-emerald-700':'text-amber-700'}>{b.status}</div>
+                        </div> : <div className="mt-2 text-[9px] text-emerald-700">Available</div>}
+                      </div>;
+                    })}
+                  </div>
+
+                  <h4 className="font-serif font-semibold text-lg text-[#34342E] mb-3">Reservations ({bookings.length})</h4>
+                  {bookingDataLoading ? <p className="text-sm">Loading reservations…</p> : <div className="overflow-x-auto">
+                    <table className="w-full text-left text-xs min-w-[950px]">
+                      <thead><tr className="border-b border-[#D7CCBA] text-[#74756A] uppercase tracking-wider">
+                        <th className="pb-3">Guest</th><th className="pb-3">Platform</th><th className="pb-3">Dates</th><th className="pb-3">Guests</th><th className="pb-3">Booking</th><th className="pb-3">Payment</th><th className="pb-3">Amount</th><th className="pb-3 text-right">Action</th>
+                      </tr></thead>
+                      <tbody className="divide-y divide-[#D7CCBA]/50">{bookings.map(b=><tr key={b.id}>
+                        <td className="py-3 font-medium">{b.guest}<div className="text-[10px] text-[#74756A]">{b.email}</div></td>
+                        <td className="py-3"><select value={b.platform} onChange={e=>updateBookingField(b.id,{source:e.target.value})} className="bg-transparent border rounded p-1"><option>Website Direct</option><option>Airbnb</option><option>Booking.com</option><option>Manual</option></select></td>
+                        <td className="py-3">{b.checkIn} → {b.checkOut}</td>
+                        <td className="py-3">{b.guests}</td>
+                        <td className="py-3"><select value={b.status} onChange={e=>updateBookingField(b.id,{status:e.target.value})} className="bg-transparent border rounded p-1"><option>Pending</option><option>Confirmed</option><option>Cancelled</option></select></td>
+                        <td className="py-3"><select value={b.paymentStatus} onChange={e=>updateBookingField(b.id,{payment_status:e.target.value})} className="bg-transparent border rounded p-1"><option>Not paid</option><option>Partially paid</option><option>Paid</option><option>Refunded</option></select></td>
+                        <td className="py-3">{b.amountTotal != null ? '€'+Number(b.amountTotal).toFixed(2) : '—'}</td>
+                        <td className="py-3 text-right">{b.status==='Pending' ? <button onClick={()=>approveBooking(b.id)} className="px-3 py-1 bg-[#74755F] text-white rounded-full text-[10px] font-bold uppercase">Confirm</button> : <span className="text-[#74756A]">{b.status}</span>}</td>
+                      </tr>)}</tbody>
+                    </table>
+                  </div>}
+                  <p className="mt-3 text-[11px] text-[#74756A]">Confirmed reservations automatically block the public availability calendar. Check-out day remains available for the next arrival.</p>
                 </div>
 
                 {/* Wine Webshop Orders Management (Stripe Payment & Shipping Details) */}
