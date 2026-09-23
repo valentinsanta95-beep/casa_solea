@@ -416,6 +416,7 @@ export default function App() {
   const [blockedDates, setBlockedDates] = useState([]);
   const [bookingDataLoading, setBookingDataLoading] = useState(false);
   const [adminMonth, setAdminMonth] = useState(new Date());
+  const [newAdminBooking, setNewAdminBooking] = useState({ guest_name:'', guest_email:'', guests:'2', source:'Airbnb', check_in:'', check_out:'', status:'Confirmed', payment_status:'Not paid', amount_total:'' });
 
   const mapBooking = (b) => ({
     id: b.id,
@@ -616,6 +617,19 @@ export default function App() {
     const { error } = await supabase.from('bookings').update({ ...changes, updated_at: new Date().toISOString() }).eq('id', id);
     if (error) { alert(error.message); return; }
     await loadAdminBookings();
+  };
+
+  const addAdminBooking = async (e) => {
+    e.preventDefault();
+    const payload = {
+      ...newAdminBooking,
+      guests: Number(newAdminBooking.guests),
+      amount_total: newAdminBooking.amount_total === '' ? null : Number(newAdminBooking.amount_total)
+    };
+    const { error } = await supabase.from('bookings').insert(payload);
+    if (error) { alert(error.message); return; }
+    setNewAdminBooking({ guest_name:'', guest_email:'', guests:'2', source:'Airbnb', check_in:'', check_out:'', status:'Confirmed', payment_status:'Not paid', amount_total:'' });
+    await Promise.all([loadAdminBookings(), loadPublicAvailability()]);
   };
 
   const adminMonthBookings = bookings.filter(b => {
@@ -1443,6 +1457,20 @@ export default function App() {
                     })}
                   </div>
 
+                  <div className="mb-6 border border-[#D7CCBA] rounded-xl p-4 bg-white/40">
+                    <h4 className="font-serif font-semibold text-base mb-3">Add reservation</h4>
+                    <form onSubmit={addAdminBooking} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2">
+                      <input required placeholder="Guest name" value={newAdminBooking.guest_name} onChange={e=>setNewAdminBooking({...newAdminBooking,guest_name:e.target.value})} className="p-2.5 border rounded-lg bg-white"/>
+                      <input required type="email" placeholder="Guest email" value={newAdminBooking.guest_email} onChange={e=>setNewAdminBooking({...newAdminBooking,guest_email:e.target.value})} className="p-2.5 border rounded-lg bg-white"/>
+                      <select value={newAdminBooking.source} onChange={e=>setNewAdminBooking({...newAdminBooking,source:e.target.value})} className="p-2.5 border rounded-lg bg-white"><option>Airbnb</option><option>Booking.com</option><option>Website Direct</option><option>Manual</option></select>
+                      <input min="1" max="4" type="number" value={newAdminBooking.guests} onChange={e=>setNewAdminBooking({...newAdminBooking,guests:e.target.value})} className="p-2.5 border rounded-lg bg-white" title="Guests"/>
+                      <input required type="date" value={newAdminBooking.check_in} onChange={e=>setNewAdminBooking({...newAdminBooking,check_in:e.target.value})} className="p-2.5 border rounded-lg bg-white"/>
+                      <input required type="date" value={newAdminBooking.check_out} onChange={e=>setNewAdminBooking({...newAdminBooking,check_out:e.target.value})} className="p-2.5 border rounded-lg bg-white"/>
+                      <select value={newAdminBooking.payment_status} onChange={e=>setNewAdminBooking({...newAdminBooking,payment_status:e.target.value})} className="p-2.5 border rounded-lg bg-white"><option>Not paid</option><option>Partially paid</option><option>Paid</option><option>Refunded</option></select>
+                      <input type="number" min="0" step="0.01" placeholder="Total €" value={newAdminBooking.amount_total} onChange={e=>setNewAdminBooking({...newAdminBooking,amount_total:e.target.value})} className="p-2.5 border rounded-lg bg-white"/>
+                      <button type="submit" className="sm:col-span-2 lg:col-span-4 py-2.5 bg-[#4D503F] text-white rounded-full text-xs uppercase tracking-wider font-semibold">Add reservation</button>
+                    </form>
+                  </div>
                   <h4 className="font-serif font-semibold text-lg text-[#34342E] mb-3">Reservations ({bookings.length})</h4>
                   {bookingDataLoading ? <p className="text-sm">Loading reservations…</p> : <div className="overflow-x-auto">
                     <table className="w-full text-left text-xs min-w-[950px]">
